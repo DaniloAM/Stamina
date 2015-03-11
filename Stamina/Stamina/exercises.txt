@@ -1,0 +1,24 @@
+104001
+5
+Dica 1
+Dica 2
+Dica 3
+Dica 4
+Dica 5
+Crucifixo
+fr_peitoral
+costas
+103001
+2
+Dica Rosca Direta
+Dica Rosca Direta
+Rosca Direta
+fr_biceps
+costas
+101001
+2
+Dica abdominal Direta
+Dica abdominal Direta
+Abdominal
+fr_abdominal
+costas

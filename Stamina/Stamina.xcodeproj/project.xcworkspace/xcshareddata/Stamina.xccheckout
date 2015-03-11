@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AD679268-0164-4795-B877-09CFFA62FFC9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Stamina</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>84D67AEEC6B83AA20F5647957A79AD68E4CFEBA9</key>
+		<string>https://github.com/DaniloAM/StaminaProject.git</string>
+		<key>9977888F480A5316E0C24042594D40CBE09F90CD</key>
+		<string>https://github.com/DaniloAM/StaminaFinalApp.git</string>
+		<key>E64C761E383A72388BF5AA3B3D2FE26FFED2AAC8</key>
+		<string>https://github.com/DaniloAM/Stamina.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Stamina/Stamina.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>84D67AEEC6B83AA20F5647957A79AD68E4CFEBA9</key>
+		<string>../../../../StaminaProject</string>
+		<key>9977888F480A5316E0C24042594D40CBE09F90CD</key>
+		<string>../../..</string>
+		<key>E64C761E383A72388BF5AA3B3D2FE26FFED2AAC8</key>
+		<string>../../../../Stamina</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DaniloAM/StaminaFinalApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9977888F480A5316E0C24042594D40CBE09F90CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E64C761E383A72388BF5AA3B3D2FE26FFED2AAC8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Stamina</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9977888F480A5316E0C24042594D40CBE09F90CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>StaminaFinalApp</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>84D67AEEC6B83AA20F5647957A79AD68E4CFEBA9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>StaminaProject</string>
+		</dict>
+	</array>
+</dict>
+</plist>
