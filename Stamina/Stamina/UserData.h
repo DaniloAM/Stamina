@@ -47,6 +47,8 @@
 @property int age;
 @property int language;
 @property int alerta;
+@property int timeInSeconds;
+@property float kilometers;
 @property NSInteger timeAlarmBeforeTraining;
 @property BOOL sex;
 @property BOOL nextExercise;

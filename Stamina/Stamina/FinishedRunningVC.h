@@ -21,12 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *routeNameTextField;
 
-//@property UIStaminaButton *leftButton;
-//@property UIStaminaButton *rightButton;
-
 @property (weak, nonatomic) IBOutlet UIStaminaButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIStaminaButton *rightButton;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *calLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
@@ -34,8 +30,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *routeImageView;
 
-@property BOOL saveRoute;
 @property BOOL isWaitingPicture;
+@property BOOL isGoingHome;
 
 @property NSInteger state;
 

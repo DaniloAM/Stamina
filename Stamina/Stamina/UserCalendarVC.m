@@ -8,6 +8,8 @@
 
 #import "UserCalendarVC.h"
 
+#define delay 0.15
+
 @interface UserCalendarVC ()
 
 @end
@@ -306,7 +308,7 @@
         
     }
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:delay animations:^{
         [[self calendarScrollView] setContentOffset:CGPointMake(0, _locationNextMonth * [CalendarPreparer sizeInY])];
     }];
     
@@ -337,7 +339,7 @@
         
     }
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:delay animations:^{
         [[self calendarScrollView] setContentOffset:CGPointMake(0, 0)];
     }];
     
@@ -347,7 +349,7 @@
 
 -(void)calendarWillChangeMonth {
     
-    [self performSelector:@selector(prepareCalendarScrollViewWithCurrentMonth) withObject:nil afterDelay:0.2];
+    [self performSelector:@selector(prepareCalendarScrollViewWithCurrentMonth) withObject:nil afterDelay:delay];
     [[self yearLabel] setText:[NSString stringWithFormat:@"%d", _calendarYear]];
     [[self monthLabel] setText:[CalendarMath returnMonthName:_calendarMonth]];
     [self deselectButtons];

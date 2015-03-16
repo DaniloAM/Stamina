@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreMotion/CoreMotion.h>
 #import "FinishedRoute.h"
 #import "UIStaminaColor.h"
 #import "FinishedRunningVC.h"
@@ -28,9 +29,18 @@
 
 @property SocialSharingVC *pictureViewController;
 
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @property IBOutlet UILabel *timeLabel;
 @property IBOutlet UILabel *speedLabel;
 @property IBOutlet UILabel *distanceLabel;
+@property IBOutlet UILabel *bpsLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *speedIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *timeIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *bpsIcon;
+
+@property float height;
 
 @property float distanceInMeters;
 @property NSMutableArray *picturesArray;

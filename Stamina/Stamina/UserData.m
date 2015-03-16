@@ -179,7 +179,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    
+    [defaults setInteger:[self timeInSeconds] forKey:@"ud_timeinseconds"];
+    [defaults setFloat:[self kilometers] forKey:@"ud_kilometers"];
     [defaults setInteger:[self timeAlarmBeforeTraining] forKey:@"ud_timebefore"];
     [defaults setInteger:[self currentObjective] forKey:@"ud_co"];
     [defaults setInteger:[self completedTrainings] forKey:@"ud_ct"];
@@ -207,6 +208,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    _timeInSeconds = (int)[defaults integerForKey:@"ud_timeinseconds"];
+    _kilometers = [defaults floatForKey:@"ud_kilometers"];
     _name = [defaults objectForKey:@"ud_name"];
     _currentObjective = (int)[defaults integerForKey:@"ud_co"];
     _completedTrainings = (int)[defaults integerForKey:@"ud_ct"];

@@ -23,6 +23,17 @@
     [super viewWillAppear:animated];
     UserData *user = [UserData alloc];
     [[self nickName] setText:[user nickName]];
+    [[self caloria] setText:[NSString stringWithFormat:@"%d kcal",[user burnedCalories]]];
+    [[self points] setText:[NSString stringWithFormat:@"%d P",[user userPoints]]];
+    [[self kilometros] setText:[NSString stringWithFormat:@"%.01f Km",[user kilometers]]];
+    
+    int seconds = [user timeInSeconds] % 60;
+    int minutes = [user timeInSeconds] / 60;
+    minutes = minutes % 60;
+    int hours = minutes / 60;
+    
+    [[self time] setText:[NSString stringWithFormat:@"%d:%.2d:%.2d",hours,minutes,seconds]];
+    
     [self firstButtonMethod:@selector(function1)  fromClass:self  withImage:[UIImage staminaIconShare]];
     [self secondButtonMethod:@selector(function2) fromClass:self  withImage:[UIImage staminaIconCalendarTabDay]];
     [self thirdButtonMethod:nil  fromClass:self withImage:[UIImage staminaIconTrophy]];

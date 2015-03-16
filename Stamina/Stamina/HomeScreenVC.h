@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *caloria;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *points;
+@property (weak, nonatomic) IBOutlet UILabel *kilometros;
 
 
 @end

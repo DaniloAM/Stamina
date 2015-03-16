@@ -14,7 +14,9 @@
 
 @implementation RunningMapVC
 
-
+#define reload 3
+#define frame_max 410.0
+#define frame_min 225.0
 
 #pragma mark - Receiver
 
@@ -48,6 +50,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(back)];
+    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    [self.view addGestureRecognizer:swipe];
     
     [self setPictureViewController:[[SocialSharingVC alloc] init]];
     [[self pictureViewController] setRoutePicture:true];
@@ -84,6 +91,14 @@
     [super viewWillAppear:animated];
     
     [super hideBarWithAnimation:true];
+    
+    [self removeGesture];
+    
+    if(![CMMotionActivityManager isActivityAvailable]) {
+        [[self speedLabel] setHidden:true];
+        [[self speedIcon] setHidden:true];
+    }
+    
 }
 
 
@@ -102,7 +117,7 @@
         }
     }
     
-    [self performSelector:@selector(zoomToUserRegion) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(zoomToUserRegion) withObject:nil afterDelay:4.0];
 }
 
 
@@ -151,11 +166,12 @@
         _oldLocation = newLocation;
     }
     
-    if([newLocation speed] >= 0)
-        [[self speedLabel] setText:[NSString stringWithFormat:@"%.01f Km/h", ([newLocation speed] * 3.6)]];
+    if([newLocation speed] < 0) {
+        [[self speedLabel] setText:@""];
+    }
     
     else {
-        [[self speedLabel] setText:@""];
+        [[self speedLabel] setText:[NSString stringWithFormat:@"%.01f Km/h", ([newLocation speed] * 3.6)]];
     }
     
     [self updateTextInDistanceLabel];
@@ -223,7 +239,7 @@
 
 -(void)startReloadingUserPosition {
     
-    if(_seconds % 8 == 1) {
+    if(_seconds % reload == 1) {
         [self zoomToUserRegion];
     }
     [self updateTextInTimeLabel];
@@ -372,6 +388,104 @@
     [myVC receiveRunningRoute:route];
     
     [self.navigationController pushViewController:myVC animated:YES];
+    
+}
+
+-(void)back {
+    [self.navigationController popViewControllerAnimated:true];
+    
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    
+    [self setHeight:touchPoint.y];
+    
+    
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    
+    CGRect frame = [[self mapRunningView] frame];
+    
+    if(touchPoint.y > [self height]) {
+        
+        if([[self mapRunningView] frame].size.height >= frame_max) {
+            
+            frame.size.height = frame_max;
+        }
+        
+        else {
+            
+            frame.size.height += touchPoint.y - [self height];
+            
+        }
+        
+        [[self mapRunningView]setFrame:frame];
+    }
+    
+    else if(touchPoint.y < [self height]) {
+        
+        if([[self mapRunningView] frame].size.height <= frame_min) {
+            
+            frame.size.height = frame_min;
+        }
+        
+        else {
+            
+            frame.size.height -= [self height] - touchPoint.y;
+        }
+        
+        [[self mapRunningView]setFrame:frame];
+    }
+    
+    [self setHeight:touchPoint.y];
+    [self updateButtunsForm];
+    
+}
+
+-(void)updateButtunsForm {
+    
+    float height = [[self mapRunningView] frame].size.height;
+    
+    float percent = (height - frame_min) / (frame_max - frame_min);
+    
+    float newWidth, newRadius;
+    
+    if(percent > 1.0)
+        return;
+    
+    if(percent < 0.8) {
+        newWidth = 256.0 - (percent * 232.5);
+        newRadius = 7.0 + percent * 10;
+    }
+    
+    else {
+        newWidth = 70.0 - ((percent - 0.8) * 150.0);
+        newRadius = 15.0 + ((percent - 0.8) * 25.0);
+    }
+
+    
+//    256.0  0.0
+//    70.0   0.8
+//    
+//    each 0.01 >> 2.325
+//    
+//    1 >>> 232.5
+    
+    CGPoint buttonCenter = [[self startButton] center];
+    CGRect buttonFrame = [[self startButton] frame];
+    
+    buttonFrame.size.width = newWidth;
+    
+    [[self startButton] setFrame:buttonFrame];
+    [[self startButton] setCenter:buttonCenter];
+    [[self startButton] layer].cornerRadius = newRadius;
     
 }
 

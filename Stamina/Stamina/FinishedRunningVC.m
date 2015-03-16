@@ -28,6 +28,7 @@
     [super viewWillAppear:animated];
     
     [self showBarWithAnimation:true];
+    [self setIsGoingHome:true];
     [self removeGesture];
     
     [[self routeNameTextField] setDelegate:self];
@@ -43,7 +44,7 @@
     //Set bar button actions and images
     [self firstButtonMethod:@selector(goHome) fromClass:self  withImage:[UIImage staminaIconHome]];
     
-    [self secondButtonMethod:nil  fromClass:self withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
+    [self secondButtonMethod:@selector(goToCalendar)  fromClass:self withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
     
     [self thirdButtonMethod:@selector(goToRankingPoints)  fromClass:self withImage:[UIImage staminaIconTrophy]];
     
@@ -69,11 +70,9 @@
     
     [super viewWillDisappear:animated];
     
-    if(![self isWaitingPicture]) {
-        [self saveRouteInformations];
+    if([self isGoingHome] && ![self isWaitingPicture]) {
+        [self saveUserInformations];
     }
-    
-    
     
 }
 
@@ -175,7 +174,6 @@
 -(void)enableRouteNameTextField {
     
     _state = 1;
-    _saveRoute = true;
     
     [[self routeNameTextField] setHidden:false];
     
@@ -194,8 +192,8 @@
     [[self leftButton] setHidden:false];
     [[self rightButton] setHidden:false];
     
-    if([[[self routeNameTextField] text] isEqualToString:@""]) {
-        [self setSaveRoute:false];
+    if(![[[self routeNameTextField] text] isEqualToString:@""]) {
+        [self saveRouteWithName:[[self routeNameTextField] text]];
     }
     
     [self thirdButtonMethod:@selector(goToRankingPoints) fromClass:self  withImage:[UIImage staminaIconTrophy]];
@@ -214,15 +212,13 @@
 
 -(void)rightSlideAction {
     
-    
+    //Back to the mapView
     if(_state == 0) {
+        [self setIsGoingHome:false];
         [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    if(_state == 1) {
-        _saveRoute = false;
-    }
-    
+
+    //Back to original button state
     if(_state == 1 || _state == 2) {
         
         _state = 0;
@@ -248,12 +244,13 @@
 }
 
 -(void)goToCalendar {
+    [self setIsGoingHome:false];
     [self callViewWithName:@"Calendario"];
 }
 
 -(void)goToRankingPoints {
-
-
+    //[self setIsGoingHome:false];
+    //[self callViewWithName:@"Ranking"];
 }
 
 -(void)goSharePicture {
@@ -274,35 +271,22 @@
     [self popToRoot];
 }
 
-
-
--(void)saveRouteInformations {
-    
-    NSString *routeName = @"";
-    
+-(void)saveRouteWithName: (NSString *)routeName {
     
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
     NSError *error = nil;
     
+    TrajectoryRoute *saveRoute = [NSEntityDescription insertNewObjectForEntityForName:@"TrajectoryRoute" inManagedObjectContext:context];
     
-    if(_saveRoute) {
-        
-        routeName = [[self routeNameTextField] text];
-        
-        TrajectoryRoute *saveRoute = [NSEntityDescription insertNewObjectForEntityForName:@"TrajectoryRoute" inManagedObjectContext:context];
-        
-        [saveRoute setPicturesArray:[NSKeyedArchiver archivedDataWithRootObject:_route.arrayOfPictures]];
-        [saveRoute setArrayOfLocations:[NSKeyedArchiver archivedDataWithRootObject:_route.arrayOfLocations]];
-        
-        [saveRoute setTrajectoryName:[[self routeNameTextField] text]];
-        [saveRoute setTrajectoryDistance:[NSNumber numberWithDouble:[_route distanceInMeters]]];
-        
-        UserData *userData = [UserData alloc];
-        [[userData routesArray] addObject:saveRoute];
-        
-        
-    }
+    [saveRoute setPicturesArray:[NSKeyedArchiver archivedDataWithRootObject:_route.arrayOfPictures]];
+    [saveRoute setArrayOfLocations:[NSKeyedArchiver archivedDataWithRootObject:_route.arrayOfLocations]];
+    
+    [saveRoute setTrajectoryName:[[self routeNameTextField] text]];
+    [saveRoute setTrajectoryDistance:[NSNumber numberWithDouble:[_route distanceInMeters]]];
+    
+    UserData *userData = [UserData alloc];
+    [[userData routesArray] addObject:saveRoute];
     
     
     TrajectoryFile *file = [NSEntityDescription insertNewObjectForEntityForName:@"TrajectoryFile" inManagedObjectContext:context];
@@ -318,6 +302,20 @@
     
 }
 
-
+-(void)saveUserInformations {
+    
+    UserData *user = [UserData alloc];
+    
+    [user setKilometers:[user kilometers] + (_route.distanceInMeters / 1000)];
+    
+    [user setTimeInSeconds:[user timeInSeconds] + _route.timeInSeconds + (_route.timeInMinutes  * 60)];
+    
+    //*********** MUST PUT CALORIES AND POINTS HERE ********//
+    //*********** MUST PUT CALORIES AND POINTS HERE ********//
+    //*********** MUST PUT CALORIES AND POINTS HERE ********//
+    
+    [user saveOnUserDefaults];
+    
+}
 
 @end

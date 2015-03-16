@@ -10,23 +10,23 @@
 	<string>Stamina</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>5BBCE356BB24FD635BFBE82F979D64C0922AA19F</key>
+		<string>https://github.com/DaniloAM/Stamina.git</string>
 		<key>84D67AEEC6B83AA20F5647957A79AD68E4CFEBA9</key>
 		<string>https://github.com/DaniloAM/StaminaProject.git</string>
 		<key>9977888F480A5316E0C24042594D40CBE09F90CD</key>
 		<string>https://github.com/DaniloAM/StaminaFinalApp.git</string>
-		<key>E64C761E383A72388BF5AA3B3D2FE26FFED2AAC8</key>
-		<string>https://github.com/DaniloAM/Stamina.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Stamina/Stamina.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>5BBCE356BB24FD635BFBE82F979D64C0922AA19F</key>
+		<string>../../../../Stamina</string>
 		<key>84D67AEEC6B83AA20F5647957A79AD68E4CFEBA9</key>
 		<string>../../../../StaminaProject</string>
 		<key>9977888F480A5316E0C24042594D40CBE09F90CD</key>
 		<string>../../..</string>
-		<key>E64C761E383A72388BF5AA3B3D2FE26FFED2AAC8</key>
-		<string>../../../../Stamina</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/DaniloAM/StaminaFinalApp.git</string>
@@ -40,7 +40,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E64C761E383A72388BF5AA3B3D2FE26FFED2AAC8</string>
+			<string>5BBCE356BB24FD635BFBE82F979D64C0922AA19F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Stamina</string>
 		</dict>
