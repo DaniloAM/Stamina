@@ -32,4 +32,8 @@
 -(void)removeGesture;
 -(void)addGesture;
 -(void)popToRoot;
+-(void)popView;
+-(void)barBlock;
+-(void)backViewBlock;
+-(void)menuBlock;
 @end

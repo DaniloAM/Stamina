@@ -110,11 +110,6 @@
     [self moveView:self.view withPoint:CGPointMake(0, -keyboardFrameBeginRect.size.height) withDuration:0.3];
 }
 -(void)keyboardWillHide:(NSNotification*)notification{
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    NSLog(@"pro %f", self.view.frame.origin.y+keyboardFrameBeginRect.size.height);
-
     [self moveView:self.view withPoint:CGPointMake(0,64) withDuration:0.3];
     
 }

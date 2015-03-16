@@ -13,6 +13,16 @@
 		32F57C6F19EC4D16001BF6B2 /* ExercicioTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C6E19EC4D16001BF6B2 /* ExercicioTVC.m */; };
 		32F57C7219EC6838001BF6B2 /* MenuShouldOpen.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C7119EC6838001BF6B2 /* MenuShouldOpen.m */; };
 		32F7237E19FABCD6006170CD /* CreateTrainTemp.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F7237D19FABCD6006170CD /* CreateTrainTemp.m */; };
+		7BB0BEF01AB75B2F0043260A /* icone_tempo_chuvisco.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEE71AB75B2F0043260A /* icone_tempo_chuvisco.png */; };
+		7BB0BEF11AB75B2F0043260A /* icone_tempo_chuvoso.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEE81AB75B2F0043260A /* icone_tempo_chuvoso.png */; };
+		7BB0BEF21AB75B2F0043260A /* icone_tempo_instavel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEE91AB75B2F0043260A /* icone_tempo_instavel.png */; };
+		7BB0BEF31AB75B2F0043260A /* icone_tempo_nebulosidade.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEEA1AB75B2F0043260A /* icone_tempo_nebulosidade.png */; };
+		7BB0BEF41AB75B2F0043260A /* icone_tempo_nublado.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEEB1AB75B2F0043260A /* icone_tempo_nublado.png */; };
+		7BB0BEF51AB75B2F0043260A /* icone_tempo_parcialmente_nublado.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEEC1AB75B2F0043260A /* icone_tempo_parcialmente_nublado.png */; };
+		7BB0BEF61AB75B2F0043260A /* icone_tempo_predominio_do_sol.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEED1AB75B2F0043260A /* icone_tempo_predominio_do_sol.png */; };
+		7BB0BEF71AB75B2F0043260A /* icone_tempo_sol.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEEE1AB75B2F0043260A /* icone_tempo_sol.png */; };
+		7BB0BEF81AB75B2F0043260A /* icone_tempo_tempestade.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB0BEEF1AB75B2F0043260A /* icone_tempo_tempestade.png */; };
+		7BDA2F961AB0C0290080044E /* arrow-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA2F951AB0C0290080044E /* arrow-up.png */; };
 		C507251F1A396E5D007698F5 /* CriaTreinoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C507251E1A396E5D007698F5 /* CriaTreinoVC.m */; };
 		C50725221A397094007698F5 /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C50725211A397094007698F5 /* CustomIOS7AlertView.m */; };
 		C52024471A26434300DDF73B /* ConfiguracoesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52024461A26434300DDF73B /* ConfiguracoesVC.m */; };
@@ -206,6 +216,16 @@
 		32F57C7119EC6838001BF6B2 /* MenuShouldOpen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuShouldOpen.m; path = ../MenuShouldOpen.m; sourceTree = "<group>"; };
 		32F7237C19FABCD6006170CD /* CreateTrainTemp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTrainTemp.h; sourceTree = "<group>"; };
 		32F7237D19FABCD6006170CD /* CreateTrainTemp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTrainTemp.m; sourceTree = "<group>"; };
+		7BB0BEE71AB75B2F0043260A /* icone_tempo_chuvisco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_chuvisco.png; sourceTree = "<group>"; };
+		7BB0BEE81AB75B2F0043260A /* icone_tempo_chuvoso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_chuvoso.png; sourceTree = "<group>"; };
+		7BB0BEE91AB75B2F0043260A /* icone_tempo_instavel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_instavel.png; sourceTree = "<group>"; };
+		7BB0BEEA1AB75B2F0043260A /* icone_tempo_nebulosidade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_nebulosidade.png; sourceTree = "<group>"; };
+		7BB0BEEB1AB75B2F0043260A /* icone_tempo_nublado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_nublado.png; sourceTree = "<group>"; };
+		7BB0BEEC1AB75B2F0043260A /* icone_tempo_parcialmente_nublado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_parcialmente_nublado.png; sourceTree = "<group>"; };
+		7BB0BEED1AB75B2F0043260A /* icone_tempo_predominio_do_sol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_predominio_do_sol.png; sourceTree = "<group>"; };
+		7BB0BEEE1AB75B2F0043260A /* icone_tempo_sol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_sol.png; sourceTree = "<group>"; };
+		7BB0BEEF1AB75B2F0043260A /* icone_tempo_tempestade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_tempo_tempestade.png; sourceTree = "<group>"; };
+		7BDA2F951AB0C0290080044E /* arrow-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up.png"; sourceTree = "<group>"; };
 		C507251D1A396E5D007698F5 /* CriaTreinoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CriaTreinoVC.h; sourceTree = "<group>"; };
 		C507251E1A396E5D007698F5 /* CriaTreinoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CriaTreinoVC.m; sourceTree = "<group>"; };
 		C50725201A397094007698F5 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
@@ -468,6 +488,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BB0BEE61AB75B2F0043260A /* tempo */ = {
+			isa = PBXGroup;
+			children = (
+				7BB0BEE71AB75B2F0043260A /* icone_tempo_chuvisco.png */,
+				7BB0BEE81AB75B2F0043260A /* icone_tempo_chuvoso.png */,
+				7BB0BEE91AB75B2F0043260A /* icone_tempo_instavel.png */,
+				7BB0BEEA1AB75B2F0043260A /* icone_tempo_nebulosidade.png */,
+				7BB0BEEB1AB75B2F0043260A /* icone_tempo_nublado.png */,
+				7BB0BEEC1AB75B2F0043260A /* icone_tempo_parcialmente_nublado.png */,
+				7BB0BEED1AB75B2F0043260A /* icone_tempo_predominio_do_sol.png */,
+				7BB0BEEE1AB75B2F0043260A /* icone_tempo_sol.png */,
+				7BB0BEEF1AB75B2F0043260A /* icone_tempo_tempestade.png */,
+			);
+			path = tempo;
+			sourceTree = "<group>";
+		};
 		C55E5C8A19FBC6E90019CD0F /* CriarTreino */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +682,7 @@
 				C52024461A26434300DDF73B /* ConfiguracoesVC.m */,
 				C5B62BEC1A14056000F969D8 /* Main.storyboard */,
 				FF1596F419C0CBC900D9236F /* Stamina.xcdatamodeld */,
+				7BDA2F951AB0C0290080044E /* arrow-up.png */,
 				C5B6B86F1A39F10D00792A8D /* 101001_01.png */,
 				C5B6B8701A39F10D00792A8D /* 101001_00.png */,
 				C5B6B8611A39EE9B00792A8D /* 104001_00.png */,
@@ -836,6 +873,7 @@
 		FF1D8D781A38A84400E52110 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7BB0BEE61AB75B2F0043260A /* tempo */,
 				C561EBE01A38F959002F3F6A /* Splash.png */,
 				C561EBE11A38F959002F3F6A /* Default@2x.png */,
 				C5B62C1B1A1527F600F969D8 /* Icones Calendario */,
@@ -1127,6 +1165,8 @@
 				C5D4DA821A34D92700FE2182 /* exercises.txt in Resources */,
 				C5B62C551A1527F600F969D8 /* icone_calendario_27.png in Resources */,
 				FF1D8DD81A38AAE100E52110 /* icone_cancelar_tab.png in Resources */,
+				7BDA2F961AB0C0290080044E /* arrow-up.png in Resources */,
+				7BB0BEF41AB75B2F0043260A /* icone_tempo_nublado.png in Resources */,
 				C5B62C0A1A1525F400F969D8 /* Lato-BlackItalic.ttf in Resources */,
 				C5B6B8671A39EE9B00792A8D /* 104001_01.png in Resources */,
 				FF1D8DDE1A38AAE100E52110 /* icone_ok_tab.png in Resources */,
@@ -1139,6 +1179,8 @@
 				FF1D8DE01A38AAE100E52110 /* icone_voltar_tab.png in Resources */,
 				FF1D8DD91A38AAE100E52110 /* icone_compartilhar_tab.png in Resources */,
 				FF59113A1A39BA6D004208FA /* s_icone_serie.png in Resources */,
+				7BB0BEF61AB75B2F0043260A /* icone_tempo_predominio_do_sol.png in Resources */,
+				7BB0BEF21AB75B2F0043260A /* icone_tempo_instavel.png in Resources */,
 				C5B6B86A1A39EE9B00792A8D /* 104001_04.png in Resources */,
 				FF1D8DAF1A38A9FC00E52110 /* icone_velocimetro.png in Resources */,
 				FF1D8D9B1A38A9B900E52110 /* s_icone_compartilhar_trajeto.png in Resources */,
@@ -1156,6 +1198,7 @@
 				FF1D8DA91A38A9FC00E52110 /* icone_bpm.png in Resources */,
 				C5B62C0E1A1525F400F969D8 /* Lato-HairlineItalic.ttf in Resources */,
 				FF1D8D961A38A9B900E52110 /* icone_add_trajeto.png in Resources */,
+				7BB0BEF31AB75B2F0043260A /* icone_tempo_nebulosidade.png in Resources */,
 				FF1D8D891A38A8DA00E52110 /* icone_academia.png in Resources */,
 				C561EBE21A38F959002F3F6A /* Splash.png in Resources */,
 				C5B6B86E1A39EFE400792A8D /* 103001_01.png in Resources */,
@@ -1174,6 +1217,8 @@
 				C5B6B8721A39F10D00792A8D /* 101001_00.png in Resources */,
 				C5B62C4E1A1527F600F969D8 /* icone_calendario_20.png in Resources */,
 				C5B62C421A1527F600F969D8 /* icone_calendario_08.png in Resources */,
+				7BB0BEF51AB75B2F0043260A /* icone_tempo_parcialmente_nublado.png in Resources */,
+				7BB0BEF11AB75B2F0043260A /* icone_tempo_chuvoso.png in Resources */,
 				C5B62C111A1525F400F969D8 /* Lato-Italic.ttf in Resources */,
 				C5B62C4C1A1527F600F969D8 /* icone_calendario_18.png in Resources */,
 				C5B62C121A1525F400F969D8 /* Lato-Light.ttf in Resources */,
@@ -1183,9 +1228,11 @@
 				C5B62C3D1A1527F600F969D8 /* icone_calendario_03.png in Resources */,
 				FF1D8D9D1A38A9B900E52110 /* s_icone_trajeto_compartilhar.png in Resources */,
 				FF1D8DAA1A38A9FC00E52110 /* icone_calorias.png in Resources */,
+				7BB0BEF71AB75B2F0043260A /* icone_tempo_sol.png in Resources */,
 				C5B62C471A1527F600F969D8 /* icone_calendario_13.png in Resources */,
 				C5B62C141A1525F400F969D8 /* Lato-Medium.ttf in Resources */,
 				FF1D8DDB1A38AAE100E52110 /* icone_home_tab.png in Resources */,
+				7BB0BEF81AB75B2F0043260A /* icone_tempo_tempestade.png in Resources */,
 				C5B62C151A1525F400F969D8 /* Lato-MediumItalic.ttf in Resources */,
 				FF1D8DC91A38AA7200E52110 /* s_icone_alternar.png in Resources */,
 				C5B62C161A1525F400F969D8 /* Lato-Regular.ttf in Resources */,
@@ -1198,6 +1245,7 @@
 				FF5911361A38DE4F004208FA /* icone_calendario_tab_06.png in Resources */,
 				C5B62C181A1525F400F969D8 /* Lato-SemiboldItalic.ttf in Resources */,
 				FF1D8D821A38A89E00E52110 /* exercicio_teste4.png in Resources */,
+				7BB0BEF01AB75B2F0043260A /* icone_tempo_chuvisco.png in Resources */,
 				FF1D8DAC1A38A9FC00E52110 /* icone_km.png in Resources */,
 				C5B62C191A1525F400F969D8 /* Lato-Thin.ttf in Resources */,
 				FF1D8DDD1A38AAE100E52110 /* icone_info_user_tab.png in Resources */,

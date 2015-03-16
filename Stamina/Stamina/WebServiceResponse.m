@@ -138,6 +138,8 @@
     [novo setTempMax:temp_max];
     [novo setHumidade:humidade];
     NSDictionary *weatherCondition = [array firstObject];
+    NSNumber *identification = [weatherCondition objectForKey:@"id"];
+    
     NSString *str = [weatherCondition objectForKey:@"description"];
     [novo setDescricao:str];
     return novo;

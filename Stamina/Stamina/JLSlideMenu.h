@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "UIStaminaColor.h"
 #import "UserData.h"
-@interface JLSlideMenu : UIViewController
+#import "MenuShouldOpen.h"
+@interface JLSlideMenu : UIViewController <UIGestureRecognizerDelegate>
 typedef enum gestureRecognizedTypes
 {   LEFT,
     RIGHT,
@@ -21,15 +22,21 @@ typedef enum gestureRecognizedTypes
 } GestureRecognized;
 @property UIView *tabBar;
 @property UIView *leftMenu;
-
+@property UIView *viewOpaque;
+@property UIButton *btnUp;
 @property UIPanGestureRecognizer *panLeft;
 
 @property CGSize startSizeBar;
 @property CGPoint firstTouch;
 @property NSArray *arrayOfButtons;
-
+//menuOpen tell me if the menu is already opened
+//stop prevents to pop twice or more
+//openMenu and backView is to check wich gesture we recognized first
+//upBar tell me if the user have touched the allowed area
+//alertBeforeOpen tell me if i've to open the menu with or without an alert
 @property BOOL menuOpen, stop;
-@property BOOL openMenu, backView;
+@property BOOL openMenu, backView, upBar;
+@property BOOL alertBeforeOpen;
 @property int open;
 @property int recognized, direction;
 
@@ -45,7 +52,7 @@ typedef enum gestureRecognizedTypes
 @property NSString *str;
 @property UIViewController *presenting;
 @property NSArray *arrayTabBar;
-
+@property BOOL menuBlock, botBarBlock, backViewBlock;
 
 
 

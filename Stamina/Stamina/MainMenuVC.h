@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JLSlideMenu.h"
 @interface MainMenuVC : UIViewController <UINavigationControllerDelegate>
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property UIViewController *viewPrincipal;

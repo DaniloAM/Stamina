@@ -7,6 +7,7 @@
 //
 
 #import "JLSlideMenu.h"
+#define shadowPer 80/100
 #define perOfLeftMenu 80/100
 #define heightLeftMenu 100/100
 #define perYStart 0/100
@@ -15,6 +16,7 @@
 #define cellSubMenuHeight 8.3/100
 #define perMenuOpen 10.0/100.0
 #define perBackView 20.0/100.0
+#define perBarOpen 14.0/100.0
 #define M1 4
 #define M2 3
 #define M3 2
@@ -29,16 +31,19 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     _str = @"Inicio";
+
     [self.navigationItem setTitle:@"Início"];
     if([self tabBar]==nil){
+        [self createOpaqueView];
         [self createBarButton];
         [self createNavigationBar];
+        [self createButtonUp];
         [self createLeftView];
         [self createPanGesture];
         [self createViewsToPresent];
     }
-   
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self hideBarWithAnimation:1];
@@ -61,11 +66,36 @@
 }
 //end will/did appear and something like that
 //start initializing methods
+-(void)createButtonUp{
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGSize tabBarSize = [self tabBar].frame.size;
+    _btnUp = [[UIButton alloc] initWithFrame:CGRectMake(screenSize.width/2-tabBarSize.height/2, screenSize.height-tabBarSize.height, tabBarSize.height, tabBarSize.height)];
+    
+    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.height-tabBarSize.height, screenSize.height-tabBarSize.height)];
+    [_btnUp setBackgroundImage:[UIImage imageNamed:@"arrow-up.png"] forState:UIControlStateNormal];
+    [_btnUp addSubview:view];
+    [_btnUp addTarget:self action:@selector(addButtonUp) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationController.view addSubview:_btnUp];
+     [self.navigationController.view addSubview:_tabBar];
+}
+-(void)createOpaqueView{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeftMenuAnimated:)];
+
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGPoint p = [self.navigationController.navigationBar frame].origin;
+    CGSize navigationSize = [self.navigationController.navigationBar frame].size;
+    float fatorDeCorrecao = navigationSize.height + p.y;
+    _viewOpaque = [[UIView alloc] initWithFrame:CGRectMake(0, fatorDeCorrecao - screenSize.height*perYStart, screenSize.width, screenSize.height)];\
+    _viewOpaque.backgroundColor = [UIColor blackColor];
+    [self.navigationController.view addSubview:_viewOpaque];
+    _viewOpaque.opaque=NO;
+    [_viewOpaque addGestureRecognizer:tap];
+}
 -(void)createBarButton{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     [self setTabBar:[[UIView alloc] initWithFrame:CGRectMake(0, screenSize.height-screenSize.height*tabBarHeightPer , screenSize.width, screenSize.height*tabBarHeightPer )]];
     [self tabBar].backgroundColor = [UIColor staminaBlackColor];
-    [self.navigationController.view addSubview:_tabBar];
+   
     _tabHeightSize = _tabBar.frame.size.height;
     NSMutableArray *array = [NSMutableArray array];
     for(int x = 0 ; x < 3; x++){
@@ -89,6 +119,7 @@
 }
 -(void)createPanGesture{
     _panLeft = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
+    _panLeft.delegate = self;
     [self.navigationController.view addGestureRecognizer:_panLeft];
 }
 -(void)createNavigationBar{
@@ -118,6 +149,10 @@
 //end initializing methods
 //start gesture recognizers
 -(void)horizontalRecognizedWithStartPoint : (CGPoint)start withCurrentPoint: (CGPoint)currentPoint{
+    if(self.botBarBlock)
+        return;
+    if(![self upBar])
+        return;
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     float newMenuPoint = _tabBar.frame.origin.y - (start.y - currentPoint.y);
     _firstTouch = currentPoint;
@@ -126,6 +161,7 @@
     if(newMenuPoint<screenSize.height-_tabHeightSize)
         return;
     [self changePositionView:_tabBar toPoint:CGPointMake(0, newMenuPoint)];
+    _btnUp.alpha =1-abs(screenSize.height- newMenuPoint)/_btnUp.frame.size.height;
 }
 
 -(void)panRecognized :(UIPanGestureRecognizer *)sender{
@@ -136,11 +172,18 @@
         [self checkWhichMoviment:velocity withGesture:sender];
         _firstTouch = [sender locationInView:self.navigationController.view];
         [self.navigationController.presentingViewController.view setUserInteractionEnabled:NO];
-        if(_firstTouch.x<self.view.frame.size.height*perMenuOpen)
+        if(self.view.frame.size.height-_firstTouch.y>self.view.frame.size.height*perBarOpen){
+            [self setUpBar:NO];
+        }
+        else{
+            [self setUpBar:YES];
+        }
+        if(_firstTouch.x<self.view.frame.size.width*perMenuOpen)
             [self setOpenMenu:YES];
        
         else if(_firstTouch.x>self.view.frame.size.width*(1.0/2.0-perBackView)&&_firstTouch.x<self.view.frame.size.width*(1.0/2.0+perBackView))
             [self setBackView:YES];
+        
         return;
     }
     CGPoint currentPoint = [sender locationInView:self.navigationController.view];
@@ -158,18 +201,25 @@
                 [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
             }
             else{
-            if([self openMenu])
-            [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
+                if([self openMenu]){
+                    if(self.menuBlock)
+                        return;
+                    [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
+                    
+                }
             else if(![self stop] && _recognized == RIGHT){
            
             NSInteger count = [self.navigationController.viewControllers count];
                 if(count==2)
                     return;
+                if(self.backViewBlock)
+                    return;
                 [self.navigationController popViewControllerAnimated:YES];
                 _stop = YES;
             }
-                return;
             }
+                return;
+            
         }
       
         return;
@@ -210,19 +260,27 @@
     }
 }
 -(void)changePositionView: (UIView *)view toPoint : (CGPoint)p{
+    [self calcShadow];
     CGRect rect = [view frame];
     rect.origin.x = p.x;
     rect.origin.y = p.y;
     [view setFrame:rect];
 }
+-(void)calcShadow{
+    
+    CGRect rect = self.leftMenu.frame;
+    CGFloat result = ((rect.size.width+rect.origin.x)/rect.size.width)*shadowPer;
+    _viewOpaque.alpha = result;
+}
 -(void)sideRecognizedWithStartPoint : (CGPoint)start withCurrentPoint: (CGPoint)currentPoint{
+    
     float barNewPoint = _leftMenu.frame.origin.x - (start.x - currentPoint.x);
+    
     _firstTouch = currentPoint;
     if(barNewPoint>0)
         return;
     if(barNewPoint<-_leftWidthSize)
         return;
-    [self addShadow];
     [self changePositionView:_leftMenu toPoint:CGPointMake(barNewPoint, _leftMenu.frame.origin.y)];
     
 }
@@ -247,25 +305,26 @@
 }
 -(void)hideBarWithAnimation : (BOOL)animated{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
-    if(animated)
+    if(animated){
     [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0.3];
-    else
+
+    }
+    else{
     [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0];
-    
+
+    }
 }
 -(void)showBarWithAnimation : (BOOL)animated{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height - _tabHeightSize) withDuration:0.3];
-    if(animated)
-        [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height - _tabHeightSize) withDuration:0.3];
-    else
-        [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height - _tabHeightSize) withDuration:0.3];
-    
+
 }
 -(void)showLeftMenuWithAnimation: (BOOL)animated{
     [self showLeftMenuWithAnimation:animated withDuration:0.3];
+    
 }
 -(void)showLeftMenuWithAnimation: (BOOL )animated withDuration: (float)pos{
+    
     if(animated)
         [self moveView:_leftMenu withPoint:CGPointMake(0, _leftMenu.frame.origin.y) withDuration:pos];
     else
@@ -273,6 +332,7 @@
     [self  setMenuOpen:YES];
     [self hideBarWithAnimation:1];
     [self.view setUserInteractionEnabled:NO];
+    [self calcShadow];
     //[self.navigationController.presentingViewController]
 
 }
@@ -280,12 +340,14 @@
     [self hideLeftMenu:animated withDuration:0.3];
 }
 -(void)hideLeftMenu: (BOOL )animated withDuration : (float)pos{
+    
     if(animated)
         [self moveView:_leftMenu withPoint:CGPointMake(-_leftWidthSize, _leftMenu.frame.origin.y) withDuration:pos];
     else
         [self moveView:_leftMenu withPoint:CGPointMake(-_leftWidthSize, _leftMenu.frame.origin.y) withDuration:0];
     [self setMenuOpen:NO];
     [self.view setUserInteractionEnabled:YES];
+    [self calcShadow];
     
 }
 -(void)leftMenuOpen{
@@ -296,34 +358,25 @@
 }
 //end show or hide bar and left menu
 // start effects view
--(void)addShadow{
-    [_leftMenu.layer setShadowColor:[UIColor blackColor].CGColor];
-    [_leftMenu.layer setShadowOpacity:1];
-    [_leftMenu.layer setShadowRadius:2.0];
-    [_leftMenu.layer setShadowOffset:CGSizeMake(1.0,1.0)];
-}
--(void)removeShadow{
-    [_leftMenu.layer setShadowColor:[UIColor blackColor].CGColor];
-    [_leftMenu.layer setShadowOpacity:0];
-    [_leftMenu.layer setShadowRadius:0];
-    [_leftMenu.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
-}
 -(void)moveView: (UIView *)bigView withPoint: (CGPoint )point withDuration: (float)duration{
     [UIView beginAnimations:@"MoveView" context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDuration:duration];
     bigView.frame = CGRectMake(point.x, point.y, bigView.frame.size.width, bigView.frame.size.height);
+    [self calcShadow];
+
     [UIView commitAnimations];
 }
+
 // end effects view
 -(void)checkPositionLeftMenu{
     float pos = _leftMenu.frame.origin.x;
     if(fabs(pos)<0.5*_leftMenu.frame.size.width){
         [self showLeftMenuWithAnimation:1 withDuration:pos/_leftWidthSize];
+
     }
     else {
         [self hideLeftMenu:1 withDuration:pos/_leftWidthSize];
-               [self performSelector:@selector(removeShadow) withObject:nil afterDelay:pos/_leftWidthSize];
         
     }
     
@@ -693,12 +746,19 @@
     [self closeEverything];
     [self hideBarWithAnimation:1];
     [self hideLeftMenuAnimated:1];
+ 
     _str = str;
     UIViewController *viewController = [self createViewWithName:str];
-    [self.navigationController popToRootViewControllerAnimated:NO];
     _presenting = viewController;
-     [self.navigationController pushViewController:viewController animated:NO];
-
+    MenuShouldOpen *menu = [MenuShouldOpen alloc];
+    
+    if([str isEqualToString:@"Inicio"]){
+        [menu setRoot:viewController];
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        [self.navigationController pushViewController:viewController animated:NO];
+        return;
+    }
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 -(UIViewController *)createViewWithName: (NSString *)str{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -893,4 +953,8 @@
 -(void)configuracoes{
     [self callViewWithName:@"Configuracoes"];
 }
+-(void)addButtonUp{
+    [self showBarWithAnimation:1];
+}
+
 @end

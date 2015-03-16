@@ -21,6 +21,8 @@
     [self.view addSubview:_navigationController.view];
     //check if the first viewcontroller eixsts, otherwise create it
     _navigationController.navigationItem.hidesBackButton = YES;
+    _navigationController.delegate = self;
+
     [self.navigationItem setHidesBackButton:YES];
     if(self.viewPrincipal == nil)
     {
@@ -30,20 +32,23 @@
         [self setViewPrincipal:myVC];
     
     }
-    _navigationController.delegate = self;
     //push the first viewcontroller into the navigation view controller stack
     
     [self.navigationController pushViewController:self.viewPrincipal animated:YES];
     
  }
+
 - (void)navigationController:(UINavigationController *)navigationController
       willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    //[viewController viewWillAppear:animated];
+     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
+    [temp setPresenting:viewController];
 }
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
    // [viewController viewDidAppear:animated];
 }
+
+
 @end

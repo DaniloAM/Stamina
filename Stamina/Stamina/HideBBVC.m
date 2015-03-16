@@ -20,6 +20,9 @@
     [temp cleanButtons];
     [self addGesture];
     [self.navigationItem setHidesBackButton:YES];
+    [temp setMenuBlock:NO];
+    [temp setBackViewBlock:NO];
+    [temp setBotBarBlock:NO];
 }
 -(void)popToRoot{
     
@@ -27,6 +30,12 @@
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
+    for(UIView *view in [self.view subviews]){
+        if([view isKindOfClass:[UIButton class]]||[view isKindOfClass:[UILabel class]]||[view isKindOfClass:[UITextField class]]){
+            view.layer.cornerRadius = 7;
+        }
+        
+    }
     [self.view setBackgroundColor:[UIColor staminaYellowColor]];
 }
 -(CGPoint)pointStart{
@@ -59,12 +68,7 @@
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    for(UIView *view in [self.view subviews]){
-        if([view isKindOfClass:[UIButton class]]||[view isKindOfClass:[UILabel class]]||[view isKindOfClass:[UITextField class]]){
-            view.layer.cornerRadius = 7;
-        }
-            
-    }
+   
 }
 -(CGSize )tabBarSize{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
@@ -127,6 +131,24 @@
 -(void)thirdButtonMethod: (void *)metodo fromClass:(UIViewController *)view withImage: (UIImage *)image{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
     [temp thirdButtonMethod:metodo fromClass:view withImage:image];
-
+}
+-(void)popView{
+    JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
+    MenuShouldOpen *sho = [MenuShouldOpen alloc];
+    if(temp.presenting==sho.root)
+        return;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)barBlock{
+    JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
+    [temp setBotBarBlock:YES];
+}
+-(void)backViewBlock{
+    JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
+    [temp setBackViewBlock:YES];
+}
+-(void)menuBlock{
+    JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
+    [temp setMenuBlock:YES];
 }
 @end

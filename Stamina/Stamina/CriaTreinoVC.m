@@ -209,8 +209,6 @@
     
     for(int x=0 ; x < [obj count];x++){
         TrainingExercises  *str = [obj objectAtIndex:x];
-        NSLog(@"%@", str.training_name);
-        NSLog(@"%@", str.id_exercise);
         
     }
 }

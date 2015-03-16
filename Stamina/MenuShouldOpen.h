@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface MenuShouldOpen : NSObject
 +(MenuShouldOpen *)sharedStore;
-
-@property BOOL open;
+@property UIViewController *root;
 @end

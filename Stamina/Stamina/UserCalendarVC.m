@@ -126,7 +126,6 @@
     
     [self calendarWillChangeMonth];
     
-    //[self removeGestureFromMenuVC];
     [super hideBarWithAnimation:NO];
 }
 
@@ -432,7 +431,8 @@
 
 
 -(void)returnToView {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self popView];
 }
 
 
