@@ -23,6 +23,9 @@
     [temp setMenuBlock:NO];
     [temp setBackViewBlock:NO];
     [temp setBotBarBlock:NO];
+    if(![temp.btnUp superview])
+    [self.navigationController.view addSubview:temp.btnUp];
+    [temp.btnUp setAlpha:1];
 }
 -(void)popToRoot{
     
@@ -95,6 +98,7 @@
 -(void)removeGesture{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
     [temp removeGesture];
+    [[temp btnUp] removeFromSuperview];
 }
 -(void)addGesture{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
@@ -142,6 +146,7 @@
 -(void)barBlock{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
     [temp setBotBarBlock:YES];
+    [[temp btnUp] removeFromSuperview];
 }
 -(void)backViewBlock{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
