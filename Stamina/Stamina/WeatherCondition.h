@@ -14,7 +14,7 @@
 @interface WeatherCondition : NSObject <CLLocationManagerDelegate>
 
 @property CLLocationManager *locationManager;
-
+@property NSString *strOfWeather;
 
 -(NSInteger)returnTemperatureInCurrentLocation;
 

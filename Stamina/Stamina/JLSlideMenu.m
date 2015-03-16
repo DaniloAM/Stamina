@@ -1,4 +1,4 @@
-    //
+//
 //  JLSlideMenu.m
 //  Stamina
 //
@@ -31,7 +31,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     _str = @"Inicio";
-
+    
     [self.navigationItem setTitle:@"Início"];
     if([self tabBar]==nil){
         [self createOpaqueView];
@@ -62,7 +62,7 @@
     _recognized = UNDEFINED;
     _open = -1;
     [self callViewWithName:_str];
-
+    
 }
 //end will/did appear and something like that
 //start initializing methods
@@ -76,11 +76,11 @@
     [_btnUp addSubview:view];
     [_btnUp addTarget:self action:@selector(addButtonUp) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:_btnUp];
-     [self.navigationController.view addSubview:_tabBar];
+    [self.navigationController.view addSubview:_tabBar];
 }
 -(void)createOpaqueView{
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeftMenuAnimated:)];
-
+    
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGPoint p = [self.navigationController.navigationBar frame].origin;
     CGSize navigationSize = [self.navigationController.navigationBar frame].size;
@@ -95,7 +95,7 @@
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     [self setTabBar:[[UIView alloc] initWithFrame:CGRectMake(0, screenSize.height-screenSize.height*tabBarHeightPer , screenSize.width, screenSize.height*tabBarHeightPer )]];
     [self tabBar].backgroundColor = [UIColor staminaBlackColor];
-   
+    
     _tabHeightSize = _tabBar.frame.size.height;
     NSMutableArray *array = [NSMutableArray array];
     for(int x = 0 ; x < 3; x++){
@@ -105,7 +105,7 @@
         [array addObject:btn1];
     }
     _arrayTabBar = [NSArray arrayWithArray:array];
-
+    
 }
 -(void)createLeftView{
     CGSize sizeScreen = [[UIScreen mainScreen] bounds].size;
@@ -126,7 +126,7 @@
     UIView *viewNavigation = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height)];
     [viewNavigation setBackgroundColor:[UIColor staminaYellowColor]];
     [self.navigationController.navigationBar addSubview:viewNavigation];
-
+    
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     self.navigationController.navigationBar.translucent = NO;
     float btnXStart =screenSize.width*32/885;
@@ -180,7 +180,7 @@
         }
         if(_firstTouch.x<self.view.frame.size.width*perMenuOpen)
             [self setOpenMenu:YES];
-       
+        
         else if(_firstTouch.x>self.view.frame.size.width*(1.0/2.0-perBackView)&&_firstTouch.x<self.view.frame.size.width*(1.0/2.0+perBackView))
             [self setBackView:YES];
         
@@ -188,7 +188,7 @@
     }
     CGPoint currentPoint = [sender locationInView:self.navigationController.view];
     if (sender.state == UIGestureRecognizerStateChanged) {
-
+        
         if(self.isMovingToParentViewController == YES)
             return;
         if(_recognized==UP || _recognized ==DOWN){
@@ -197,31 +197,10 @@
             [self horizontalRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
         }
         else if((_recognized == LEFT || _recognized ==RIGHT )){
-            if(_menuOpen){
-                [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
-            }
-            else{
-                if([self openMenu]){
-                    if(self.menuBlock)
-                        return;
-                    [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
-                    
-                }
-            else if(![self stop] && _recognized == RIGHT){
-           
-            NSInteger count = [self.navigationController.viewControllers count];
-                if(count==2)
-                    return;
-                if(self.backViewBlock)
-                    return;
-                [self.navigationController popViewControllerAnimated:YES];
-                _stop = YES;
-            }
-            }
-                return;
-            
+            _currentPoint = currentPoint;
+            [self performSelectorInBackground:@selector(sideSlide:) withObject:nil];
         }
-      
+        
         return;
     }
     if(sender.state == UIGestureRecognizerStateEnded){
@@ -233,7 +212,7 @@
             [self checkPositionLeftMenu];
         else if(_direction == HORIZONTAL){
             [self checkPositionTabBar];
-                    [self.navigationController.presentingViewController.view setUserInteractionEnabled:YES];
+            [self.navigationController.presentingViewController.view setUserInteractionEnabled:YES];
         }
         
     }
@@ -287,7 +266,7 @@
 
 -(void)checkPositionTabBar{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
-
+    
     float pos = _tabBar.frame.origin.y;
     if(fabs(pos)>screenSize.height -  0.5*_tabBar.frame.size.height){
         [self hideBarWithAnimation:1];
@@ -306,18 +285,18 @@
 -(void)hideBarWithAnimation : (BOOL)animated{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     if(animated){
-    [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0.3];
-
+        [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0.3];
+        
     }
     else{
-    [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0];
-
+        [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0];
+        
     }
 }
 -(void)showBarWithAnimation : (BOOL)animated{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height - _tabHeightSize) withDuration:0.3];
-
+    
 }
 -(void)showLeftMenuWithAnimation: (BOOL)animated{
     [self showLeftMenuWithAnimation:animated withDuration:0.3];
@@ -334,7 +313,7 @@
     [self.view setUserInteractionEnabled:NO];
     [self calcShadow];
     //[self.navigationController.presentingViewController]
-
+    
 }
 -(void)hideLeftMenuAnimated: (BOOL)animated{
     [self hideLeftMenu:animated withDuration:0.3];
@@ -364,7 +343,7 @@
     [UIView setAnimationDuration:duration];
     bigView.frame = CGRectMake(point.x, point.y, bigView.frame.size.width, bigView.frame.size.height);
     [self calcShadow];
-
+    
     [UIView commitAnimations];
 }
 
@@ -373,7 +352,7 @@
     float pos = _leftMenu.frame.origin.x;
     if(fabs(pos)<0.5*_leftMenu.frame.size.width){
         [self showLeftMenuWithAnimation:1 withDuration:pos/_leftWidthSize];
-
+        
     }
     else {
         [self hideLeftMenu:1 withDuration:pos/_leftWidthSize];
@@ -386,7 +365,7 @@
         
         UIButton *btn = [[self arrayTabBar] objectAtIndex:x];
         [self buttonClean:btn];
-
+        
         [btn removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     }
 }
@@ -405,7 +384,7 @@
             return @"    Configurações";
         case 5:
             return @"    Sair";
-
+            
     }
     return nil;
 }
@@ -441,19 +420,19 @@
     [self rearruma:M1 : 1 ];
     [self mostraConteudoDoArray:[self arrayFirstButton]];
     _open = 0;
-
+    
 }
 -(void)opensencond{
     [self rearruma:M2 : 2];
     [self mostraConteudoDoArray:[self secondFirstButton]];
     _open = 1;
-   
+    
 }
 -(void)openthird{
     [self rearruma:M3 : 3];
     [self mostraConteudoDoArray:[self thirdFirstButton]];
     _open = 2;
-
+    
 }
 -(void)openfourth{
     [self rearruma:M4 :4];
@@ -467,7 +446,7 @@
         CGRect rect = button.frame;
         rect.origin.y += x*cellSubMenuHeight*screenSize.height;
         [self moveView:button withPoint:rect.origin withDuration:0.1];
-
+        
     }
     
 }
@@ -476,7 +455,7 @@
         UIButton *button = [array objectAtIndex:x];
         button.alpha =0;
         [_leftMenu addSubview:button];
-
+        
         [UIView animateWithDuration:0.15 animations:^{
             button.alpha = 1;
         }];
@@ -485,7 +464,7 @@
 }
 -(void)closeEverything{
     CGSize size = [[UIScreen mainScreen] bounds].size;
-
+    
     for(int x = 0 ; x < [[self arrayOfButtons] count];x++){
         UIButton *button = [[self arrayOfButtons] objectAtIndex:x];
         CGRect rect = CGRectMake(0, x*cellMenuHeight*size.height, _leftWidthSize, cellMenuHeight*size.height);
@@ -546,8 +525,8 @@
             }
             break;
     }
-
-
+    
+    
 }
 -(void)firstButton{
     if( _open==0){
@@ -563,7 +542,7 @@
     }
 }
 -(void)secondButton{
-
+    
     if( _open==1){
         [self close:_open];
     }
@@ -741,12 +720,11 @@
     [self setThirdFirstButton:[self alocaAndReturn:3 :M3]];
     [self setFourthFirstButton:[self alocaAndReturn:4 :M4]];
 }
-
 -(void)callViewWithName: (NSString *)str{
     [self closeEverything];
     [self hideBarWithAnimation:1];
     [self hideLeftMenuAnimated:1];
- 
+    
     _str = str;
     UIViewController *viewController = [self createViewWithName:str];
     _presenting = viewController;
@@ -811,7 +789,7 @@
     UIButton *btn = [[temp arrayTabBar] objectAtIndex:1];
     if(!(metodo ==nil))
         [self secondButtonMethod:metodo fromView:view];
-        [self addImage:image to:btn];
+    [self addImage:image to:btn];
 }
 -(void)thirdButtonMethod: (void *)metodo fromClass:(UIViewController *)view withImage: (UIImage *)image{
     JLSlideMenu  *temp = [self.navigationController.viewControllers objectAtIndex:0];
@@ -838,7 +816,7 @@
             break;
             
         case 3:
-           return @selector(exerciciosButton);
+            return @selector(exerciciosButton);
             break;
             
         default:
@@ -921,7 +899,7 @@
     [self callViewWithName:@"Inicio"];
 }
 -(void)trajetosButton{
-
+    
 }
 -(void)exerciciosButton{
     
@@ -956,5 +934,36 @@
 -(void)addButtonUp{
     [self showBarWithAnimation:1];
 }
-
+-(void)sideSlide: (CGPoint )currentPoint{
+    currentPoint = _currentPoint;
+    if(_menuOpen){
+        [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
+    }
+    else{
+        if([self openMenu]){
+            if(self.menuBlock)
+                return;
+            [self sideRecognizedWithStartPoint:_firstTouch withCurrentPoint:currentPoint];
+            
+        }
+        else if(![self stop] && _recognized == RIGHT){
+            
+            NSInteger count = [self.navigationController.viewControllers count];
+            if(count==2)
+                return;
+            if(self.backViewBlock)
+                return;
+            [self.navigationController popViewControllerAnimated:YES];
+            _stop = YES;
+        }
+    }
+    return;
+}
+-(void)menuMove: (CGPoint )currentPoint startPoint: (CGPoint)startPoint {
+    if(startPoint.x<self.view.frame.size.width*perMenuOpen)
+        [self setOpenMenu:YES];
+    if([self menuOpen])
+        return;
+    [self horizontalRecognizedWithStartPoint:startPoint withCurrentPoint:currentPoint];
+}
 @end

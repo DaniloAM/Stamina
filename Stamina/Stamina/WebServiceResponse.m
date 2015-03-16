@@ -105,6 +105,28 @@
     return [self doTheRequest:post andUrl:url];
     
 }
++(NSString *)stringToId: (int )iden{
+    NSString *str = nil;
+    if(iden==500 || iden ==501  || ((iden >511)&&(iden < 531))||((iden >300)&&(iden < 321))){
+        str = @"icone_tempo_chuvisco.png";
+    }
+    else if (iden == 502 || iden == 531){
+        str = @"icone_tempo_chuvoso.png";
+    }
+    else if (iden == 803 || iden == 802 || iden == 801){
+        str = @"icone_tempo_nublado.png";
+    }
+    else if (iden ==  804 ){
+        str=@"icone_tempo_nebulosidade.png";
+    }
+    else if (iden == 800){
+        str =@"icone_tempo_sol.png";
+    }
+    else if (iden == 503 || iden == 504 || (iden< 232 && iden > 200)){
+        str=@"icone_tempo_tempestade.png";
+    }
+    return str;
+}
 +(WeatherObject *)previsaoDoTempoNaLatitude : (float)lat eLongitude:(float)lon{
     NSString *url = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f",lat, lon ];
     NSData *jsonDados = [[NSData alloc] initWithContentsOfURL:
@@ -139,12 +161,12 @@
     [novo setHumidade:humidade];
     NSDictionary *weatherCondition = [array firstObject];
     NSNumber *identification = [weatherCondition objectForKey:@"id"];
+    [novo setDescricao:[WebServiceResponse stringToId: [identification intValue]]];
     
-    NSString *str = [weatherCondition objectForKey:@"description"];
-    [novo setDescricao:str];
     return novo;
     
 }
+
 +(NSString *)insereTreinoWithName: (NSString *)str andDays: (NSArray *)array andstartDate:(NSDate *)dateStart andFinalDate:(NSDate *)finalDate andHour: (NSDate *)hour{
     NSString *url = @"http://54.207.112.185/joao/insereTreino.php";
     UserData *user = [UserData alloc];

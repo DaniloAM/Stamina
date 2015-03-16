@@ -62,7 +62,8 @@
     WeatherCondition *condition = [[WeatherCondition alloc] init];
     
     NSInteger temperature = [condition returnTemperatureInCurrentLocation];
-    
+    NSLog(@"temperatura Image %@", condition.strOfWeather);
+    [[self temperatureImage] setImage:[UIImage imageNamed:[condition strOfWeather]]];
     if(temperature <= 0) {
         CGRect frame = [[self btnCalendar] frame];
         frame.origin.x = 118;

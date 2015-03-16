@@ -48,16 +48,15 @@ typedef enum gestureRecognizedTypes
 @property NSArray *fourthFirstButton;
 @property NSArray *arrayOfViewsControllers;
 @property NSMutableArray *arrayOfViews;
-
+@property void *selector;
 @property NSString *str;
 @property UIViewController *presenting;
 @property NSArray *arrayTabBar;
 @property BOOL menuBlock, botBarBlock, backViewBlock;
+@property CGPoint currentPoint;
 
-
-
-
-
+-(void)checkPositionLeftMenu;
+-(void)menuMove: (CGPoint )currentPoint startPoint: (CGPoint)startPoint;
 -(void)showBarWithAnimation : (BOOL)animated;
 -(void)hideBarWithAnimation : (BOOL)animated;
 -(void)removeGesture;
