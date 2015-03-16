@@ -92,6 +92,8 @@
     
     [super hideBarWithAnimation:true];
     
+    [self barBlock];
+    [self backViewBlock];
     [self removeGesture];
     
     if(![CMMotionActivityManager isActivityAvailable]) {
@@ -443,6 +445,17 @@
         
         [[self mapRunningView]setFrame:frame];
     }
+    
+    if(frame.size.height > frame_max) {
+        frame.size.height = frame_max;
+        [[self mapRunningView] setFrame:frame];
+    }
+    
+    else if(frame.size.height < frame_min) {
+        frame.size.height = frame_min;
+        [[self mapRunningView] setFrame:frame];
+    }
+    
     
     [self setHeight:touchPoint.y];
     [self updateButtunsForm];
