@@ -51,11 +51,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(back)];
-    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-    [self.view addGestureRecognizer:swipe];
-    
     [self setPictureViewController:[[SocialSharingVC alloc] init]];
     [[self pictureViewController] setRoutePicture:true];
     
@@ -93,8 +88,9 @@
     [super hideBarWithAnimation:true];
     
     [self barBlock];
-    [self backViewBlock];
     [self removeGesture];
+    [self backViewBlock];
+    
     
     if(![CMMotionActivityManager isActivityAvailable]) {
         [[self speedLabel] setHidden:true];
@@ -464,41 +460,143 @@
 
 -(void)updateButtunsForm {
     
+    //Data for math
     float height = [[self mapRunningView] frame].size.height;
     
     float percent = (height - frame_min) / (frame_max - frame_min);
     
-    float newWidth, newRadius;
+    float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0;
     
+    
+    //New values
+    float newWidth, newRadius, newHeight = 36.0, fontSize, buttonY;
+    
+    
+    //Return case
     if(percent > 1.0)
         return;
     
-    if(percent < 0.8) {
-        newWidth = 256.0 - (percent * 232.5);
-        newRadius = 7.0 + percent * 10;
+    
+    //Info
+    float alpha = 1.0, positionChange = 0.0;
+    
+    if(percent >= 0.0 && percent <= 0.2) {
+        alpha -= percent * 5;
     }
     
     else {
-        newWidth = 70.0 - ((percent - 0.8) * 150.0);
-        newRadius = 15.0 + ((percent - 0.8) * 25.0);
+        alpha = 0.0;
     }
+    
+    positionChange = height - frame_min;
+    
+    //Distance Label Perform
+    
+    //distancePosition += height - frame_min;
+    fontSize = 60.0 - (30.0 * percent);
+    
+    //Button Perform
+    if(percent < 0.8) {
+        newWidth = 256.0 - (percent * 232.5);
+        newRadius = 7.0 + percent * 20;
+    }
+    
+    else {
+        newWidth = 70.0 - ((percent - 0.8) * 50.0);
+        newRadius = 23.0 + ((percent - 0.8) * 35.0);
+    }
+    
+    newHeight = 36.0 + (percent * 24.0);
+    buttonY = 440.0 - (percent * 12.0);
+    
+    
+    //---------[ Applies New Values ]---------//
+    
+    //Button
+    //CGPoint buttonCenter = [[self startButton] center];
+    CGRect frame = [[self startButton] frame];
+    
+    frame.size.width = newWidth;
+    frame.size.height = newHeight;
+    frame.origin.y = buttonY;
+    
+    [[self startButton] setFrame:frame];
+    //[[self startButton] setCenter:buttonCenter];
+    [[self startButton] layer].cornerRadius = newRadius;
 
     
-//    256.0  0.0
-//    70.0   0.8
-//    
-//    each 0.01 >> 2.325
-//    
-//    1 >>> 232.5
+    //Distance label
+    [[self distanceLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:fontSize]];
     
-    CGPoint buttonCenter = [[self startButton] center];
-    CGRect buttonFrame = [[self startButton] frame];
+    frame = [[self distanceLabel] frame];
+    frame.origin.y = distanceY + positionChange;
+    [[self distanceLabel] setFrame:frame];
     
-    buttonFrame.size.width = newWidth;
+    CGPoint center = [self distanceLabel].center;
     
-    [[self startButton] setFrame:buttonFrame];
-    [[self startButton] setCenter:buttonCenter];
-    [[self startButton] layer].cornerRadius = newRadius;
+    if(center.y > centerY) {
+        center.y = centerY;
+        [[self distanceLabel] setCenter:center];
+    }
+    
+    
+    //Time Label
+    //[[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:timeFont]];
+    
+    if(percent < 0.4) {
+        
+        [[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:20.0]];
+        
+        frame = [[self timeLabel] frame];
+        frame.origin.x = 116.0;
+        frame.origin.y = labelY + positionChange;
+        [[self timeLabel] setFrame:frame];
+        [[self timeLabel] setAlpha:alpha];
+    }
+    
+    else {
+        
+        frame = [[self timeLabel] frame];
+        frame.origin.x = 220.0;
+
+        [[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:22.0]];
+        
+        [[self timeLabel] setFrame:frame];
+        
+        center = [[self timeLabel] center];
+        center.y = centerY;
+        
+        [[self timeLabel] setCenter:center];
+        [[self timeLabel] setAlpha:((percent * 10) - 4.0)];
+        
+    }
+    
+    //Others labels and icons
+    frame = [[self timeIcon] frame];
+    frame.origin.y = iconY + positionChange;
+    [[self timeIcon] setFrame:frame];
+    [[self timeIcon] setAlpha:alpha];
+    
+    frame = [[self bpsIcon] frame];
+    frame.origin.y = iconY + positionChange;
+    [[self bpsIcon] setFrame:frame];
+    [[self bpsIcon] setAlpha:alpha];
+    
+    frame = [[self bpsLabel] frame];
+    frame.origin.y = labelY + positionChange;
+    [[self bpsLabel] setFrame:frame];
+    [[self bpsLabel] setAlpha:alpha];
+    
+    frame = [[self speedLabel] frame];
+    frame.origin.y = labelY + positionChange;
+    [[self speedLabel] setFrame:frame];
+    [[self speedLabel] setAlpha:alpha];
+    
+    frame = [[self speedIcon] frame];
+    frame.origin.y = iconY + positionChange;
+    [[self speedIcon] setFrame:frame];
+    [[self speedIcon] setAlpha:alpha];
+    
     
 }
 
