@@ -726,12 +726,26 @@
     UIViewController *viewController = [self createViewWithName:str];
     _presenting = viewController;
     MenuShouldOpen *menu = [MenuShouldOpen alloc];
-    
+    NSString *currentSelectedCViewController = NSStringFromClass(viewController.class);
+
     if([str isEqualToString:@"Inicio"]){
         [menu setRoot:viewController];
         [self.navigationController popToRootViewControllerAnimated:NO];
         [self.navigationController pushViewController:viewController animated:NO];
         return;
+    }
+    for (int x = 0 ; x < self.navigationController.viewControllers.count;x++ ) {
+        UIViewController *ctr = [self.navigationController.viewControllers objectAtIndex:x];
+        NSString *class = NSStringFromClass(ctr.class);
+
+        if([class isEqualToString:currentSelectedCViewController]){
+            NSMutableArray *array = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+            [array removeObject:[self.navigationController.viewControllers objectAtIndex:x]];
+            [array addObject:viewController];
+            [self.navigationController setViewControllers:array animated:YES];
+            return;
+        }
+    
     }
     [self.navigationController pushViewController:viewController animated:YES];
 }

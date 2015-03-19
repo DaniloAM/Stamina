@@ -26,7 +26,8 @@
     if(![temp.btnUp superview]){
         [self.navigationController.view addSubview:temp.btnUp];
         [self.navigationController.view addSubview:temp.tabBar];
-    }[temp.btnUp setAlpha:1];
+    }
+    [temp.btnUp setAlpha:1];
 }
 -(void)popToRoot{
     

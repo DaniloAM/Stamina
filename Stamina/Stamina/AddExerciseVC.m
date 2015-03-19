@@ -141,7 +141,6 @@
     [self.view endEditing:YES];
 }
 -(void)callStart{
-    [self.navigationController.navigationBar setTranslucent:NO];
     CreateTrainTemp *temp = [CreateTrainTemp alloc];
     [temp setArrayOfExercises:nil];
     [temp setExercise:Nil];
