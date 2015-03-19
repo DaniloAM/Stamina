@@ -23,9 +23,10 @@
     [temp setMenuBlock:NO];
     [temp setBackViewBlock:NO];
     [temp setBotBarBlock:NO];
-    if(![temp.btnUp superview])
-    [self.navigationController.view addSubview:temp.btnUp];
-    [temp.btnUp setAlpha:1];
+    if(![temp.btnUp superview]){
+        [self.navigationController.view addSubview:temp.btnUp];
+        [self.navigationController.view addSubview:temp.tabBar];
+    }[temp.btnUp setAlpha:1];
 }
 -(void)popToRoot{
     
