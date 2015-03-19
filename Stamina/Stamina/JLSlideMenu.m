@@ -958,13 +958,13 @@
             
         }
         else if(![self stop] && _recognized == RIGHT){
-            
+            _stop = YES;
             NSInteger count = [self.navigationController.viewControllers count];
             if(count==2)
                 return;
             if(self.backViewBlock)
                 return;
-            _stop = YES;
+            
             [self.navigationController popViewControllerAnimated:YES];
         }
     }

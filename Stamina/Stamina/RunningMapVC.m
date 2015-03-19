@@ -620,7 +620,7 @@
 
 -(IBAction)fullAnimateTo {
     if([self mapViewExpanded]) {
-        [UIView animateWithDuration:0.7 animations:^{
+        [UIView animateWithDuration:0.275 animations:^{
             CGRect frame = [[self mapRunningView] frame];
             frame.size.height = frame_min;
             [[self mapRunningView] setFrame:frame];
@@ -629,7 +629,7 @@
     }
     
     else {
-        [UIView animateWithDuration:0.7 animations:^{
+        [UIView animateWithDuration:0.275 animations:^{
             CGRect frame = [[self mapRunningView] frame];
             frame.size.height = frame_max;
             [[self mapRunningView] setFrame:frame];
