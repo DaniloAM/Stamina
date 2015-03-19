@@ -26,10 +26,12 @@
 @property BOOL isRunning;
 @property BOOL userRouteIsDraw;
 @property BOOL isWaitingForPicture;
+@property BOOL mapViewExpanded;
 
 @property SocialSharingVC *pictureViewController;
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *expandButton;
 
 @property IBOutlet UILabel *timeLabel;
 @property IBOutlet UILabel *speedLabel;

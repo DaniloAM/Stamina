@@ -297,7 +297,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="iZq-pg-Mof" kind="push" id="Qxk-09-Orv"/>
+                                    <segue destination="iZq-pg-Mof" kind="push" id="ena-5J-W5o"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rXf-If-RHb">
@@ -504,6 +504,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cbg-RE-ebD">
+                                <rect key="frame" x="144" y="223" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="V">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fullAnimateTo" destination="Hoc-Hi-pFE" eventType="touchUpInside" id="JGO-b1-OE5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -512,6 +523,7 @@
                         <outlet property="bpsIcon" destination="EaF-7O-9e1" id="52g-0d-8O6"/>
                         <outlet property="bpsLabel" destination="v94-tR-wk8" id="07g-6j-d1C"/>
                         <outlet property="distanceLabel" destination="Hav-fn-fTY" id="Fea-Bo-gj1"/>
+                        <outlet property="expandButton" destination="cbg-RE-ebD" id="Wtf-yn-RyR"/>
                         <outlet property="mapRunningView" destination="Hxh-iD-IrK" id="XOi-Fs-kf2"/>
                         <outlet property="speedIcon" destination="cQc-fg-kvG" id="PWb-BR-aGq"/>
                         <outlet property="speedLabel" destination="MEh-hp-QhS" id="blH-5E-wM7"/>

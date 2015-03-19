@@ -179,7 +179,14 @@
                 break;
             case 1:
                 imageName = @"icone_km.png";
-                infoLabel.text = [NSString stringWithFormat:@"%03d Km", value];
+                if(value >= 1000) {
+                    float val = value / 1000.0;
+                    infoLabel.text = [NSString stringWithFormat:@"%.01f Km",val];
+                }
+                else {
+                    infoLabel.text = [NSString stringWithFormat:@"%03d m", value];
+                }
+                
                 break;
             case 2:
                 imageName = @"icoen_tempo.png";

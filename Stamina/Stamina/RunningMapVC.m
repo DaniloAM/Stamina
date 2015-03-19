@@ -465,7 +465,20 @@
     
     float percent = (height - frame_min) / (frame_max - frame_min);
     
-    float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0;
+    float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0, expandButton = 223.0;
+    
+    
+    //Check button and change image and action by flag
+    if(height > frame_min + ((frame_max - frame_min) / 2)) {
+        [self setMapViewExpanded:true];
+        //[[self expandButton] setBackgroundImage:@"" forState:nil];
+    }
+    
+    else {
+        [self setMapViewExpanded:false];
+        //[[self expandButton] setBackgroundImage:@"" forState:nil];
+
+    }
     
     
     //New values
@@ -571,6 +584,11 @@
         
     }
     
+    //Expand Button
+    frame = [[self expandButton] frame];
+    frame.origin.y = expandButton + positionChange;
+    [[self expandButton] setFrame:frame];
+    
     //Others labels and icons
     frame = [[self timeIcon] frame];
     frame.origin.y = iconY + positionChange;
@@ -598,6 +616,26 @@
     [[self speedIcon] setAlpha:alpha];
     
     
+}
+
+-(IBAction)fullAnimateTo {
+    if([self mapViewExpanded]) {
+        [UIView animateWithDuration:0.7 animations:^{
+            CGRect frame = [[self mapRunningView] frame];
+            frame.size.height = frame_min;
+            [[self mapRunningView] setFrame:frame];
+            [self updateButtunsForm];
+        }];
+    }
+    
+    else {
+        [UIView animateWithDuration:0.7 animations:^{
+            CGRect frame = [[self mapRunningView] frame];
+            frame.size.height = frame_max;
+            [[self mapRunningView] setFrame:frame];
+            [self updateButtunsForm];
+        }];
+    }
 }
 
 

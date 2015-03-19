@@ -23,11 +23,11 @@
     [[self calendarButton] setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"icone_calendario_%02d.png", (int) comp.day]] forState:UIControlStateNormal];
 
     
-    UISwipeGestureRecognizer *backGest = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToHomeScreen)];
-    
-    backGest.direction = UISwipeGestureRecognizerDirectionRight;
-    
-    [self.view addGestureRecognizer:backGest];
+//    UISwipeGestureRecognizer *backGest = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToHomeScreen)];
+//    
+//    backGest.direction = UISwipeGestureRecognizerDirectionRight;
+//    
+//    [self.view addGestureRecognizer:backGest];
     
     
 }
