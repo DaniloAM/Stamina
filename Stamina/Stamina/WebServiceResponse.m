@@ -40,26 +40,32 @@
     return [ServerSupport getConnectivity];
 }
 +(NSString *)doTheRequest :(NSString *)post andUrl: (NSString *)url{
-    if(![WebServiceResponse connected])
-        return nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+    
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSMutableURLRequest *request = [[ NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"context-type"];
     [request setHTTPBody:postData];
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString* s = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-    return s;
+    [request setTimeoutInterval:17.32];
+    NSError *error = nil;
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    if(error==nil){
+
+        NSString* s = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
+        
+        return s;
+    }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
+
+    return @"error";
 }
 
 
 +(NSString *)upToServerTrainingWithArrayOfRepetition: (NSArray *) arrayOfRepetitions withArrayOfSeries: (NSArray *) arrayOfSeries withArrayOfId: (NSArray *)arrayOfID withTrainingName: (NSString *)trainingName {
     NSMutableArray *trainingsArray = [NSMutableArray array];
     for (int x = 0; x < [arrayOfID count]; x++) {
-        NSLog(@"temp %@", [arrayOfID objectAtIndex:x]);
-        NSLog(@"temp %@", [arrayOfRepetitions objectAtIndex:x]);
-        NSLog(@"temp %@", [arrayOfSeries objectAtIndex:x]);
-        NSLog(@"temp %@", trainingName);
         NSDictionary *trainingDictionary =[NSDictionary dictionaryWithObjectsAndKeys:
                                            [arrayOfID objectAtIndex:x], @"id_exercise",
                                            trainingName, @"trainingName",

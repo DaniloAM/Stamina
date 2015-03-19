@@ -66,7 +66,6 @@
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
     [temp panLeft].enabled = YES;
 
-
 }
 
 -(void)viewDidLayoutSubviews{

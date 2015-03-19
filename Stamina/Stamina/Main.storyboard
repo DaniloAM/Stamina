@@ -6,6 +6,8 @@
     <customFonts key="customFonts">
         <mutableArray key="Lato-Light.ttf">
             <string>Lato-Light</string>
+            <string>Lato-Light</string>
+            <string>Lato-Light</string>
         </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
@@ -55,8 +57,6 @@
             <string>Lato-Regular</string>
         </mutableArray>
         <mutableArray key="Lato-Semibold.ttf">
-            <string>Lato-Semibold</string>
-            <string>Lato-Semibold</string>
             <string>Lato-Semibold</string>
             <string>Lato-Semibold</string>
         </mutableArray>
@@ -131,7 +131,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.59999999999999964" contentMode="scaleToFill" id="pc1-NZ-ySM">
-                                <rect key="frame" x="-1" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="-1" y="0.0" width="321" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="cx9-nj-BAz">
@@ -278,7 +278,7 @@
                                 <rect key="frame" x="32" y="245" width="256" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <state key="normal" title="Iniciar">
                                     <color key="titleColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,7 +291,7 @@
                                 <rect key="frame" x="32" y="317" width="256" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <state key="normal" title="Trajetos">
                                     <color key="titleColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

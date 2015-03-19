@@ -108,14 +108,17 @@
     UserData *userData = [UserData alloc];
     [self activity].hidden=NO;
     [[self activity] startAnimating];
+    self.viewBlock.hidden=NO;
+    [self.view addSubview:_activity];
+    
     if([userData email]!=nil)
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *str;
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UIViewController *myVC;
-            if([self connected])
-                str = [WebServiceResponse checkStart:[userData email] eSenha:[userData password]];
-            while(1){
+
+            str = [WebServiceResponse checkStart:[userData email] eSenha:[userData password]];
+            
                 if([str isEqualToString:@"1"]){
                     [self dismissViewControllerAnimated:NO completion:Nil];
 
@@ -132,7 +135,19 @@
                     
                     
                 }
-            }
+                else if ([str isEqualToString: @"error"]){
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Offline Mode" message:@"Não foi possível conectar com o servidor, você entrará em modo offline" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                    [self dismissViewControllerAnimated:NO completion:Nil];
+                    
+                    myVC= (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+                    
+                    [self dismissViewControllerAnimated:NO completion:Nil];
+                    
+                    [self presentViewController:myVC animated:YES completion:nil];
+                    return;
+
+                }
         });
     
 
@@ -204,12 +219,13 @@
 
     [[self view] endEditing:YES];
     [self resignFirstResponder];
+    [self activity].hidden=NO;
+    [[self activity] startAnimating];
+    self.viewBlock.hidden=NO;
+    [self.view addSubview:_activity];
     dispatch_async(dispatch_get_main_queue(), ^{
 
-        [self activity].hidden=NO;
-        [self viewBlock].hidden=NO;
-    [[self activity] startAnimating];
-        if([self login].text.length>0&&[self password].text.length>0){
+               if([self login].text.length>0&&[self password].text.length>0){
     if ([self connected]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self buscaJson];

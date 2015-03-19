@@ -13,7 +13,9 @@
 #import "UserData.h"
 #import "WeatherObject.h"
 #import "ServerSupport.h"
-@interface WebServiceResponse : NSObject
+@interface WebServiceResponse : NSObject <NSURLConnectionDelegate>
+@property NSMutableData *receivedData;
+
 +(NSString*)cadastrarComNome: (NSString *)nome eSenha: (NSString *)password email: (NSString *)email sexo:(BOOL) sexo nickName: (NSString *)nickName;
 +(NSString*)loginComEmailOuNickName: (NSString *)anything eSenha: (NSString *)password;
 +(NSString*)inserirExercicioComId: (int )idExercicio serie: (int )serie repeticoes: (int )repeticoes treino: (int )treino emailOrNickName: (NSString *)anything;

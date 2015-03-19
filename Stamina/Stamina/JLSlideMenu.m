@@ -31,7 +31,6 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     _str = @"Inicio";
-    
     [self.navigationItem setTitle:@"Início"];
     if([self tabBar]==nil){
         [self createOpaqueView];
@@ -168,7 +167,6 @@
     CGPoint velocity = [sender velocityInView:self.view];
     
     if (sender.state == UIGestureRecognizerStateBegan) {
-        
         [self checkWhichMoviment:velocity withGesture:sender];
         _firstTouch = [sender locationInView:self.navigationController.view];
         [self.navigationController.presentingViewController.view setUserInteractionEnabled:NO];
@@ -206,7 +204,6 @@
     if(sender.state == UIGestureRecognizerStateEnded){
         _openMenu = NO;
         _backView = NO;
-        _stop = NO;
         _recognized =-1;
         if(_direction == VERTICAL)
             [self checkPositionLeftMenu];
@@ -953,8 +950,8 @@
                 return;
             if(self.backViewBlock)
                 return;
-            [self.navigationController popViewControllerAnimated:YES];
             _stop = YES;
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }
     return;

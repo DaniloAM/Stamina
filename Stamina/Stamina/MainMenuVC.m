@@ -47,7 +47,9 @@
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-   // [viewController viewDidAppear:animated];
+    NSLog(@"did show");
+    JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
+    temp.stop = NO;
 }
 
 
