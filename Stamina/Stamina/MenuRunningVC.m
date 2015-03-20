@@ -43,6 +43,26 @@
     
     
     [self performSelectorInBackground:@selector(showCurrentWeather) withObject:nil];
+    
+    NSString *deviceType = [UIDevice currentDevice].model;
+    
+    if(![deviceType isEqualToString:@"iPhone"]) {
+        NSLog(@"Device is not an iPhone. Running function not available");
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:deviceType message:[NSString stringWithFormat:@"A função corrida não esta disponível em um dispositivo do tipo %@.", deviceType] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    [self.navigationController popViewControllerAnimated:true];
+    
 }
 
 

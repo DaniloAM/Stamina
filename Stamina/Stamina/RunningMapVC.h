@@ -26,6 +26,7 @@
 @property BOOL isRunning;
 @property BOOL userRouteIsDraw;
 @property BOOL isWaitingForPicture;
+@property BOOL updatingIsPossible;
 @property BOOL mapViewExpanded;
 
 @property SocialSharingVC *pictureViewController;

@@ -102,10 +102,42 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
     
-    [[self locationManager] startUpdatingLocation];
-    [[self mapRunningView] setShowsUserLocation:true];
+    NetworkStatus status = [reachability currentReachabilityStatus];
     
+    if (status == ReachableViaWWAN) {
+        [self setUpdatingIsPossible:true];
+        [[self locationManager] startUpdatingLocation];
+        [[self mapRunningView] setShowsUserLocation:true];
+    }
+    else if (status == ReachableViaWiFi)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"A conexão wi-fi não permite o uso do mapa. Habilite os dados móveis para uso do mapa." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        alertView.tag = 3;
+        
+        [alertView show];
+    }
+    
+    if(status == NotReachable)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"Sem conexão com a internet." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        alertView.tag = 2;
+        
+        [alertView show];
+    }
+    
+    
+    [reachability stopNotifier];
+
+    
+    //[[self locationManager] startUpdatingLocation];
+    //[[self mapRunningView] setShowsUserLocation:true];
+
     
     if([self isWaitingForPicture]) {
         [self setIsWaitingForPicture:false];
@@ -332,6 +364,8 @@
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Parar" message:@"Deseja parar a corrida?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
         
+        alertView.tag = 1;
+        
         [alertView show];
         
     }
@@ -340,6 +374,10 @@
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if(alertView.tag > 1) {
+        [self.navigationController popViewControllerAnimated:true];
+    }
     
     if (buttonIndex == 0) {
         return;
@@ -465,18 +503,18 @@
     
     float percent = (height - frame_min) / (frame_max - frame_min);
     
-    float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0, expandButton = 223.0;
+    float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0, expandButton = 208.0;
     
     
     //Check button and change image and action by flag
     if(height > frame_min + ((frame_max - frame_min) / 2)) {
         [self setMapViewExpanded:true];
-        //[[self expandButton] setBackgroundImage:@"" forState:nil];
+        [[self expandButton] setBackgroundImage:[UIImage imageNamed:@"drop_up_corrida.png"] forState:UIControlStateNormal];
     }
     
     else {
         [self setMapViewExpanded:false];
-        //[[self expandButton] setBackgroundImage:@"" forState:nil];
+        [[self expandButton] setBackgroundImage:[UIImage imageNamed:@"drop_down_corrida.png"] forState:UIControlStateNormal];
 
     }
     
@@ -620,7 +658,7 @@
 
 -(IBAction)fullAnimateTo {
     if([self mapViewExpanded]) {
-        [UIView animateWithDuration:0.275 animations:^{
+        [UIView animateWithDuration:0.4 animations:^{
             CGRect frame = [[self mapRunningView] frame];
             frame.size.height = frame_min;
             [[self mapRunningView] setFrame:frame];
@@ -629,7 +667,7 @@
     }
     
     else {
-        [UIView animateWithDuration:0.275 animations:^{
+        [UIView animateWithDuration:0.4 animations:^{
             CGRect frame = [[self mapRunningView] frame];
             frame.size.height = frame_max;
             [[self mapRunningView] setFrame:frame];

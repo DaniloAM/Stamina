@@ -12,7 +12,7 @@
 #import "WeatherCondition.h"
 #import "WebServiceResponse.h"
 
-@interface MenuRunningVC : HideBBVC
+@interface MenuRunningVC : HideBBVC <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIButton *calendarButton;

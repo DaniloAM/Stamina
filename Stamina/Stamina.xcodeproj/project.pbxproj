@@ -190,6 +190,8 @@
 		FF59113A1A39BA6D004208FA /* s_icone_serie.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911391A39BA6D004208FA /* s_icone_serie.png */; };
 		FF59113E1A39BD35004208FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EB6C1019D9DD5D00C528FC /* MapKit.framework */; };
 		FF59113F1A39BD58004208FA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15987519C0E32100D9236F /* FacebookSDK.framework */; };
+		FF933DEC1ABB710C00106C78 /* drop_down_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */; };
+		FF933DED1ABB710C00106C78 /* drop_up_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */; };
 		FF951BDD1A28E52A00E581AB /* GNComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = FF951BD61A28E52A00E581AB /* GNComponent.m */; };
 		FF951BDE1A28E52A00E581AB /* GraphicScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = FF951BD81A28E52A00E581AB /* GraphicScroller.m */; };
 		FF951BDF1A28E52A00E581AB /* GraphUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FF951BDA1A28E52A00E581AB /* GraphUpdater.m */; };
@@ -450,6 +452,9 @@
 		FF5911371A39BA5B004208FA /* icone_serie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_serie.png; sourceTree = "<group>"; };
 		FF5911391A39BA6D004208FA /* s_icone_serie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_icone_serie.png; sourceTree = "<group>"; };
 		FF59113B1A39BD26004208FA /* Stamina.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Stamina.xcodeproj; sourceTree = "<group>"; };
+		FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_down_corrida.png; sourceTree = "<group>"; };
+		FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_up_corrida.png; sourceTree = "<group>"; };
+		FF933DEE1ABC9BDB00106C78 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FF951BD51A28E52A00E581AB /* GNComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNComponent.h; sourceTree = "<group>"; };
 		FF951BD61A28E52A00E581AB /* GNComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNComponent.m; sourceTree = "<group>"; };
 		FF951BD71A28E52A00E581AB /* GraphicScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicScroller.h; sourceTree = "<group>"; };
@@ -777,6 +782,7 @@
 		FF15987319C0E2F000D9236F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF933DEE1ABC9BDB00106C78 /* CoreTelephony.framework */,
 				FF59113B1A39BD26004208FA /* Stamina.xcodeproj */,
 				C5F446D51A07DEA5005031C2 /* SystemConfiguration.framework */,
 				FFF51A5119E48066000BED6B /* Social.framework */,
@@ -930,6 +936,8 @@
 		FF1D8D9E1A38A9EF00E52110 /* Corrida */ = {
 			isa = PBXGroup;
 			children = (
+				FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */,
+				FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */,
 				FF1D8D9F1A38A9FC00E52110 /* icoen_tempo.png */,
 				FF1D8DA01A38A9FC00E52110 /* icone_bpm.png */,
 				FF1D8DA11A38A9FC00E52110 /* icone_calorias.png */,
@@ -1166,6 +1174,7 @@
 				C5B62C551A1527F600F969D8 /* icone_calendario_27.png in Resources */,
 				FF1D8DD81A38AAE100E52110 /* icone_cancelar_tab.png in Resources */,
 				7BDA2F961AB0C0290080044E /* arrow-up.png in Resources */,
+				FF933DEC1ABB710C00106C78 /* drop_down_corrida.png in Resources */,
 				7BB0BEF41AB75B2F0043260A /* icone_tempo_nublado.png in Resources */,
 				C5B62C0A1A1525F400F969D8 /* Lato-BlackItalic.ttf in Resources */,
 				C5B6B8671A39EE9B00792A8D /* 104001_01.png in Resources */,
@@ -1264,6 +1273,7 @@
 				FF1D8D801A38A89E00E52110 /* exercicio_teste2.png in Resources */,
 				C5B62C3B1A1527F600F969D8 /* icone_calendario_01.png in Resources */,
 				C5B62C521A1527F600F969D8 /* icone_calendario_24.png in Resources */,
+				FF933DED1ABB710C00106C78 /* drop_up_corrida.png in Resources */,
 				FF1D8D981A38A9B900E52110 /* icone_foto.png in Resources */,
 				C5B62C481A1527F600F969D8 /* icone_calendario_14.png in Resources */,
 				C5B6B86D1A39EFE400792A8D /* 103001_00.png in Resources */,
