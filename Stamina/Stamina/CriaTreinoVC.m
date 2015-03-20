@@ -18,6 +18,14 @@
     
     
     [super viewDidLoad];
+    UserData *user = [UserData alloc];
+    
+    
+    if([user offlineMode]){
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Modo Offlinne" message:@"Não é possível criar treino no modo Offilne" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     [self.navigationItem setTitle:@"Criar Treino"];
     _indexPath = Nil;
     _selected =1;

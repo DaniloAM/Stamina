@@ -52,6 +52,7 @@
 @property NSInteger timeAlarmBeforeTraining;
 @property BOOL sex;
 @property BOOL nextExercise;
+@property BOOL offlineMode;
 @property NSString *lastTrainName;
 @property NSDate *lastTrainDate, *startAppUse;
 @property NSString *nickName;

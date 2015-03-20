@@ -404,6 +404,9 @@
     return nil;
 }
 -(void)logout{
+    [self closeEverything];
+    [self hideLeftMenuAnimated:1];
+    [self hideBarWithAnimation:1];
     UserData *user = [UserData alloc];
     [user eraseData];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];

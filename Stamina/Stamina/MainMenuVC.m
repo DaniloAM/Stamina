@@ -43,6 +43,7 @@
 {
      JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
     [temp setPresenting:viewController];
+
 }
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController animated:(BOOL)animated

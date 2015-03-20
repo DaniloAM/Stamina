@@ -132,8 +132,19 @@
                                 <rect key="frame" x="75" y="78" width="170" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6ee-go-5xe">
+                                <rect key="frame" x="102" y="500" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Entrar sem Login">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginOffline" destination="h6A-wv-HXR" eventType="touchUpInside" id="YRK-Bp-X2h"/>
+                                </connections>
+                            </button>
                             <view alpha="0.59999999999999964" contentMode="scaleToFill" id="pc1-NZ-ySM">
-                                <rect key="frame" x="-1" y="0.0" width="321" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="cx9-nj-BAz">

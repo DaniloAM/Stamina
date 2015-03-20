@@ -55,12 +55,13 @@
     _nickName = nil;
     _email = nil;
     _password = nil;
+    _offlineMode = 1;
     [self deleteAllObjects:@"TrainingExercises"];
     [self deleteAllObjects:@"TrainingDayObject"];
     [self deleteAllObjects:@"TrajectoryFile"];
     [self deleteAllObjects:@"TrajectoryRoute"];
     [self deleteAllObjects:@"Training"];
-
+    [self saveOnUserDefaults];
 
 }
 -(void)addExerciseWithTrainingExercise: (TrainingExercises *)newExercise {
@@ -193,6 +194,7 @@
     [defaults setInteger:[self alerta] forKey:@"ud_alerta"];
     [defaults setBool:[self sex] forKey:@"ud_sex"];
     [defaults setBool:[self nextExercise] forKey:@"ud_next"];
+    [defaults setBool:[self offlineMode] forKey:@"ud_offlineMode"];
     [defaults setObject:[self startAppUse] forKey:@"ud_sap"];
     [defaults setObject:[self password] forKey:@"ud_pass"];
     [defaults setObject:[self nickName] forKey:@"ud_nickname"];
@@ -207,7 +209,7 @@
 -(void)loadFromUserDefaults {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+
     _timeInSeconds = (int)[defaults integerForKey:@"ud_timeinseconds"];
     _kilometers = [defaults floatForKey:@"ud_kilometers"];
     _name = [defaults objectForKey:@"ud_name"];
@@ -224,6 +226,8 @@
     _heightInCentimeters = (int)[defaults integerForKey:@"ud_height"];
     _weightInKilograms =(int)[defaults integerForKey:@"ud_weight"];
     _sex  = [defaults boolForKey:@"ud_sex"];
+    _offlineMode  = [defaults boolForKey:@"ud_offlineMode"];
+
     _age  = (int)[defaults integerForKey:@"ud_age"];
     _timeAlarmBeforeTraining = (int)[defaults integerForKey:@"ud_timebefore"];
     _userID = (int)[defaults integerForKey:@"ud_id"];

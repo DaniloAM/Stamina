@@ -22,6 +22,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     UserData *user = [UserData alloc];
+    if([user nickName]==nil){
+        [[self nickName] setText:@"Offline Mode"];
+    }
+    else
     [[self nickName] setText:[user nickName]];
     [[self caloria] setText:[NSString stringWithFormat:@"%d kcal",[user burnedCalories]]];
     [[self points] setText:[NSString stringWithFormat:@"%d P",[user userPoints]]];

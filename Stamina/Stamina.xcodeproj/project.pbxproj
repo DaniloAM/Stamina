@@ -507,8 +507,6 @@
 		C55E5C8A19FBC6E90019CD0F /* CriarTreino */ = {
 			isa = PBXGroup;
 			children = (
-				C561EBDD1A38F941002F3F6A /* LoginViewController.h */,
-				C561EBDE1A38F941002F3F6A /* LoginViewController.m */,
 				C53AAC0A1A1BB875000AD02C /* AddExerciseVC.h */,
 				C53AAC0B1A1BB875000AD02C /* AddExerciseVC.m */,
 				324E23C019E87FC400DA2FDE /* CategoriaVC.h */,
@@ -740,7 +738,8 @@
 		FF15972C19C0D9FF00D9236F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C5D4DA921A3560DC00FE2182 /* Academia */,
+				C561EBDD1A38F941002F3F6A /* LoginViewController.h */,
+				C561EBDE1A38F941002F3F6A /* LoginViewController.m */,
 				FFAC194119E319F300B17487 /* Cadastro */,
 				FF1D8D4A1A36004700E52110 /* Calendario */,
 				FF1D8D491A36003100E52110 /* Compartilhar */,
@@ -1054,6 +1053,7 @@
 		FFAC193E19E3172300B17487 /* Exercitar */ = {
 			isa = PBXGroup;
 			children = (
+				C5D4DA921A3560DC00FE2182 /* Academia */,
 				FFAC193F19E319D200B17487 /* Corrida */,
 			);
 			name = Exercitar;

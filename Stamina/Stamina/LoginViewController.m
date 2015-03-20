@@ -21,6 +21,20 @@
     }
     return self;
 }
+-(IBAction)loginOffline{
+    UserData *usr = [UserData alloc];
+    [usr setOfflineMode:YES];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Modo Offline" message:@"Algumas funções podem estar limitadas para o modo offline." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+    [self dismissViewControllerAnimated:NO completion:Nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *myVC;
+    myVC= (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+    
+    [self dismissViewControllerAnimated:NO completion:Nil];
+    
+    [self presentViewController:myVC animated:YES completion:nil];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self moveView:[self logo] withPoint:CGPointMake([self logo].frame.origin.x, 222) withDuration:0];
@@ -125,7 +139,8 @@
                         myVC= (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
                     
                     [self dismissViewControllerAnimated:NO completion:Nil];
-                    
+                    [userData setOfflineMode:NO];
+
                     [self presentViewController:myVC animated:YES completion:nil];
                     return;
                 }
@@ -138,6 +153,7 @@
                 else if ([str isEqualToString: @"error"]){
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Offline Mode" message:@"Não foi possível conectar com o servidor, você entrará em modo offline" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
+                    [userData setOfflineMode:YES];
                     [self dismissViewControllerAnimated:NO completion:Nil];
                     
                     myVC= (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
@@ -224,8 +240,9 @@
     self.viewBlock.hidden=NO;
     [self.view addSubview:_activity];
     dispatch_async(dispatch_get_main_queue(), ^{
+    UserData *usr = [UserData alloc];
 
-               if([self login].text.length>0&&[self password].text.length>0){
+    if([self login].text.length>0&&[self password].text.length>0){
     if ([self connected]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self buscaJson];
@@ -233,15 +250,17 @@
         
     }
     else {
-        UserData *usr = [UserData alloc];
         [usr setEmail:nil];
         [usr setName:nil];
         [usr setPassword:nil];
+        [usr setOfflineMode:YES];
         [self presentError:0 :@"Verifique a conexão com a internet"];
         return;
     }
         }
         else{
+            [usr setOfflineMode:YES];
+
             [self presentError:0 :@"Verifique seu email e/ou senha"];
             return;
         }
@@ -262,6 +281,7 @@
     [userData setPassword:[[self password] text]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *myVC = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+    [userData setOfflineMode:NO];
     [self dismissViewControllerAnimated:NO completion:Nil];
     [self presentViewController:myVC animated:YES completion:nil];
 }
