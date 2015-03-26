@@ -43,9 +43,15 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self showBarWithAnimation:true];
+    
+    [self firstButtonMethod:@selector(goHome)  fromClass:self  withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
+    [self secondButtonMethod:@selector(goToCalendar) fromClass:self  withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
+    [self thirdButtonMethod:@selector(goToRanking)  fromClass:self withImage:[UIImage imageNamed:@"icone_pontuacao_tab.png"]];
+    
 }
 
 -(IBAction)selectDistance {
@@ -126,6 +132,9 @@
     [[self nameTextField] setText:@""];
     [[self valueTextField] setText:@""];
     
+//    [[self nameTextField] resignFirstResponder];
+//    [[self valueTextField] resignFirstResponder];
+    
     [[self serieTableView] reloadData];
     
 }
@@ -176,7 +185,16 @@
     return cell;
 }
 
--(IBAction)test {
+
+-(IBAction)deleteSerie {
+    
+    [[self serieKit] removeLastSeriePart];
+    [[self serieTableView] reloadData];
+    
+}
+
+
+-(IBAction)start {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SeriesMapVC *myVC = (SeriesMapVC *)[storyboard instantiateViewControllerWithIdentifier:@"seriesMap"];
@@ -184,6 +202,32 @@
     //Receive the route to draw it
     [myVC receiveSerieKit:[self serieKit]];
     [self.navigationController pushViewController:myVC animated:YES];
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    [[self nameTextField] resignFirstResponder];
+    [[self valueTextField] resignFirstResponder];
+    
+}
+
+-(void)goHome {
+    [self popToRoot];
+}
+
+-(void)goToCalendar {
+    [self callViewWithName:@"Calendario"];
+}
+
+-(void)goToRanking {
     
 }
 

@@ -38,6 +38,9 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self showBarWithAnimation:true];
+    [self barBlock];
+    
     
     [self firstButtonMethod:@selector(goHome) fromClass:self withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:nil fromClass:self  withImage:[UIImage imageNamed:@"icone_info_user_tab.png"]];

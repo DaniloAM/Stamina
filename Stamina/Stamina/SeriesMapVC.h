@@ -12,6 +12,7 @@
 #import "FinishedRoute.h"
 #import "UIStaminaColor.h"
 #import "FinishedRunningVC.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import "SerieKit.h"
 
 @interface SeriesMapVC : HideBBVC <MKMapViewDelegate , CLLocationManagerDelegate, UIAlertViewDelegate>

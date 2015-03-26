@@ -29,6 +29,7 @@ typedef enum SerieType{
 @property NSString *name;
 @property NSInteger resultDistance;
 @property NSInteger resultTime;
+@property BOOL skipped;
 
 -(id)initWithValue: (NSInteger)value andName: (NSString *)name forType: (NSInteger)type;
 

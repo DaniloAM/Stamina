@@ -22,12 +22,12 @@
     
     [super viewDidLoad];
     [self.navigationController.navigationBar setHidden:YES];
-    [self setCameraView:[[AVCamPreviewView alloc] initWithFrame:CGRectMake(-25, 12, 370, 495)]];
+    [self setCameraView:[[AVCamPreviewView alloc] initWithFrame:CGRectMake(-61, 0, 443, 568)]];
     
     
-    [self setPictureButton:[[UIButton alloc] initWithFrame:CGRectMake(128, 427, 63, 63)]];
-    [self setCameraButton:[[UIButton alloc] initWithFrame:CGRectMake(16, 427, 63, 63)]];
-    [self setBackButton:[[UIButton alloc] initWithFrame:CGRectMake(241, 427, 63, 63)]];
+    [self setPictureButton:[[UIButton alloc] initWithFrame:CGRectMake(128, 487, 63, 63)]];
+    [self setCameraButton:[[UIButton alloc] initWithFrame:CGRectMake(16, 487, 63, 63)]];
+    [self setBackButton:[[UIButton alloc] initWithFrame:CGRectMake(241, 487, 63, 63)]];
     
     
     [[self pictureButton] setBackgroundImage:[UIImage imageNamed:@"icone_camerar_capturar.png"] forState:UIControlStateNormal];
@@ -61,7 +61,13 @@
     
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self menuBlock];
+    
+}
 
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -237,11 +243,11 @@
     _shareView.layer.masksToBounds = true;
     _shareView.center = self.view.center;
     
-    CGRect frame = [[self shareView] frame];
-    
-    frame.origin.y -= 100;
-    
-    [[self shareView] setFrame:frame];
+//    CGRect frame = [[self shareView] frame];
+//    
+//    frame.origin.y -= 100;
+//    
+//    [[self shareView] setFrame:frame];
     
     UIButton *facebookBtn, *instagramBtn;
     UIImageView *facebookIcon, *instagramIcon;

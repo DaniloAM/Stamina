@@ -384,7 +384,16 @@
     alert.tag = 1;
     
     [alert show];
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    [self performSelector:@selector(secondVibration) withObject:nil afterDelay:0.5];
 }
+
+
+-(void)secondVibration {
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
@@ -404,6 +413,11 @@
     _seriePart = [[self serieKit] getNextSerie];
     
     if(![self seriePart]) {
+        
+        //**FINISHED RUNNING**//
+        [self saveHistory];
+        [self performSelector:@selector(popToRoot) withObject:nil afterDelay:2.5];
+        
         return;
     }
     
@@ -429,6 +443,30 @@
     
 }
 
+
+-(IBAction)skipSerie {
+    
+    _seriePart.skipped = true;
+    
+    [self prepareNewSeriePart];
+    
+}
+
+-(void)saveHistory {
+    
+    UserData *user = [UserData alloc];
+    
+    [user setKilometers:[user kilometers] + (_distanceInMeters / 1000)];
+    
+    [user setTimeInSeconds:[user timeInSeconds] + _seconds + (_minutes  * 60)];
+    
+    //*********** MUST PUT CALORIES AND POINTS HERE ********//
+    //*********** MUST PUT CALORIES AND POINTS HERE ********//
+    //*********** MUST PUT CALORIES AND POINTS HERE ********//
+    
+    [user saveOnUserDefaults];
+    
+}
 
 -(void)back {
     [self.navigationController popViewControllerAnimated:true];

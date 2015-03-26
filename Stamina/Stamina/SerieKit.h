@@ -15,6 +15,7 @@
 @property NSInteger currentSerie;
 
 -(void)addSeriePart: (SeriePart *)part;
+-(void)removeLastSeriePart;
 -(void)startSeries;
 -(SeriePart *)getNextSerie;
 

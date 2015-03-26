@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stamina/TrajectorySelectionVC.m"
-            timestampString = "448480511.698512"
+            timestampString = "449092501.385076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>

@@ -24,6 +24,12 @@
     [[self series] addObject:part];
 }
 
+-(void)removeLastSeriePart {
+    
+    if([[self series] count] > 0)
+        [[self series] removeLastObject];
+}
+
 -(void)startSeries {
     [self setCurrentSerie:0];
 }

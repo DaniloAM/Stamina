@@ -11,7 +11,7 @@
 #import "SeriePart.h"
 #import "SeriesMapVC.h"
 
-@interface CreateTrajectoryVC : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface CreateTrajectoryVC : HideBBVC <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property BOOL distanceSelected;
 

@@ -37,6 +37,8 @@
     
     [super viewWillAppear:animated];
     
+    [self showBarWithAnimation:true];
+    
     [self firstButtonMethod:@selector(goHome)  fromClass:self  withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:@selector(goToCalendar) fromClass:self  withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
     [self thirdButtonMethod:@selector(createTrajectory)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
