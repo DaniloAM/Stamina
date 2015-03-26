@@ -133,7 +133,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6ee-go-5xe">
-                                <rect key="frame" x="102" y="500" width="117" height="30"/>
+                                <rect key="frame" x="102" y="485" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Entrar sem Login">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,7 +144,7 @@
                                 </connections>
                             </button>
                             <view alpha="0.59999999999999964" contentMode="scaleToFill" id="pc1-NZ-ySM">
-                                <rect key="frame" x="0.0" y="0.0" width="321" height="568"/>
+                                <rect key="frame" x="-1" y="0.0" width="321" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="cx9-nj-BAz">
@@ -351,7 +351,7 @@
         <!--Trajectory SelectionVC-->
         <scene sceneID="rAh-ab-3FC">
             <objects>
-                <viewController storyboardIdentifier="test" id="iZq-pg-Mof" customClass="TrajectorySelectionVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="trajectory" id="iZq-pg-Mof" customClass="TrajectorySelectionVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7sg-N2-eFd">
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -849,7 +849,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QEj-xY-d41">
-                                <rect key="frame" x="16" y="503" width="288" height="45"/>
+                                <rect key="frame" x="16" y="523" width="288" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Voltar">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

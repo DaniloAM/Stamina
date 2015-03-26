@@ -55,6 +55,8 @@
     _logoStart = image.frame.origin;
     _logo = image;
     _page.userInteractionEnabled = NO;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    [_scroll addGestureRecognizer:singleTap];
     
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     activityIndicator.alpha = 1.0;
@@ -66,7 +68,12 @@
     _temp.backgroundColor = [UIColor staminaBlackColor];
     _temp.opaque = NO;
 }
-
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
+{
+    for(UIView *view in self.arrayOfViews){
+        [view resignFirstResponder];
+    }
+}
 -(void)loadTxt{
     CGSize size = [[UIScreen mainScreen] bounds].size;
     int yUp = 655;
@@ -214,6 +221,10 @@
                 return error;
 
             }
+            if([self txtPassword].text.length<7){
+                error =12;
+                return error;
+            }
             break;
         case 3:
             if([self txtKg].text.length==0)
@@ -302,12 +313,14 @@
 
             break;
         case 10:
-            [[self lblError] setText:@"Cheque sua ALTURA"];
+            [[self lblError] setText:@"Cheque sua altura"];
 
             break;
         case 11:
             [[self lblError] setText:@"Cheque sua idade"];
-
+                    break;
+        case 12:
+            [[self lblError] setText:@"Senha muito pequena, minimo 6 digitos"];
             break;
      
     }
@@ -402,7 +415,7 @@
                 
                 break;
             case 4:
-                [label setText:@"ALTURA:"];
+                [label setText:@"Altura:"];
                 [view addSubview:label];
                 [view addSubview:[self txtCm]];
                 [[self txtCm] setPlaceholder:@"Cm"];
@@ -512,6 +525,7 @@
     _keyboardUp = NO;
 
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -519,6 +533,9 @@
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [_scroll endEditing:YES];
+   // [self.view endEditing:NO];
+    
+
 }
 - (NSTimeInterval)keyboardAnimationDurationForNotification:(NSNotification*)notification
 {

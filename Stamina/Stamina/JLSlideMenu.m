@@ -17,10 +17,10 @@
 #define perMenuOpen 10.0/100.0
 #define perBackView 20.0/100.0
 #define perBarOpen 14.0/100.0
-#define M1 4
-#define M2 3
-#define M3 2
-#define M4 3
+#define M1 0
+#define M2 0
+#define M3 0
+#define M4 0
 
 @interface JLSlideMenu ()
 
@@ -42,7 +42,6 @@
         [self createViewsToPresent];
     }
 }
-
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self hideBarWithAnimation:1];
@@ -68,9 +67,10 @@
 -(void)createButtonUp{
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGSize tabBarSize = [self tabBar].frame.size;
-    _btnUp = [[UIButton alloc] initWithFrame:CGRectMake(screenSize.width/2-tabBarSize.height/2, screenSize.height-tabBarSize.height, tabBarSize.height, tabBarSize.height)];
+    CGFloat size = 0.5*tabBarSize.height;
+    _btnUp = [[UIButton alloc] initWithFrame:CGRectMake(screenSize.width/2-size/2, screenSize.height-tabBarSize.height, size, size)];
     
-    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.height-tabBarSize.height, screenSize.height-tabBarSize.height)];
+    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _btnUp.frame.size.height, _btnUp.frame.size.height)];
     [_btnUp setBackgroundImage:[UIImage imageNamed:@"arrow-up.png"] forState:UIControlStateNormal];
     [_btnUp addSubview:view];
     [_btnUp addTarget:self action:@selector(addButtonUp) forControlEvents:UIControlEventTouchUpInside];
@@ -132,7 +132,7 @@
     float btnWidth =screenSize.width*80/885*1.5;
     float btnyStart =-20+self.navigationController.navigationBar.frame.size.height/2+btnWidth/10;
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(btnXStart,btnyStart, btnWidth, btnWidth)];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0.7*btn.frame.size.width, 0.7*btn.frame.size.height)];
     imageView.image =[UIImage imageNamed:@"icone_hamburguer.png"];
     [btn addSubview:imageView];
     [self.navigationController.navigationBar addSubview:btn];
@@ -162,7 +162,6 @@
     [self changePositionView:_tabBar toPoint:CGPointMake(0, newMenuPoint)];
     _btnUp.alpha =1-abs(screenSize.height- newMenuPoint)/_btnUp.frame.size.height;
 }
-
 -(void)panRecognized :(UIPanGestureRecognizer *)sender{
     CGPoint velocity = [sender velocityInView:self.view];
     
@@ -260,7 +259,6 @@
     [self changePositionView:_leftMenu toPoint:CGPointMake(barNewPoint, _leftMenu.frame.origin.y)];
     
 }
-
 -(void)checkPositionTabBar{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
     
@@ -333,6 +331,7 @@
         [self hideLeftMenu:1 withDuration:0.2];
 }
 //end show or hide bar and left menu
+
 // start effects view
 -(void)moveView: (UIView *)bigView withPoint: (CGPoint )point withDuration: (float)duration{
     [UIView beginAnimations:@"MoveView" context:nil];
@@ -372,15 +371,15 @@
         case 0:
             return @"    Stamina";
         case 1:
-            return @"    Compartilhar";
+            return @"    Calendário";
         case 2:
-            return @"    Desafiar";
+            return @"    Trajetos";
         case 3:
-            return @"    Resultados";
+            return @"    Exercícios";
         case 4:
-            return @"    Configurações";
+            return @"    Compartilhar";
         case 5:
-            return @"    Sair";
+            return @"    Resultados";
             
     }
     return nil;
@@ -703,22 +702,32 @@
     NSMutableArray *array = [NSMutableArray array];
     for(int x = 0 ; x < 6;x++){
         UIButton *startButton = [[UIButton alloc] initWithFrame:CGRectMake(0, x*cellMenuHeight*size.height, _leftWidthSize, cellMenuHeight*size.height)];
-        [[startButton titleLabel] setFont:[UIFont fontWithName:@"Lato" size:22]];
+        [[startButton titleLabel] setFont:[UIFont fontWithName:@"Lato" size:18]];
         [startButton setTitleColor:[UIColor staminaYellowColor] forState:UIControlStateNormal];
         [startButton setTitle:[self returnStringToButton:x] forState:UIControlStateNormal];
         startButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [_leftMenu addSubview:startButton];
         startButton.titleEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0);
-        [startButton addTarget:self action:[self returnSelectorToButton:x] forControlEvents:UIControlEventTouchUpInside];
+        //[startButton addTarget:self action:[self returnSelectorToButton:x] forControlEvents:UIControlEventTouchUpInside];
         [array addObject:startButton];
         
     }    [self setArrayOfButtons:[NSArray arrayWithArray:array]];
-    UIButton *btn  = [array objectAtIndex:4];
-    [btn addTarget:self action:@selector(configuracoes) forControlEvents:UIControlEventTouchUpInside];
-    [self setArrayFirstButton:[self alocaAndReturn:1 :M1]];
-    [self setSecondFirstButton:[self alocaAndReturn:2 :M2]];
-    [self setThirdFirstButton:[self alocaAndReturn:3 :M3]];
-    [self setFourthFirstButton:[self alocaAndReturn:4 :M4]];
+    UIButton *btn  = [array objectAtIndex:0];
+    [btn addTarget:self action:@selector(inicioButton) forControlEvents:UIControlEventTouchUpInside];
+    btn = [array objectAtIndex:1];
+    [btn addTarget:self action:@selector(calendarioButton) forControlEvents:UIControlEventTouchUpInside];
+    btn = [array objectAtIndex:2];
+    [btn addTarget:self action:@selector(trajetosButton) forControlEvents:UIControlEventTouchUpInside];
+    btn = [array objectAtIndex:3];
+    [btn addTarget:self action:@selector(exerciciosButton) forControlEvents:UIControlEventTouchUpInside];
+    btn = [array objectAtIndex:4];
+    [btn addTarget:self action:@selector(fotoAgoraButton) forControlEvents:UIControlEventTouchUpInside];
+    btn = [array objectAtIndex:5];
+    [btn addTarget:self action:@selector(resultadoButton) forControlEvents:UIControlEventTouchUpInside];
+//    [self setArrayFirstButton:[self alocaAndReturn:1 :M1]];
+//    [self setSecondFirstButton:[self alocaAndReturn:2 :M2]];
+//    [self setThirdFirstButton:[self alocaAndReturn:3 :M3]];
+//    [self setFourthFirstButton:[self alocaAndReturn:4 :M4]];
 }
 -(void)callViewWithName: (NSString *)str{
     [self closeEverything];
@@ -913,19 +922,22 @@
     [self callViewWithName:@"Inicio"];
 }
 -(void)trajetosButton{
-    
+    [self callViewWithName:@"trajectory"];
 }
 -(void)exerciciosButton{
-    
+    [self callViewWithName:@"CategoriaTVC"];
+
 }
 -(void)resultadoButton{
-    
+    [self callViewWithName:@"graphicView"];
+
 }
 -(void)fotoAgoraButton{
     [self callViewWithName:@"shareScreen"];
 }
 -(void)galeriaButton{
-    
+    [self callViewWithName:@"graphicView"];
+
 }
 -(void)fisicosButton{
     [self callViewWithName:@"graphicView"];

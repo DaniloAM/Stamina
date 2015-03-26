@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    [self.navigationController.navigationBar setHidden:YES];
     [self setCameraView:[[AVCamPreviewView alloc] initWithFrame:CGRectMake(-25, 12, 370, 495)]];
     
     
@@ -343,7 +343,10 @@
     
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+        [self.navigationController.navigationBar setHidden:NO];
+}
 //- (UIImage *)screenSnapshot {
 //    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
 //
