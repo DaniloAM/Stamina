@@ -284,6 +284,8 @@
         [self moveView:_tabBar withPoint:CGPointMake(0, screenSize.height) withDuration:0];
         
     }
+    [self calcShadow];
+
 }
 -(void)showBarWithAnimation : (BOOL)animated{
     CGSize screenSize= [[UIScreen mainScreen] bounds].size;
@@ -295,7 +297,7 @@
     
 }
 -(void)showLeftMenuWithAnimation: (BOOL )animated withDuration: (float)pos{
-    
+    [self calcShadow];
     if(animated)
         [self moveView:_leftMenu withPoint:CGPointMake(0, _leftMenu.frame.origin.y) withDuration:pos];
     else
