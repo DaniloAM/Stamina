@@ -25,6 +25,7 @@
     if(![exe arrayOfExercises]){
         [exe setArrayOfExercises:[NSMutableArray array]];
     }
+    [self barBlock];
     
     //[self firstButtonMethod:@selector(function1) fromClass:self withImage:nil];
     [super hideBarWithAnimation:1];
