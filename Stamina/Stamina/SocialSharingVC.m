@@ -68,6 +68,7 @@
     
     [super viewDidAppear:animated];
     [super hideBarWithAnimation:true];
+    [self barBlock];
     [[self userPictureView] setHidden:true];
     
     [self bringButtonsToFront];

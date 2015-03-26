@@ -10,7 +10,7 @@
 
 //Graphic size constant
 #define graphHeight 240.0
-#define graphWidth 300.0
+#define graphWidth 320.0
 #define borderIncrease 60.0
 
 //Graphic animation constant
@@ -56,6 +56,7 @@
     [self setMonthLabel:[[UILabel alloc] initWithFrame:CGRectMake(20, 50, 140, 100)]];
     [[self monthLabel] setNumberOfLines:2];
     [[self monthLabel] setFont:[UIFont fontWithName:[[self font] fontName] size:20.0]];
+    
     
     //basics inits
     [self setGraphLoadState:GSNormal];

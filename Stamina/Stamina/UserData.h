@@ -29,12 +29,23 @@
 
 @interface UserData : NSObject
 
+//Array of trainings and Routes
 @property NSMutableArray *trainingsArray;
 @property NSMutableArray *routesArray;
+
+//Personal Info
 @property NSString *name;
 @property int heightInCentimeters;
 @property int weightInKilograms;
-@property int currentObjective;
+@property BOOL sex;
+@property int age;
+
+//Login Info
+@property NSString *nickName;
+@property NSString *email;
+@property NSString *password;
+
+//History Info
 @property int completedTrainings;
 @property int bestSequence;
 @property int currentSequence;
@@ -42,22 +53,26 @@
 @property int burnedCalories;
 @property int lostWeight;
 @property int initialWeight;
-@property int groupID;
-@property int userID;
-@property int age;
-@property int language;
-@property int alerta;
+@property int currentObjective;
 @property int timeInSeconds;
 @property float kilometers;
-@property NSInteger timeAlarmBeforeTraining;
-@property BOOL sex;
 @property BOOL nextExercise;
+
+//Settings
 @property BOOL offlineMode;
+@property int language;
+@property int measure;
+@property int alerta;
+@property NSInteger timeAlarmBeforeTraining;
+
+//IDs
+@property int groupID;
+@property int userID;
+
+//ETC
 @property NSString *lastTrainName;
 @property NSDate *lastTrainDate, *startAppUse;
-@property NSString *nickName;
-@property NSString *email;
-@property NSString *password;
+
 
 
 -(void)clearTrainingFromCoreData;

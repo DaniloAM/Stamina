@@ -41,7 +41,7 @@
     
     [self firstButtonMethod:@selector(goHome) fromClass:self withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:nil fromClass:self  withImage:[UIImage imageNamed:@"icone_info_user_tab.png"]];
-    [self thirdButtonMethod:nil  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
+    [self thirdButtonMethod:@selector(createTrajectory)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
     
     
     
@@ -73,6 +73,10 @@
 
 -(void)goHome {
     [self popToRoot];
+}
+
+-(void)createTrajectory {
+    [self callViewWithName:@"CreateTrajectory"];
 }
 
 

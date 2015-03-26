@@ -70,8 +70,13 @@
     CGFloat size = 0.5*tabBarSize.height;
     _btnUp = [[UIButton alloc] initWithFrame:CGRectMake(screenSize.width/2-size/2, screenSize.height-tabBarSize.height, size, size)];
     
+<<<<<<< HEAD
     UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _btnUp.frame.size.height, _btnUp.frame.size.height)];
     [_btnUp setBackgroundImage:[UIImage imageNamed:@"arrow-up.png"] forState:UIControlStateNormal];
+=======
+    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.height-tabBarSize.height, screenSize.height-tabBarSize.height)];
+    [_btnUp setBackgroundImage:[UIImage imageNamed:@"icone_up_tabbar.png"] forState:UIControlStateNormal];
+>>>>>>> origin/master
     [_btnUp addSubview:view];
     [_btnUp addTarget:self action:@selector(addButtonUp) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:_btnUp];
