@@ -77,7 +77,9 @@
 
 -(void)clearTrainingFromCoreData;
 +(UserData *)sharedStore;
+
 -(NSArray *)returnTrainingWithName : (NSString *)trainingName;
+
 -(void)removeTraning: (NSString *)trainingName;
 -(void)addExerciseWithTrainingExercise: (TrainingExercises *)newExercise;
 -(void)allocArray;

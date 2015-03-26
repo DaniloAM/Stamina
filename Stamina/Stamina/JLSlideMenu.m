@@ -122,10 +122,7 @@
     [self.navigationController.view addGestureRecognizer:_panLeft];
 }
 -(void)createNavigationBar{
-    UIView *viewNavigation = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height)];
-    [viewNavigation setBackgroundColor:[UIColor staminaYellowColor]];
-    [self.navigationController.navigationBar addSubview:viewNavigation];
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor staminaYellowColor];
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     self.navigationController.navigationBar.translucent = NO;
     float btnXStart =screenSize.width*32/885;
