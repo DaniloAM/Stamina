@@ -71,7 +71,7 @@
     _btnUp = [[UIButton alloc] initWithFrame:CGRectMake(screenSize.width/2-tabBarSize.height/2, screenSize.height-tabBarSize.height, tabBarSize.height, tabBarSize.height)];
     
     UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.height-tabBarSize.height, screenSize.height-tabBarSize.height)];
-    [_btnUp setBackgroundImage:[UIImage imageNamed:@"arrow-up.png"] forState:UIControlStateNormal];
+    [_btnUp setBackgroundImage:[UIImage imageNamed:@"icone_up_tabbar.png"] forState:UIControlStateNormal];
     [_btnUp addSubview:view];
     [_btnUp addTarget:self action:@selector(addButtonUp) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.view addSubview:_btnUp];

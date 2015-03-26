@@ -192,6 +192,7 @@
 		FF59113F1A39BD58004208FA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15987519C0E32100D9236F /* FacebookSDK.framework */; };
 		FF933DEC1ABB710C00106C78 /* drop_down_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */; };
 		FF933DED1ABB710C00106C78 /* drop_up_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */; };
+		FF933DF21ABCAA2800106C78 /* icone_up_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DF11ABCAA2800106C78 /* icone_up_tabbar.png */; };
 		FF951BDD1A28E52A00E581AB /* GNComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = FF951BD61A28E52A00E581AB /* GNComponent.m */; };
 		FF951BDE1A28E52A00E581AB /* GraphicScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = FF951BD81A28E52A00E581AB /* GraphicScroller.m */; };
 		FF951BDF1A28E52A00E581AB /* GraphUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = FF951BDA1A28E52A00E581AB /* GraphUpdater.m */; };
@@ -200,6 +201,11 @@
 		FFAC18FF19DB200E00B17487 /* FinishedRunningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAC18FE19DB200E00B17487 /* FinishedRunningVC.m */; };
 		FFAC190B19DC86C400B17487 /* SocialSharingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAC190A19DC86C400B17487 /* SocialSharingVC.m */; };
 		FFAC193D19E3171C00B17487 /* HomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFAC193C19E3171C00B17487 /* HomeScreenVC.m */; };
+		FFB704BE1AC0A16400BF6E4A /* SerieKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704BD1AC0A16400BF6E4A /* SerieKit.m */; };
+		FFB704C11AC0A18D00BF6E4A /* SeriePart.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C01AC0A18D00BF6E4A /* SeriePart.m */; };
+		FFB704C41AC342BB00BF6E4A /* SeriesMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C31AC342BB00BF6E4A /* SeriesMapVC.m */; };
+		FFB704C61AC451B700BF6E4A /* CreateTrajectoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C51AC451B700BF6E4A /* CreateTrajectoryVC.m */; };
+		FFB704C91AC4793800BF6E4A /* MapTemplateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C81AC4793800BF6E4A /* MapTemplateVC.m */; };
 		FFB8BCC51A0AA17C00F9D8A7 /* RoutePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */; };
 		FFB8BCC81A0AA3DC00F9D8A7 /* TrajectoryRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */; };
 		FFF51A5219E48066000BED6B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF51A5119E48066000BED6B /* Social.framework */; };
@@ -455,6 +461,7 @@
 		FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_down_corrida.png; sourceTree = "<group>"; };
 		FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_up_corrida.png; sourceTree = "<group>"; };
 		FF933DEE1ABC9BDB00106C78 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FF933DF11ABCAA2800106C78 /* icone_up_tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_up_tabbar.png; sourceTree = "<group>"; };
 		FF951BD51A28E52A00E581AB /* GNComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNComponent.h; sourceTree = "<group>"; };
 		FF951BD61A28E52A00E581AB /* GNComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNComponent.m; sourceTree = "<group>"; };
 		FF951BD71A28E52A00E581AB /* GraphicScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicScroller.h; sourceTree = "<group>"; };
@@ -471,6 +478,16 @@
 		FFAC190A19DC86C400B17487 /* SocialSharingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharingVC.m; sourceTree = "<group>"; };
 		FFAC193B19E3171C00B17487 /* HomeScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenVC.h; sourceTree = "<group>"; };
 		FFAC193C19E3171C00B17487 /* HomeScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScreenVC.m; sourceTree = "<group>"; };
+		FFB704B91AC097AA00BF6E4A /* CreateTrajectoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTrajectoryVC.h; sourceTree = "<group>"; };
+		FFB704BC1AC0A16400BF6E4A /* SerieKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerieKit.h; sourceTree = "<group>"; };
+		FFB704BD1AC0A16400BF6E4A /* SerieKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerieKit.m; sourceTree = "<group>"; };
+		FFB704BF1AC0A18D00BF6E4A /* SeriePart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriePart.h; sourceTree = "<group>"; };
+		FFB704C01AC0A18D00BF6E4A /* SeriePart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriePart.m; sourceTree = "<group>"; };
+		FFB704C21AC342BB00BF6E4A /* SeriesMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesMapVC.h; sourceTree = "<group>"; };
+		FFB704C31AC342BB00BF6E4A /* SeriesMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesMapVC.m; sourceTree = "<group>"; };
+		FFB704C51AC451B700BF6E4A /* CreateTrajectoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTrajectoryVC.m; sourceTree = "<group>"; };
+		FFB704C71AC4793800BF6E4A /* MapTemplateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTemplateVC.h; sourceTree = "<group>"; };
+		FFB704C81AC4793800BF6E4A /* MapTemplateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTemplateVC.m; sourceTree = "<group>"; };
 		FFB8BCC31A0AA17C00F9D8A7 /* RoutePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutePicture.h; sourceTree = "<group>"; };
 		FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePicture.m; sourceTree = "<group>"; };
 		FFB8BCC61A0AA3DC00F9D8A7 /* TrajectoryRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryRoute.h; sourceTree = "<group>"; };
@@ -733,7 +750,6 @@
 			isa = PBXGroup;
 			children = (
 				FF794D7819CA28BA00808144 /* CoreData */,
-				FF951BD41A28E51300E581AB /* GraphicScroller */,
 				FF15977719C0DA3B00D9236F /* NSObjects */,
 				FF15972C19C0D9FF00D9236F /* ViewControllers */,
 			);
@@ -751,8 +767,6 @@
 				FFAC193E19E3172300B17487 /* Exercitar */,
 				C5D4DA911A3560C200FE2182 /* JLSlideMenu */,
 				FF1D8D521A36011C00E52110 /* Resultados */,
-				FF1C5C3819FADD3D00032DC9 /* CalendarInformationVC.h */,
-				FF1C5C3919FADD3D00032DC9 /* CalendarInformationVC.m */,
 				C5EB6BFE19D9DBD300C528FC /* FBLoginVC.h */,
 				C5EB6BFF19D9DBD300C528FC /* FBLoginVC.m */,
 				FFAC193B19E3171C00B17487 /* HomeScreenVC.h */,
@@ -764,6 +778,7 @@
 		FF15977719C0DA3B00D9236F /* NSObjects */ = {
 			isa = PBXGroup;
 			children = (
+				FF951BD41A28E51300E581AB /* GraphicScroller */,
 				FF1D8D4E1A3600A300E52110 /* Web */,
 				FF1D8D4D1A36009700E52110 /* Route */,
 				FF1D8D4C1A36008900E52110 /* User */,
@@ -806,6 +821,8 @@
 		FF1D8D4A1A36004700E52110 /* Calendario */ = {
 			isa = PBXGroup;
 			children = (
+				FF1C5C3819FADD3D00032DC9 /* CalendarInformationVC.h */,
+				FF1C5C3919FADD3D00032DC9 /* CalendarInformationVC.m */,
 				C5EB6BFC19D9DBD300C528FC /* UserCalendarVC.h */,
 				C5EB6BFD19D9DBD300C528FC /* UserCalendarVC.m */,
 			);
@@ -841,6 +858,10 @@
 		FF1D8D4D1A36009700E52110 /* Route */ = {
 			isa = PBXGroup;
 			children = (
+				FFB704BC1AC0A16400BF6E4A /* SerieKit.h */,
+				FFB704BD1AC0A16400BF6E4A /* SerieKit.m */,
+				FFB704BF1AC0A18D00BF6E4A /* SeriePart.h */,
+				FFB704C01AC0A18D00BF6E4A /* SeriePart.m */,
 				FF13E9D519E5BE160005BA49 /* RoutePointsCartesian.h */,
 				FF13E9D619E5BE160005BA49 /* RoutePointsCartesian.m */,
 				FF13E9D819E5BE330005BA49 /* FinishedRoute.h */,
@@ -989,6 +1010,7 @@
 		FF1D8DCC1A38AAB900E52110 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				FF933DF11ABCAA2800106C78 /* icone_up_tabbar.png */,
 				FF5911341A38DE3C004208FA /* CalendarTabbar */,
 				FF1D8DCD1A38AAE100E52110 /* icone_adicionar_tab.png */,
 				FF1D8DCE1A38AAE100E52110 /* icone_cancelar_tab.png */,
@@ -1082,6 +1104,12 @@
 				FF1C5D171A07EE6F00032DC9 /* StaminaExpandTV.m */,
 				FFB8BCC31A0AA17C00F9D8A7 /* RoutePicture.h */,
 				FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */,
+				FFB704B91AC097AA00BF6E4A /* CreateTrajectoryVC.h */,
+				FFB704C51AC451B700BF6E4A /* CreateTrajectoryVC.m */,
+				FFB704C21AC342BB00BF6E4A /* SeriesMapVC.h */,
+				FFB704C31AC342BB00BF6E4A /* SeriesMapVC.m */,
+				FFB704C71AC4793800BF6E4A /* MapTemplateVC.h */,
+				FFB704C81AC4793800BF6E4A /* MapTemplateVC.m */,
 			);
 			name = Corrida;
 			sourceTree = "<group>";
@@ -1212,6 +1240,7 @@
 				C561EBE21A38F959002F3F6A /* Splash.png in Resources */,
 				C5B6B86E1A39EFE400792A8D /* 103001_01.png in Resources */,
 				C5B62C411A1527F600F969D8 /* icone_calendario_07.png in Resources */,
+				FF933DF21ABCAA2800106C78 /* icone_up_tabbar.png in Resources */,
 				C5CDB83F1A3989830061B12A /* icone_tempo.png in Resources */,
 				FF1D8D991A38A9B900E52110 /* icone_trajeto_compartilhar.png in Resources */,
 				C5B62C0F1A1525F400F969D8 /* Lato-Heavy.ttf in Resources */,
@@ -1304,15 +1333,19 @@
 				C5EB6C0D19D9DBD300C528FC /* RunningMapVC.m in Sources */,
 				FF1D8D511A3600CA00E52110 /* StaminaUpdater.m in Sources */,
 				FF951BE31A28E52F00E581AB /* TrajectoryHistory.m in Sources */,
+				FFB704C61AC451B700BF6E4A /* CreateTrajectoryVC.m in Sources */,
 				C507251F1A396E5D007698F5 /* CriaTreinoVC.m in Sources */,
 				FF13E9DA19E5BE330005BA49 /* FinishedRoute.m in Sources */,
+				FFB704C91AC4793800BF6E4A /* MapTemplateVC.m in Sources */,
 				32F57C6F19EC4D16001BF6B2 /* ExercicioTVC.m in Sources */,
 				32F57C7219EC6838001BF6B2 /* MenuShouldOpen.m in Sources */,
 				C5D4DA801A34D91A00FE2182 /* ReadTXT.m in Sources */,
 				FF1596F619C0CBC900D9236F /* Stamina.xcdatamodeld in Sources */,
 				C52C27871A07EB690030BEA4 /* CadastroVC.m in Sources */,
+				FFB704C41AC342BB00BF6E4A /* SeriesMapVC.m in Sources */,
 				FFB8BCC51A0AA17C00F9D8A7 /* RoutePicture.m in Sources */,
 				FF159A4C19C21D1B00D9236F /* CoreDataLoading.m in Sources */,
+				FFB704C11AC0A18D00BF6E4A /* SeriePart.m in Sources */,
 				C52024471A26434300DDF73B /* ConfiguracoesVC.m in Sources */,
 				C5EB6BF819D9DB6B00C528FC /* CalendarObject.m in Sources */,
 				FF1C5CB91A001CD800032DC9 /* MenuRunningVC.m in Sources */,
@@ -1322,6 +1355,7 @@
 				C53AAC0C1A1BB875000AD02C /* AddExerciseVC.m in Sources */,
 				C5EB6C0919D9DBD300C528FC /* FBLoginVC.m in Sources */,
 				FFB8BCC81A0AA3DC00F9D8A7 /* TrajectoryRoute.m in Sources */,
+				FFB704BE1AC0A16400BF6E4A /* SerieKit.m in Sources */,
 				FF1C5D181A07EE6F00032DC9 /* StaminaExpandTV.m in Sources */,
 				C5EB6C0A19D9DBD300C528FC /* AVCamPreviewView.m in Sources */,
 				325F1FDA19E7091C00001EB0 /* AcademiaVC.m in Sources */,

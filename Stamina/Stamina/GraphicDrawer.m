@@ -9,7 +9,7 @@
 #import "GraphicDrawer.h"
 
 #define viewSizeNumber 5
-#define borderIncrease 55.0
+#define borderIncrease 55
 #define bottomSize 1.0
 
 #define labelHeight 25.0
@@ -78,7 +78,7 @@
     
     
     //Factors for the graphic
-    double graphHeight = _graphicFrame.size.height;
+    double graphHeight = _graphicFrame.size.height - (borderIncrease / 2);
     //double graphWidth = _graphicFrame.size.width;
     
     double heightFactor = (graphHeight - borderIncrease) / max;
@@ -94,11 +94,10 @@
     }
     
     
-    
     /*  Increase the frame by the size of the line,
      so the line doesnt cross the frame limit.    */
     
-    _graphicFrame.size.height += borderIncrease;
+    //**********_graphicFrame.size.height += borderIncrease;
     
     
 
@@ -197,7 +196,10 @@
             }
             
             
+            //*********CGRect labelRect = CGRectMake(labelPoint.x, labelPoint.y, widthFactor * 2, labelHeight);
+            
             CGRect labelRect = CGRectMake(labelPoint.x, labelPoint.y, widthFactor * 2, labelHeight);
+
             
             //Draw the label text in the context
             [label drawTextInRect:labelRect];
@@ -219,7 +221,7 @@
     UIGraphicsEndImageContext();
     
     
-    _graphicFrame.size.height -= borderIncrease;
+    //**********_graphicFrame.size.height -= borderIncrease;
     
     UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(_graphicFrame.origin.x, _graphicFrame.origin.y, _graphicFrame.size.width * viewSizeNumber, _graphicFrame.size.height)];
     

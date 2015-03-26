@@ -207,18 +207,18 @@
     
 }
 -(void)veTodosOsTreinosSalvos: (NSString *)str{
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [delegate managedObjectContext];
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TrainingExercises"];
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"training_name=%@",str];
-    [request setPredicate:pred];
-    NSError *error;
-    NSArray *obj = [context executeFetchRequest:request error:&error];
-    
-    for(int x=0 ; x < [obj count];x++){
-        TrainingExercises  *str = [obj objectAtIndex:x];
-        
-    }
+//    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext *context = [delegate managedObjectContext];
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TrainingExercises"];
+//    NSPredicate *pred = [NSPredicate predicateWithFormat:@"training_name=%@",str];
+//    [request setPredicate:pred];
+//    NSError *error;
+//    NSArray *obj = [context executeFetchRequest:request error:&error];
+//    
+//    for(int x=0 ; x < [obj count];x++){
+//        TrainingExercises  *str = [obj objectAtIndex:x];
+//        
+//    }
 }
 -(BOOL)hasTrainingWithName: (NSString *)str{
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];

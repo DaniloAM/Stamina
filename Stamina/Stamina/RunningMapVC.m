@@ -109,20 +109,21 @@
     NetworkStatus status = [reachability currentReachabilityStatus];
     
     if (status == ReachableViaWWAN) {
+        
         [self setUpdatingIsPossible:true];
         [[self locationManager] startUpdatingLocation];
         [[self mapRunningView] setShowsUserLocation:true];
     }
-    else if (status == ReachableViaWiFi)
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"A conexão wi-fi não permite o uso do mapa. Habilite os dados móveis para uso do mapa." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    else if (status == ReachableViaWiFi) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"A conexão wi-fi não permite o uso do mapa. Desabilite o Wifi e ligue os dados móveis." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         
         alertView.tag = 3;
         
         [alertView show];
     }
     
-    if(status == NotReachable)
+    else if(status == NotReachable)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"Sem conexão com a internet." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         
@@ -132,11 +133,11 @@
     }
     
     
-    [reachability stopNotifier];
+    //[reachability stopNotifier];
 
     
-    //[[self locationManager] startUpdatingLocation];
-    //[[self mapRunningView] setShowsUserLocation:true];
+    [[self locationManager] startUpdatingLocation];
+    [[self mapRunningView] setShowsUserLocation:true];
 
     
     if([self isWaitingForPicture]) {

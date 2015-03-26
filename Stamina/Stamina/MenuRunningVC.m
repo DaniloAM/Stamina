@@ -39,14 +39,14 @@
     
     [self firstButtonMethod:@selector(goHome)  fromClass:self  withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:@selector(goToCalendar) fromClass:self  withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
-    [self thirdButtonMethod:nil  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
+    [self thirdButtonMethod:@selector(createTrajectory)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
     
     
     [self performSelectorInBackground:@selector(showCurrentWeather) withObject:nil];
     
     NSString *deviceType = [UIDevice currentDevice].model;
     
-    if(![deviceType isEqualToString:@"iPhone"]) {
+    if([deviceType rangeOfString:@"iPhone"].location == NSNotFound) {
         NSLog(@"Device is not an iPhone. Running function not available");
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:deviceType message:[NSString stringWithFormat:@"A função corrida não esta disponível em um dispositivo do tipo %@.", deviceType] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -72,6 +72,10 @@
 
 -(void)goToCalendar {
     [self callViewWithName:@"Calendario"];
+}
+
+-(void)createTrajectory {
+    [self callViewWithName:@"CreateTrajectory"];
 }
 
 
