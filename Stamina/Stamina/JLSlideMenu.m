@@ -8,10 +8,10 @@
 
 #import "JLSlideMenu.h"
 #define shadowPer 80/100
-#define perOfLeftMenu 80/100
-#define heightLeftMenu 100/100
+#define perOfLeftMenu 80.0/100
+#define heightLeftMenu 100.0/100
 #define perYStart 0/100
-#define tabBarHeightPer 13/100
+#define tabBarHeightPer 10.0/100
 #define cellMenuHeight 11.3/100
 #define cellSubMenuHeight 8.3/100
 #define perMenuOpen 10.0/100.0

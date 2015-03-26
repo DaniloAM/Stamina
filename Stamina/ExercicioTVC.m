@@ -25,7 +25,6 @@
     if(![exe arrayOfExercises]){
         [exe setArrayOfExercises:[NSMutableArray array]];
     }
-    [self barBlock];
     
     //[self firstButtonMethod:@selector(function1) fromClass:self withImage:nil];
     [super hideBarWithAnimation:1];
@@ -74,6 +73,7 @@
     [self firstButtonMethod:@selector(firstButton) fromClass:self withImage:[UIImage staminaIconHome]];
     [self secondButtonMethod:@selector(secondButton) fromClass:self withImage:[UIImage staminaIconPlus]];
     [self thirdButtonMethod:@selector(thirdButton) fromClass:self withImage:[UIImage staminaIconCancel]];
+    [self barBlock];
 
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

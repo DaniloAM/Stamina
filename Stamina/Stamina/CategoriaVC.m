@@ -32,6 +32,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self hideBarWithAnimation:1];
+    [self barBlock];
 
 
 }

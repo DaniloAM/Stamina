@@ -60,7 +60,8 @@
 }
 -(void)hideBarWithAnimation: (BOOL)animation{
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
-    [temp hideBarWithAnimation:animation];
+    [temp setBotBarBlock:YES];
+    [[temp btnUp] removeFromSuperview];
 }
 -(void)loadTips{
     _pageTitles = [self returnExerciseWithIdentifier:[[[self exercise] exerciseID] intValue]];
