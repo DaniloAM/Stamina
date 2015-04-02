@@ -36,7 +36,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Stamina quer usar sua localização para a corrida.</string>
+	<string>Stamina wants to use your localization for running.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Semibold.ttf</string>

@@ -184,6 +184,7 @@
 		FF1D8DDF1A38AAE100E52110 /* icone_pontuacao_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1D8DD51A38AAE100E52110 /* icone_pontuacao_tab.png */; };
 		FF1D8DE01A38AAE100E52110 /* icone_voltar_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1D8DD61A38AAE100E52110 /* icone_voltar_tab.png */; };
 		FF1D8DE31A38AC1700E52110 /* UIStaminaButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1D8DE21A38AC1700E52110 /* UIStaminaButton.m */; };
+		FF2EEF791ACDCDC900288AD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEF7B1ACDCDC900288AD0 /* Localizable.strings */; };
 		FF5911331A38CC4E004208FA /* stamina_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911321A38CC4E004208FA /* stamina_logo.png */; };
 		FF5911361A38DE4F004208FA /* icone_calendario_tab_06.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911351A38DE4F004208FA /* icone_calendario_tab_06.png */; };
 		FF5911381A39BA5B004208FA /* icone_serie.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911371A39BA5B004208FA /* icone_serie.png */; };
@@ -261,7 +262,6 @@
 		C561EBE01A38F959002F3F6A /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		C561EBE11A38F959002F3F6A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C561EBE41A38F96A002F3F6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C561EBE61A38F980002F3F6A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C561EBE81A38FA3C002F3F6A /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		C561EBE91A38FA3C002F3F6A /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		C5968D961A225EB400092176 /* Traning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Traning.h; sourceTree = "<group>"; };
@@ -453,6 +453,10 @@
 		FF1D8DD61A38AAE100E52110 /* icone_voltar_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_voltar_tab.png; sourceTree = "<group>"; };
 		FF1D8DE11A38AC1700E52110 /* UIStaminaButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStaminaButton.h; sourceTree = "<group>"; };
 		FF1D8DE21A38AC1700E52110 /* UIStaminaButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStaminaButton.m; sourceTree = "<group>"; };
+		FF2EEF741ACDCC5500288AD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		FF2EEF761ACDCC6500288AD0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/Info.plist; sourceTree = "<group>"; };
+		FF2EEF7A1ACDCDC900288AD0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FF2EEF7C1ACDCDCA00288AD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF5911321A38CC4E004208FA /* stamina_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamina_logo.png; sourceTree = "<group>"; };
 		FF5911351A38DE4F004208FA /* icone_calendario_tab_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_calendario_tab_06.png; sourceTree = "<group>"; };
 		FF5911371A39BA5B004208FA /* icone_serie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_serie.png; sourceTree = "<group>"; };
@@ -674,6 +678,7 @@
 		FF1596E119C0CBC900D9236F = {
 			isa = PBXGroup;
 			children = (
+				FF2EEF7B1ACDCDC900288AD0 /* Localizable.strings */,
 				FF951BE11A28E52F00E581AB /* TrajectoryHistory.h */,
 				FF951BE21A28E52F00E581AB /* TrajectoryHistory.m */,
 				C5DB392E1A28D7400066E1BC /* icone_hamburguer.png */,
@@ -723,7 +728,7 @@
 		FF1596ED19C0CBC900D9236F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C561EBE61A38F980002F3F6A /* Info.plist */,
+				FF2EEF751ACDCC5500288AD0 /* Info.plist */,
 				FF1596EF19C0CBC900D9236F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1160,12 +1165,12 @@
 			};
 			buildConfigurationList = FF1596E519C0CBC900D9236F /* Build configuration list for PBXProject "Stamina" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = Portuguese;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				he,
+				pt,
 			);
 			mainGroup = FF1596E119C0CBC900D9236F;
 			productRefGroup = FF1596EB19C0CBC900D9236F /* Products */;
@@ -1283,6 +1288,7 @@
 				FF1D8D8B1A38A8DA00E52110 /* s_icone_academia.png in Resources */,
 				FF5911361A38DE4F004208FA /* icone_calendario_tab_06.png in Resources */,
 				C5B62C181A1525F400F969D8 /* Lato-SemiboldItalic.ttf in Resources */,
+				FF2EEF791ACDCDC900288AD0 /* Localizable.strings in Resources */,
 				FF1D8D821A38A89E00E52110 /* exercicio_teste4.png in Resources */,
 				7BB0BEF01AB75B2F0043260A /* icone_tempo_chuvisco.png in Resources */,
 				FF1D8DAC1A38A9FC00E52110 /* icone_km.png in Resources */,
@@ -1401,6 +1407,27 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		FF2EEF751ACDCC5500288AD0 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF2EEF741ACDCC5500288AD0 /* en */,
+				FF2EEF761ACDCC6500288AD0 /* pt */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		FF2EEF7B1ACDCDC900288AD0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF2EEF7A1ACDCDC900288AD0 /* pt */,
+				FF2EEF7C1ACDCDCA00288AD0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		FF15970B19C0CBC900D9236F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1436,7 +1463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1471,7 +1498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1489,7 +1516,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 				);
-				INFOPLIST_FILE = Stamina/Info.plist;
+				INFOPLIST_FILE = /Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/pt.lproj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1508,7 +1535,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
 				);
-				INFOPLIST_FILE = Stamina/Info.plist;
+				INFOPLIST_FILE = /Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/pt.lproj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
