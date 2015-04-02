@@ -103,35 +103,35 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-    
-    NetworkStatus status = [reachability currentReachabilityStatus];
-    
-    if (status == ReachableViaWWAN) {
-        
-        [self setUpdatingIsPossible:true];
-        [[self locationManager] startUpdatingLocation];
-        [[self mapRunningView] setShowsUserLocation:true];
-    }
-    else if (status == ReachableViaWiFi) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"A conexão wi-fi não permite o uso do mapa. Desabilite o Wifi e ligue os dados móveis." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        
-        alertView.tag = 3;
-        
-        [alertView show];
-    }
-    
-    else if(status == NotReachable)
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"Sem conexão com a internet." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        
-        alertView.tag = 2;
-        
-        [alertView show];
-    }
-    
+//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+//    [reachability startNotifier];
+//    
+//    NetworkStatus status = [reachability currentReachabilityStatus];
+//    
+//    if (status == ReachableViaWWAN) {
+//        
+//        [self setUpdatingIsPossible:true];
+//        [[self locationManager] startUpdatingLocation];
+//        [[self mapRunningView] setShowsUserLocation:true];
+//    }
+//    else if (status == ReachableViaWiFi) {
+//        
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"A conexão wi-fi não permite o uso do mapa. Desabilite o Wifi e ligue os dados móveis." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//        
+//        alertView.tag = 3;
+//        
+//        [alertView show];
+//    }
+//    
+//    else if(status == NotReachable)
+//    {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"Sem conexão com a internet." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//        
+//        alertView.tag = 2;
+//        
+//        [alertView show];
+//    }
+//    
     
     //[reachability stopNotifier];
 
