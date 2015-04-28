@@ -44,10 +44,11 @@
     _groupID = 0;
     _userID = 0;
     _age = 0;
-    _language = 0;
-    _alerta = 0;
-    _timeAlarmBeforeTraining = 0;
-    _sex = 0 ;
+//    _language = 0;
+//    _alerta = 0;
+//    _timeAlarmBeforeTraining = 0;
+    _sex = 0;
+    _meters = 0;
     _nextExercise = 0;
     _lastTrainName = nil;
     _lastTrainDate = nil;
@@ -180,19 +181,21 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setInteger:[self measure] forKey:@"ud_measure"];
+//    [defaults setInteger:[self measureDistance] forKey:@"ud_measureDistance"];
+//    [defaults setInteger:[self measureTemperature] forKey:@"ud_measureTemperature"];
+//    [defaults setInteger:[self measureHeight] forKey:@"ud_measureHeight"];
+//    [defaults setInteger:[self measureWeight] forKey:@"ud_measureWeight"];
+//    [defaults setInteger:[self timeAlarmBeforeTraining] forKey:@"ud_timebefore"];
+//    [defaults setInteger:[self language] forKey:@"ud_language"];
+//    [defaults setInteger:[self alerta] forKey:@"ud_alerta"];
     [defaults setInteger:[self timeInSeconds] forKey:@"ud_timeinseconds"];
-    [defaults setFloat:[self kilometers] forKey:@"ud_kilometers"];
-    [defaults setInteger:[self timeAlarmBeforeTraining] forKey:@"ud_timebefore"];
+    [defaults setDouble:[self meters] forKey:@"ud_kilometers"];
     [defaults setInteger:[self currentObjective] forKey:@"ud_co"];
     [defaults setInteger:[self completedTrainings] forKey:@"ud_ct"];
-    
     [defaults setInteger:[self age] forKey:@"ud_age"];
     [defaults setInteger:[self initialWeight] forKey:@"ud_initialweight"];
     [defaults setInteger:[self weightInKilograms] forKey:@"ud_weight"];
     [defaults setInteger:[self heightInCentimeters] forKey:@"ud_height"];
-    [defaults setInteger:[self language] forKey:@"ud_language"];
-    [defaults setInteger:[self alerta] forKey:@"ud_alerta"];
     [defaults setBool:[self sex] forKey:@"ud_sex"];
     [defaults setBool:[self nextExercise] forKey:@"ud_next"];
     [defaults setBool:[self offlineMode] forKey:@"ud_offlineMode"];
@@ -211,9 +214,15 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    _measure = (int)[defaults integerForKey:@"ud_measure"];
+//    _measureDistance = (int)[defaults integerForKey:@"ud_measureDistance"];
+//    _measureTemperature = (int)[defaults integerForKey:@"ud_measureTemperature"];
+//    _measureHeight = (int)[defaults integerForKey:@"ud_measureHeight"];
+//    _measureWeight = (int)[defaults integerForKey:@"ud_measureWeight"];
+//    _language = (int)[defaults integerForKey:@"ud_language"];
+//    _alerta = (int)[defaults integerForKey:@"ud_alerta"];
+//    _timeAlarmBeforeTraining = (int)[defaults integerForKey:@"ud_timebefore"];
     _timeInSeconds = (int)[defaults integerForKey:@"ud_timeinseconds"];
-    _kilometers = [defaults floatForKey:@"ud_kilometers"];
+    _meters = [defaults doubleForKey:@"ud_kilometers"];
     _name = [defaults objectForKey:@"ud_name"];
     _currentObjective = (int)[defaults integerForKey:@"ud_co"];
     _completedTrainings = (int)[defaults integerForKey:@"ud_ct"];
@@ -221,18 +230,23 @@
     _email = [defaults objectForKey:@"ud_email"];
     _nickName = [defaults objectForKey:@"ud_nickname"];
     _password = [defaults objectForKey:@"ud_pass"];
-    _language = (int)[defaults integerForKey:@"ud_language"];
-    _alerta = (int)[defaults integerForKey:@"ud_alerta"];
     _nextExercise  = [defaults boolForKey:@"ud_next"];
     _initialWeight = (int)[defaults integerForKey:@"ud_initialweight"];
     _heightInCentimeters = (int)[defaults integerForKey:@"ud_height"];
     _weightInKilograms =(int)[defaults integerForKey:@"ud_weight"];
     _sex  = [defaults boolForKey:@"ud_sex"];
     _offlineMode  = [defaults boolForKey:@"ud_offlineMode"];
-
     _age  = (int)[defaults integerForKey:@"ud_age"];
-    _timeAlarmBeforeTraining = (int)[defaults integerForKey:@"ud_timebefore"];
     _userID = (int)[defaults integerForKey:@"ud_id"];
+    
+    
+    //Load configurations from UserConfigurations
+    UserConfigurations *configurations = [[UserConfigurations alloc] init];
+
+    [configurations loadConfigurations];
+    
+    [WatchSharingData clearAllData];
+    
 }
 
 - (void) deleteAllObjects: (NSString *) entityDescription  {

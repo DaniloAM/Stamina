@@ -10,6 +10,7 @@
 #import "MenuShouldOpen.h"
 #include "HideBBVC.h"
 #import "UserData.h"
+#import "UnitConversion.h"
 @interface HomeScreenVC : HideBBVC
 @property (weak, nonatomic) IBOutlet UIButton *academiaBtn;
 @property (weak, nonatomic) IBOutlet UIButton *runningBtn;

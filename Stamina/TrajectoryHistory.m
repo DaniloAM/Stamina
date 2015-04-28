@@ -13,6 +13,7 @@
 
 +(NSArray *)returnArrayOfTrajectoryFiles {
     
+    
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TrajectoryFile"];

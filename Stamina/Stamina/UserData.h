@@ -26,6 +26,8 @@
 #import "UserTraining.h"
 #import "TrajectoryRoute.h"
 #import "CalendarObject.h"
+#import "WatchSharingData.h"
+#import "UserConfigurations.h"
 
 @interface UserData : NSObject
 
@@ -55,15 +57,21 @@
 @property int initialWeight;
 @property int currentObjective;
 @property int timeInSeconds;
-@property float kilometers;
+@property double meters;
 @property BOOL nextExercise;
 
-//Settings
+
 @property BOOL offlineMode;
-@property int language;
-@property int measure;
-@property int alerta;
-@property NSInteger timeAlarmBeforeTraining;
+
+//Settings
+//
+//@property int language;
+//@property int measureDistance;
+//@property int measureTemperature;
+//@property int measureHeight;
+//@property int measureWeight;
+//@property int alerta;
+//@property NSInteger timeAlarmBeforeTraining;
 
 //IDs
 @property int groupID;

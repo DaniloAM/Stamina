@@ -44,6 +44,14 @@
     [self firstButtonMethod:@selector(goHome)  fromClass:self  withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:@selector(goToCalendar) fromClass:self  withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
     [self thirdButtonMethod:@selector(goToRanking)  fromClass:self withImage:[UIImage imageNamed:@"icone_pontuacao_tab.png"]];
+    
+    UserData *user = [UserData alloc];
+    
+    [[self totalDistanceLabel] setText:[UnitConversion distanceFromMetric:[user meters]]];
+    
+    //CGPoint point = CGPointMake([[[self graphic] graphicScrollView] frame].size.width *1.5, 0);
+    
+    //[[[self graphic] graphicScrollView] setContentOffset:point];
 }
 
 -(void)goHome {

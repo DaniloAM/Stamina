@@ -15,8 +15,8 @@
 @implementation RunningMapVC
 
 #define reload 3
-#define frame_max 410.0
-#define frame_min 225.0
+//#define frame_max 410.0
+//#define frame_min 225.0
 
 #pragma mark - Receiver
 
@@ -51,6 +51,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setSharingWK:[[WatchSharingData alloc] init]];
+    [[self sharingWK] setRunningState:RSStopped];
+    [[self sharingWK] setIsRunning:true];
+    
     [self setPictureViewController:[[SocialSharingVC alloc] init]];
     [[self pictureViewController] setRoutePicture:true];
     
@@ -79,11 +83,21 @@
         [[self mapRunningView] addOverlay:_routeLine];
     }
     
+    [[self startButton] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
+    
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+//    [[self mapRunningView] layoutIfNeeded];
+//    
+//    CGRect frame = [[self mapRunningView] frame];
+//    
+//    frame.size.height = [[self view] frame].size.height * 0.4;
+//    
+//    [[self mapRunningView] setFrame:frame];
     
     [super hideBarWithAnimation:true];
     
@@ -91,11 +105,26 @@
     [self removeGesture];
     [self backViewBlock];
     
-    
+    //Check if can measure speed
     if(![CMMotionActivityManager isActivityAvailable]) {
         [[self speedLabel] setHidden:true];
         [[self speedIcon] setHidden:true];
     }
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack)];
+    
+    [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    [self.view addGestureRecognizer:swipe];
+    
+    [[self distanceLabel] setText:[UnitConversion distanceFromMetric:_distanceInMeters]];
+    
+    if(_isRunning) {
+        [[self sharingWK] setRunningState:RSRunning];
+    }
+    
+    _minHeight = [[self mapRunningView] frame].size.height;
+    _maxHeight = _minHeight * 1.82;
     
 }
 
@@ -103,37 +132,21 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-//    [reachability startNotifier];
-//    
-//    NetworkStatus status = [reachability currentReachabilityStatus];
-//    
-//    if (status == ReachableViaWWAN) {
-//        
-//        [self setUpdatingIsPossible:true];
-//        [[self locationManager] startUpdatingLocation];
-//        [[self mapRunningView] setShowsUserLocation:true];
-//    }
-//    else if (status == ReachableViaWiFi) {
-//        
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"A conexão wi-fi não permite o uso do mapa. Desabilite o Wifi e ligue os dados móveis." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//        
-//        alertView.tag = 3;
-//        
-//        [alertView show];
-//    }
-//    
-//    else if(status == NotReachable)
-//    {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:@"Sem conexão com a internet." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//        
-//        alertView.tag = 2;
-//        
-//        [alertView show];
-//    }
-//    
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
     
-    //[reachability stopNotifier];
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    
+    if(status == NotReachable) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:NSLocalizedString(@"Aviso003", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+        
+        alertView.tag = 2;
+        
+        [alertView show];
+    }
+    
+    
+    [reachability stopNotifier];
 
     
     [[self locationManager] startUpdatingLocation];
@@ -158,6 +171,8 @@
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:false];
     
+    //[[self timer] invalidate];
+    //_timer = nil;
 }
 
 
@@ -202,7 +217,9 @@
     }
     
     else {
-        [[self speedLabel] setText:[NSString stringWithFormat:@"%.01f Km/h", ([newLocation speed] * 3.6)]];
+        //[[self speedLabel] setText:[NSString stringWithFormat:@"%.01f Km/h", ([newLocation speed] * 3.6)]];
+        
+        [[self speedLabel] setText:[UnitConversion speedFromKilometersPerHour:[newLocation speed] * 3.6]];
     }
     
     [self updateTextInDistanceLabel];
@@ -300,25 +317,44 @@
 
 -(void)updateTextInTimeLabel {
     
-    [[self timeLabel] setText:[NSString stringWithFormat:@"%d:%02d:%02d", (_minutes / 60), (_minutes % 60), _seconds]];
+    NSString *timerString = [NSString stringWithFormat:@"%d:%02d:%02d", (_minutes / 60), (_minutes % 60), _seconds];
+    
+    [[self timeLabel] setText:timerString];
+    [[self sharingWK] setTimerString:timerString];
+    
+    [[self bpsLabel] setText:[NSString stringWithFormat:@"%d bps",[[self sharingWK] beatsPerSecond]]];
     
 }
 
 
 -(void)updateTextInDistanceLabel {
     
-    if(_distanceInMeters >= 1000.0f) {
-        [[self distanceLabel] setText:[NSString stringWithFormat:@"%.01f Km", _distanceInMeters / 1000]];
-    }
+    [[self distanceLabel] setText:[UnitConversion distanceFromMetric:_distanceInMeters]];
+    [[self sharingWK] setDistanceString:[[self distanceLabel] text]];
     
-    else {
-        [[self distanceLabel] setText:[NSString stringWithFormat:@"%d m", (int) _distanceInMeters]];
-    }
+}
+
+
+#pragma mark - Gesture methods
+
+-(void)swipeBack {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Parar", nil) message:NSLocalizedString(@"Aviso001", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Não", nil) otherButtonTitles:NSLocalizedString(@"Sim", nil), nil];
+    
+    alert.tag = 4;
+    
+    [alert show];
+    
+}
+
+-(void)goBack {
+    [self.navigationController popViewControllerAnimated:true];
     
 }
 
 
 #pragma mark - Buttons methods
+
 
 
 -(IBAction)takePlacePicture {
@@ -351,11 +387,13 @@
     
     if(![self isRunning]) {
         
-        [sender setTitle:@"Terminar" forState:UIControlStateNormal];
+        [sender setTitle:NSLocalizedString(@"Terminar", nil) forState:UIControlStateNormal];
         
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startReloadingUserPosition) userInfo:nil repeats:true];
         
         [self setIsRunning:true];
+        
+        [[self sharingWK] setRunningState:RSRunning];
     }
     
     
@@ -363,7 +401,7 @@
         
         //[sender setTitle:@"Iniciar" forState:UIControlStateNormal];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Parar" message:@"Deseja parar a corrida?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Parar", nil) message:NSLocalizedString(@"Aviso001", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Não", nil) otherButtonTitles:NSLocalizedString(@"Sim", nil), nil];
         
         alertView.tag = 1;
         
@@ -372,22 +410,6 @@
     }
     
 }
-
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    if(alertView.tag > 1) {
-        [self.navigationController popViewControllerAnimated:true];
-    }
-    
-    if (buttonIndex == 0) {
-        return;
-    }
-    if (buttonIndex == 1) {
-        [self finishRunning];
-    }
-}
-
 
 -(void)finishRunning {
     
@@ -420,7 +442,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FinishedRunningVC *myVC = (FinishedRunningVC *)[storyboard instantiateViewControllerWithIdentifier:@"finishedRunning"];
-
+    
     //Receive the route to draw it
     [myVC receiveRunningRoute:route];
     
@@ -428,10 +450,44 @@
     
 }
 
--(void)back {
-    [self.navigationController popViewControllerAnimated:true];
+
+#pragma mark - AlertView Delegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
+    
+    if(alertView.tag >= 2 && alertView.tag <= 3) {
+        [self.navigationController popViewControllerAnimated:true];
+    }
+    
+    
+    else if(alertView.tag == 4) {
+        
+        if(buttonIndex == 0) {
+            return;
+        }
+        
+        if(buttonIndex == 1) {
+            [WatchSharingData clearAllData];
+            [self goBack];
+        }
+    }
+    
+    else {
+        
+        if (buttonIndex == 0) {
+            return;
+        }
+        if (buttonIndex == 1) {
+            [[self sharingWK] setRunningState:RSReviewing];
+            [self finishRunning];
+        }
+        
+    }
 }
+
+
+#pragma mark - Animations methods
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
@@ -452,9 +508,9 @@
     
     if(touchPoint.y > [self height]) {
         
-        if([[self mapRunningView] frame].size.height >= frame_max) {
+        if([[self mapRunningView] frame].size.height >= _maxHeight) {
             
-            frame.size.height = frame_max;
+            frame.size.height = _maxHeight;
         }
         
         else {
@@ -468,9 +524,9 @@
     
     else if(touchPoint.y < [self height]) {
         
-        if([[self mapRunningView] frame].size.height <= frame_min) {
+        if([[self mapRunningView] frame].size.height <= _minHeight) {
             
-            frame.size.height = frame_min;
+            frame.size.height = _minHeight;
         }
         
         else {
@@ -481,13 +537,13 @@
         [[self mapRunningView]setFrame:frame];
     }
     
-    if(frame.size.height > frame_max) {
-        frame.size.height = frame_max;
+    if(frame.size.height > _maxHeight) {
+        frame.size.height = _maxHeight;
         [[self mapRunningView] setFrame:frame];
     }
     
-    else if(frame.size.height < frame_min) {
-        frame.size.height = frame_min;
+    else if(frame.size.height < _minHeight) {
+        frame.size.height = _minHeight;
         [[self mapRunningView] setFrame:frame];
     }
     
@@ -502,13 +558,13 @@
     //Data for math
     float height = [[self mapRunningView] frame].size.height;
     
-    float percent = (height - frame_min) / (frame_max - frame_min);
+    float percent = (height - _minHeight) / (_maxHeight - _minHeight);
     
     float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0, expandButton = 208.0;
     
     
     //Check button and change image and action by flag
-    if(height > frame_min + ((frame_max - frame_min) / 2)) {
+    if(height > _minHeight + ((_maxHeight - _minHeight) / 2)) {
         [self setMapViewExpanded:true];
         [[self expandButton] setBackgroundImage:[UIImage imageNamed:@"drop_up_corrida.png"] forState:UIControlStateNormal];
     }
@@ -540,7 +596,7 @@
         alpha = 0.0;
     }
     
-    positionChange = height - frame_min;
+    positionChange = height - _minHeight;
     
     //Distance Label Perform
     
@@ -661,7 +717,7 @@
     if([self mapViewExpanded]) {
         [UIView animateWithDuration:0.4 animations:^{
             CGRect frame = [[self mapRunningView] frame];
-            frame.size.height = frame_min;
+            frame.size.height = _minHeight;
             [[self mapRunningView] setFrame:frame];
             [self updateButtunsForm];
         }];
@@ -670,7 +726,7 @@
     else {
         [UIView animateWithDuration:0.4 animations:^{
             CGRect frame = [[self mapRunningView] frame];
-            frame.size.height = frame_max;
+            frame.size.height = _maxHeight;
             [[self mapRunningView] setFrame:frame];
             [self updateButtunsForm];
         }];

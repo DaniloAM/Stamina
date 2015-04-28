@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "GraphicScroller.h"
 #import "StaminaUpdater.h"
+#import "UnitConversion.h"
 #import "HideBBVC.h"
 
 @interface GraphResultsVC : HideBBVC
 
 @property GraphicScroller *graphic;
+@property (weak, nonatomic) IBOutlet UILabel *totalDistanceLabel;
 
 @end

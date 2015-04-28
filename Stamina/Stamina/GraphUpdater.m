@@ -312,7 +312,7 @@
     
     for(int x = 0; x < ([self numberInView] *5) + 2; x++) {
         GNComponent *comp = [[GNComponent alloc] init];
-        [comp setGraphicNumber:[NSNumber numberWithInteger:0]];
+        [comp setGraphicNumber:[NSNumber numberWithDouble:0.0]];
         [comp setGNDate:compDate];
         [numberArray addObject:comp];
         
@@ -351,10 +351,10 @@
         
         else {
         
-            NSInteger newValue = component.GraphicNumber.integerValue + [[[numberArray objectAtIndex:index] GraphicNumber] integerValue];
+            double newValue = component.GraphicNumber.doubleValue + [[[numberArray objectAtIndex:index] GraphicNumber] doubleValue];
             
             GNComponent *new = [[GNComponent alloc] init];
-            [new setGraphicNumber:[NSNumber numberWithInteger:newValue]];
+            [new setGraphicNumber:[NSNumber numberWithDouble:newValue]];
             [new setGNDate:component.GNDate];
             
             [numberArray replaceObjectAtIndex:index withObject:new];

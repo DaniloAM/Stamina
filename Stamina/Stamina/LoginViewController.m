@@ -151,7 +151,7 @@
                     
                 }
                 else if ([str isEqualToString: @"error"]){
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Offline Mode" message:@"Não foi possível conectar com o servidor, você entrará em modo offline" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Modo Offline", nil) message:NSLocalizedString(@"Aviso004", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil, nil];
                     [alert show];
                     [userData setOfflineMode:YES];
                     [self dismissViewControllerAnimated:NO completion:Nil];

@@ -10,6 +10,9 @@
 
 @interface MenuRunningVC ()
 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpace;
+
 @end
 
 @implementation MenuRunningVC
@@ -21,14 +24,6 @@
      NSDateComponents *comp = [[NSCalendar currentCalendar] components: NSCalendarUnitDay fromDate:date];
     
     [[self calendarButton] setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"icone_calendario_%02d.png", (int) comp.day]] forState:UIControlStateNormal];
-
-    
-//    UISwipeGestureRecognizer *backGest = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToHomeScreen)];
-//    
-//    backGest.direction = UISwipeGestureRecognizerDirectionRight;
-//    
-//    [self.view addGestureRecognizer:backGest];
-    
     
 }
 
@@ -46,7 +41,8 @@
     
     [self performSelectorInBackground:@selector(showCurrentWeather) withObject:nil];
     
-    NSString *deviceType = [UIDevice currentDevice].model;
+    //NSString *deviceType = [UIDevice currentDevice].model;
+    
     
 //    if([deviceType rangeOfString:@"iPhone"].location == NSNotFound) {
 //        NSLog(@"Device is not an iPhone. Running function not available");
@@ -55,6 +51,9 @@
 //        
 //        [alertView show];
 //    }
+    
+    [[self startButton] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
+    [[self trajectoryButton] setTitle:NSLocalizedString(@"Trajetos", nil) forState:UIControlStateNormal];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -101,16 +100,44 @@
         
         temperature -= 273;
         
+//        [UIView animateWithDuration:0.3 animations:^{
+//            
+//            //translatesAutoresizingMaskIntoConstraints = YES
+//            
+//            //[[self calendarButton] removeConstraint:self.centerCalendar];
+//            
+//            [[self calendarButton] setTranslatesAutoresizingMaskIntoConstraints:true];
+//            
+//            CGRect frame = [[self calendarButton] frame];
+//            frame.origin.x = 60;
+//            [[self calendarButton] setFrame:frame];
+//            
+//            [[self temperatureLabel] setHidden:false];
+//            [[self temperatureImage] setHidden:false];
+//            
+//            NSString *temp = [UnitConversion temperatureFromCelsius:temperature];
+//            //[NSString stringWithFormat:@"%d °C", (int) temperature];
+//            [[self temperatureLabel] setText:temp];
+//            
+//            //[self.view layoutIfNeeded];
+//            
+//        }];
+        
         [UIView animateWithDuration:0.3 animations:^{
             
-            CGRect frame = [[self calendarButton] frame];
-            frame.origin.x = 60;
-            [[self calendarButton] setFrame:frame];
+            //translatesAutoresizingMaskIntoConstraints = YES
+            
+            //[[self calendarButton] removeConstraint:self.centerCalendar];
+            
+            [[self horizontalSpace] setConstant:[[self horizontalSpace] constant] - 60];
+            
             [[self temperatureLabel] setHidden:false];
             [[self temperatureImage] setHidden:false];
             
-            NSString *temp = [NSString stringWithFormat:@"%d °C", (int) temperature];
+            NSString *temp = [UnitConversion temperatureFromCelsius:temperature];
             [[self temperatureLabel] setText:temp];
+            
+            [[self calendarButton] layoutIfNeeded];
             
         }];
         

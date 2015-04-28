@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GNComponent.h"
+#import "UnitConversion.h"
 
 @interface GraphicDrawer : NSObject
 

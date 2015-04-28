@@ -19,6 +19,7 @@
 -(void)receiveRunningRoute: (FinishedRoute *)runningRoute {
     
     _route = runningRoute;
+    _dateDone = [NSDate date];
     
 }
 
@@ -61,9 +62,9 @@
     
     [self.view addGestureRecognizer:rightSlide];
     
+    [[self routeNameTextField] setPlaceholder:NSLocalizedString(@"Nome do Trajeto", nil)];
+    
 }
-
-
 
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -130,13 +131,15 @@
 
 -(void)setTrajectoryInfo {
     
-    if(_route.distanceInMeters >= 1000.0f) {
-        [[self distanceLabel] setText:[NSString stringWithFormat:@"%.01f Km", _route.distanceInMeters / 1000]];
-    }
+//    if(_route.distanceInMeters >= 1000.0f) {
+//        [[self distanceLabel] setText:[NSString stringWithFormat:@"%.01f Km", _route.distanceInMeters / 1000]];
+//    }
+//    
+//    else {
+//        [[self distanceLabel] setText:[NSString stringWithFormat:@"%d m", (int) _route.distanceInMeters]];
+//    }
     
-    else {
-        [[self distanceLabel] setText:[NSString stringWithFormat:@"%d m", (int) _route.distanceInMeters]];
-    }
+    [[self distanceLabel] setText:[UnitConversion distanceFromMetric:_route.distanceInMeters]];
     
     [[self timeLabel] setText:[NSString stringWithFormat:@"%d:%02d:%02d", (_route.timeInMinutes / 60), (_route.timeInMinutes  % 60), _route.timeInSeconds]];
     
@@ -293,12 +296,14 @@
     
     
     [file setTrajectoryName:routeName];
-    [file setDateDone:[NSDate date]];
+    [file setDateDone:_dateDone];
     [file setDuration:[NSNumber numberWithInt:([_route timeInSeconds] + [_route timeInMinutes] * 60)]];
     [file setDistance:[NSNumber numberWithDouble:[_route distanceInMeters]]];
     
     
     [context save:&error];
+    
+    [self setFileIsSaved:true];
     
 }
 
@@ -306,7 +311,7 @@
     
     UserData *user = [UserData alloc];
     
-    [user setKilometers:[user kilometers] + (_route.distanceInMeters / 1000)];
+    [user setMeters:[user meters] + _route.distanceInMeters];
     
     [user setTimeInSeconds:[user timeInSeconds] + _route.timeInSeconds + (_route.timeInMinutes  * 60)];
     
@@ -315,6 +320,28 @@
     //*********** MUST PUT CALORIES AND POINTS HERE ********//
     
     [user saveOnUserDefaults];
+    
+    if(![self fileIsSaved]) {
+        
+        AppDelegate *app = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [app managedObjectContext];
+        NSError *error = nil;
+        
+        TrajectoryFile *file = [NSEntityDescription insertNewObjectForEntityForName:@"TrajectoryFile" inManagedObjectContext:context];
+        
+        
+        [file setTrajectoryName:@""];
+        [file setDateDone:_dateDone];
+        [file setDuration:[NSNumber numberWithInt:([_route timeInSeconds] + [_route timeInMinutes] * 60)]];
+        [file setDistance:[NSNumber numberWithDouble:[_route distanceInMeters]]];
+        
+        
+        [context save:&error];
+    }
+    
+    
+    //Clear data of apple watch and tells it to leave running screen
+    [WatchSharingData clearAllData];
     
 }
 

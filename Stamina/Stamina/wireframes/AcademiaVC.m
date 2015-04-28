@@ -24,6 +24,9 @@
     
     [self performSelectorInBackground:@selector(showCurrentWeather) withObject:nil];
     
+    [[self btn1] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
+    [[self btn2] setTitle:NSLocalizedString(@"Treino Livre", nil) forState:UIControlStateNormal];
+    
 }
 
 -(void)function1{
@@ -46,7 +49,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
  
-    [self.navigationItem setTitle:@"Academia"];
+    [self.navigationItem setTitle:NSLocalizedString(@"Academia", nil)];
     [[self btnCalendar] setBackgroundImage:[UIImage staminaIconCalendarDay] forState:UIControlStateNormal];
     [self btn1].backgroundColor = [UIColor staminaBlackColor];
     [self btn2].backgroundColor = [UIColor staminaBlackColor];
@@ -75,6 +78,7 @@
     else {
         
         temperature -= 273;
+
         
         [UIView animateWithDuration:0.3 animations:^{
             
@@ -86,7 +90,8 @@
             
             
             
-            NSString *temp = [NSString stringWithFormat:@"%d °C", (int) temperature];
+            NSString *temp = [UnitConversion temperatureFromCelsius:temperature];
+            //[NSString stringWithFormat:@"%d °C", (int) temperature];
             [[self temperatureLabel] setText:temp];
             
         }];

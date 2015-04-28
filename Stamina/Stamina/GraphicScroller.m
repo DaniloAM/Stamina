@@ -69,8 +69,9 @@
     [[self graphicScrollView] setFrame:[self graphicFrame]];
     [[self graphicScrollView] setContentSize:CGSizeMake(graphWidth * viewSizeNumber, graphHeight)];
     
-    [[self graphicScrollView] setShowsHorizontalScrollIndicator:NO];
-    [[self graphicScrollView] setShowsVerticalScrollIndicator:NO];
+    
+    //[[self graphicScrollView] setShowsHorizontalScrollIndicator:NO];
+    //[[self graphicScrollView] setShowsVerticalScrollIndicator:NO];
     
     
     
@@ -112,6 +113,8 @@
     
     [self prepareGraphicViews];
     [self reloadScrollViewGraphic];
+    
+    [[self graphicScrollView] setContentOffset:CGPointMake(graphWidth * 1.5, 0)];
     
 }
 
@@ -191,7 +194,15 @@
     
     [[self graphicScrollView] addSubview:[self currentGraphicView]];
     
-    [[self graphicScrollView] setContentOffset:CGPointMake(graphWidth * 2, 0)];
+    if([self graphLoadState] == GSExpanding || [self graphLoadState] == GSContracting) {
+        
+        [self setPositionAfterAnimation];
+        
+    }
+    
+    else {
+        [[self graphicScrollView] setContentOffset:CGPointMake(graphWidth * 2, 0)];
+    }
     
     [self performSelectorInBackground:@selector(loadNewGraphicByState) withObject:nil];
     
@@ -281,6 +292,8 @@
 
 
 -(void)performAnimationByGraphState {
+    
+    [self storePositionBeforeAnimation];
     
     UIView *view = [self copyOfView:[self currentGraphicView]];
     
@@ -463,7 +476,9 @@
 
 -(void)checkMonthLabel {
     
-    if([self graphLoadState] == GSLoadingNext || [self graphLoadState] ==  GSLoadingPrevious) {
+    NSLog(@"%f", [[self graphicScrollView] contentOffset].x);
+    
+    if([self graphLoadState] == GSLoadingNext || [self graphLoadState] ==  GSLoadingPrevious || [self transitionDate] != nil) {
         return;
     }
     
@@ -501,6 +516,101 @@
     //set label text with month and year
     [[self monthLabel] setText:[NSString stringWithFormat: @"%@\n%d", [formatter stringFromDate:[self monthDate]],(int) comp.year]];
     
+    
+}
+
+
+#pragma mark - position from animation
+
+
+-(void)storePositionBeforeAnimation {
+    
+    double widthFactor = [self graphicFrame].size.width / [[self updater] numberInView];
+    double point = [[self graphicScrollView] contentOffset].x + (graphWidth / 2);
+    
+    
+    if([[self updater] numberInView] % 2 != 0) {
+        point += widthFactor;
+    }
+    
+    double pointIndex = point / widthFactor;
+    
+    NSInteger componentIndex = pointIndex;
+    
+    if(pointIndex - componentIndex >= 0.5) {
+        componentIndex++;
+    }
+
+
+    GNComponent *component = [[self graphicComponents] objectAtIndex:componentIndex];
+    
+    [self setTransitionDate:[NSDate dateWithTimeInterval:0.0 sinceDate:component.GNDate]];
+    
+    
+}
+
+-(void)setPositionAfterAnimation {
+    
+    double widthFactor = [self graphicFrame].size.width / [[self updater] numberInView];
+    double point = [[self graphicScrollView] contentOffset].x + (graphWidth / 2.0);
+    
+    
+    if([[self updater] numberInView] % 2 != 0) {
+        point += widthFactor;
+    }
+    
+    double index = point / widthFactor;
+    
+    NSInteger componentIndex = index;
+    
+    if(index - componentIndex >= 0.5) {
+        componentIndex++;
+    }
+    
+    
+    GNComponent *component = [[self graphicComponents] objectAtIndex:componentIndex];
+    
+    NSInteger days = [self daysBetweenDate:component.GNDate andDate:[self transitionDate]];
+    
+    if([[self updater] dayIncreaser] == DIWeeksInMonths) {
+        double dif = days / 7.0;
+        days = dif;
+        if(dif - days >= 0.5) {
+            days++;
+        }
+        //point += widthFactor / 2.0;
+        //point -= graphWidth;
+    }
+    
+    point += (widthFactor * days);
+    //point += widthFactor;
+    point -= graphWidth / 2;
+    
+    [[self graphicScrollView] setContentOffset:CGPointMake(point, 0)];
+    
+    [self setTransitionDate:nil];
+    
+    NSLog(@"SET: %f", [[self graphicScrollView] contentOffset].x);
+    //[self performSelector:@selector(test) withObject:nil afterDelay:5.0];
+    
+}
+
+
+-(NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime {
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 

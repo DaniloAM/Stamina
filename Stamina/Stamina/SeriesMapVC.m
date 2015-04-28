@@ -456,7 +456,7 @@
     
     UserData *user = [UserData alloc];
     
-    [user setKilometers:[user kilometers] + (_distanceInMeters / 1000)];
+    [user setMeters:[user meters] + _distanceInMeters];
     
     [user setTimeInSeconds:[user timeInSeconds] + _seconds + (_minutes  * 60)];
     

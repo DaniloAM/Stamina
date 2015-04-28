@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fXM-WF-NVR">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Semibold.ttf">
+            <string>Lato-Semibold</string>
+            <string>Lato-Semibold</string>
+            <string>Lato-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--homeScreen-->
+        <scene sceneID="3WV-EF-SLj">
+            <objects>
+                <controller identifier="homeScreen" hidesWhenLoading="NO" id="fXM-WF-NVR" customClass="HomeInterface">
+                    <items>
+                        <imageView width="136" height="136" alignment="center" verticalAlignment="center" image="stamina_logo.png" id="Ctt-AS-0g6"/>
+                    </items>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="staminaIcon" destination="Ctt-AS-0g6" id="9Yy-h4-l54"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="187" y="181"/>
+        </scene>
+        <!--WatchRunning-->
+        <scene sceneID="LXx-e0-MNG">
+            <objects>
+                <controller identifier="WatchRunning" id="UPt-Bc-6yZ" customClass="InterfaceRunning">
+                    <items>
+                        <label width="136" height="29" alignment="center" text="560 m" textAlignment="center" id="wfD-hg-YIB">
+                            <color key="textColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="31"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="31"/>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="31"/>
+                            </variation>
+                        </label>
+                        <label width="136" height="56" alignment="center" verticalAlignment="center" text="0:00:00" textAlignment="center" id="U7H-fa-o8b">
+                            <color key="textColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="33"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="33"/>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="33"/>
+                            </variation>
+                        </label>
+                        <label width="136" height="49" alignment="center" verticalAlignment="bottom" text="120 bps" textAlignment="center" id="9YZ-ew-qyd">
+                            <color key="textColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" name="Lato-Semibold" family="Lato" pointSize="29"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="bpsLabel" destination="9YZ-ew-qyd" id="ch0-PN-8Wi"/>
+                        <outlet property="distanceLabel" destination="wfD-hg-YIB" id="5pv-N3-Oug"/>
+                        <outlet property="timeLabel" destination="U7H-fa-o8b" id="QoU-Jf-dKE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="187" y="417"/>
+        </scene>
+    </scenes>
+</document>

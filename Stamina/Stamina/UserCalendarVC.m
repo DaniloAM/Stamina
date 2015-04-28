@@ -11,6 +11,7 @@
 #define delay 0.15
 
 @interface UserCalendarVC ()
+@property (weak, nonatomic) IBOutlet UILabel *labelReference;
 
 @end
 
@@ -55,11 +56,28 @@
     
     [[self calendarScrollView] setCenter:self.view.center];
     
+    
     CGRect frame = [[self calendarScrollView] frame];
     
-    frame.origin.y -= 60;
+    frame.origin.y = _labelReference.frame.origin.y + 15;
     
     [[self calendarScrollView] setFrame:frame];
+    
+    CGRect frameTable = CGRectMake(20, 0, 270, 0);
+    
+    frameTable.origin.y = frame.origin.y + 20 + frame.size.height ;
+    
+    frameTable.size.height = self.view.frame.size.height - frameTable.origin.y - 70;
+    
+    [self setInfoTableView: [[UITableView alloc] initWithFrame:frameTable]];
+    [[self infoTableView] setRowHeight:35.0];
+    
+    [[self infoTableView] setDelegate:self];
+    [[self infoTableView] setDataSource:self];
+    [[self infoTableView]setBackgroundColor:[UIColor clearColor]];
+    [[self infoTableView] setSeparatorColor:[UIColor blackColor]];
+    
+    [self.view addSubview:[self infoTableView]];
     
     [self setLabelMatrix:[array objectAtIndex:1]];
     [self setButtonMatrix:[array objectAtIndex:2]];
@@ -89,14 +107,6 @@
     
     [super viewDidLoad];
     
-    [self setInfoTableView: [[UITableView alloc] initWithFrame:CGRectMake(20, 335, 271, 148)]];
-    [[self infoTableView] setRowHeight:35.0];
-    
-    [[self infoTableView] setDelegate:self];
-    [[self infoTableView] setDataSource:self];
-    [[self infoTableView]setBackgroundColor:[UIColor clearColor]];
-    [[self infoTableView] setSeparatorColor:[UIColor blackColor]];
-    
     [self setPreparer:[[CalendarPreparer alloc] init]];
     [self setCalendarScrollView:[[UIScrollView alloc]init]];
     
@@ -107,7 +117,7 @@
     _calendarYear = (int) comp.year;
     _locationNextMonth = -1;
     
-    [self.view addSubview:[self infoTableView]];
+    
     
     [self loadCalendarScrollView];
     

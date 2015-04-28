@@ -36,15 +36,15 @@
     
     UISwipeGestureRecognizer *gestDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(previousDayInformation)];
     
-    //UISwipeGestureRecognizer *gestRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToCalendar)];
+    UISwipeGestureRecognizer *gestRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToCalendar)];
     
     gestUp.direction = UISwipeGestureRecognizerDirectionUp;
     gestDown.direction = UISwipeGestureRecognizerDirectionDown;
-    //gestRight.direction = UISwipeGestureRecognizerDirectionRight;
+    gestRight.direction = UISwipeGestureRecognizerDirectionRight;
 
     [self.view addGestureRecognizer:gestUp];
     [self.view addGestureRecognizer:gestDown];
-    //[self.view addGestureRecognizer:gestRight];
+    [self.view addGestureRecognizer:gestRight];
     
 }
 
@@ -189,14 +189,17 @@
 
 -(void)backToCalendar {
     
-    UserCalendarVC *calendar = [self.navigationController.viewControllers objectAtIndex:0];
+    NSInteger index = [[[self navigationController] viewControllers] count] - 2;
+    
+    
+    UserCalendarVC *calendar = [self.navigationController.viewControllers objectAtIndex:index];
     
     NSDateComponents *comp = [[NSCalendar currentCalendar] components: NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[self date]];
     
     
     calendar.calendarMonth = (int) comp.month;
     calendar.calendarYear = (int) comp.year;
-    [self popToRoot];
+    [self popView];
 }
 
 

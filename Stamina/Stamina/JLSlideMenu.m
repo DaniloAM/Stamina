@@ -157,7 +157,7 @@
     if(newMenuPoint<screenSize.height-_tabHeightSize)
         return;
     [self changePositionView:_tabBar toPoint:CGPointMake(0, newMenuPoint)];
-    _btnUp.alpha =1-abs(screenSize.height- newMenuPoint)/_btnUp.frame.size.height;
+    _btnUp.alpha =1-fabs(screenSize.height- newMenuPoint)/_btnUp.frame.size.height;
 }
 -(void)panRecognized :(UIPanGestureRecognizer *)sender{
     CGPoint velocity = [sender velocityInView:self.view];
@@ -370,15 +370,15 @@
         case 0:
             return @"    Stamina";
         case 1:
-            return @"    Calendário";
+            return NSLocalizedString(@"    Calendário",nil);
         case 2:
-            return @"    Trajetos";
+            return NSLocalizedString(@"    Trajetos",nil);
         case 3:
-            return @"    Exercícios";
+            return NSLocalizedString(@"    Exercícios",nil);
         case 4:
-            return @"    Compartilhar";
+            return NSLocalizedString(@"    Compartilhar",nil);
         case 5:
-            return @"    Resultados";
+            return NSLocalizedString(@"    Resultados",nil);
             
     }
     return nil;

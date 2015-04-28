@@ -8,9 +8,10 @@
 
 #import "HideBBVC.h"
 #import "WeatherCondition.h"
+#import "UnitConversion.h"
 
 @interface AcademiaVC : HideBBVC 
-@property UIView *tabBar;
+//@property UIView *tabBar;
 @property CGPoint point;
 @property CGPoint startPointBar;
 @property (weak, nonatomic) IBOutlet UIImageView *temperatureImage;

@@ -14,6 +14,7 @@
 #import "UIStaminaColor.h"
 #import "UIStaminaButton.h"
 #import "UserData.h"
+#import "UnitConversion.h"
 
 @interface FinishedRunningVC : HideBBVC <UITextFieldDelegate>
 
@@ -30,7 +31,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *routeImageView;
 
+@property NSDate *dateDone;
+
 @property BOOL isWaitingPicture;
+@property BOOL fileIsSaved;
 @property BOOL isGoingHome;
 
 @property NSInteger state;

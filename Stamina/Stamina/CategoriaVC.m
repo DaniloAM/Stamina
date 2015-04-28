@@ -16,8 +16,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setFrontal:[NSArray arrayWithObjects:@"Abdominal",@"Ante-Braço",@"Bíceps",@"Ombros",@"Peitoral",@"Quadríceps",@"Trapézio",@"Tríceps", nil]];
-    [self setTraseiro:[NSArray arrayWithObjects:@"Ante-Braço",@"Bíceps",@"Dorsal",@"Glúteos",@"Lombar",@"Ombros",@"Panturrilha",@"Posterior de Coxa", @"Rombóides",@"Trapézio",@"Tríceps",nil]];
+    
+    [self setFrontal:[NSArray arrayWithObjects:
+                      NSLocalizedString(@"Abdominal",nil),
+                      NSLocalizedString(@"Ante-Braço",nil),
+                      NSLocalizedString(@"Bíceps",nil),
+                      NSLocalizedString(@"Ombros",nil),
+                      NSLocalizedString(@"Peitoral",nil),
+                      NSLocalizedString(@"Quadríceps",nil),
+                      NSLocalizedString(@"Trapézio",nil),
+                      NSLocalizedString(@"Tríceps",nil), nil]];
+    
+    [self setTraseiro:[NSArray arrayWithObjects:
+                       NSLocalizedString(@"Ante-Braço",nil),
+                       NSLocalizedString(@"Bíceps",nil),
+                       NSLocalizedString(@"Dorsal",nil),
+                       NSLocalizedString(@"Glúteos",nil),
+                       NSLocalizedString(@"Lombar",nil),
+                       NSLocalizedString(@"Ombros",nil),
+                       NSLocalizedString(@"Panturrilha",nil),
+                       NSLocalizedString(@"Posterior de Coxa",nil),
+                       NSLocalizedString(@"Rombóides",nil),
+                       NSLocalizedString(@"Trapézio",nil),
+                       NSLocalizedString(@"Tríceps",nil),nil]];
+    
     self.table.delegate = self;
     self.table.dataSource=self;
     [self.table setBackgroundColor:[UIColor clearColor]];
@@ -85,10 +107,10 @@
     switch (section)
     {
         case 0:
-            sectionName = NSLocalizedString(@"Frontal", @"Frontal");
+            sectionName = NSLocalizedString(@"Frontal", nil);
             break;
         case 1:
-            sectionName = NSLocalizedString(@"Traseiro", @"Traseiro");
+            sectionName = NSLocalizedString(@"Traseiro", nil);
             break;
 
     }

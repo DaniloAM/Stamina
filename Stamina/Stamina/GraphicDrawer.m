@@ -65,13 +65,13 @@
     
     
     //the max value
-    NSInteger max = 0;
+    double max = 0;
     
     
     for(GNComponent *number in array) {
         
-        if(number.GraphicNumber.integerValue > max) {
-            max = number.GraphicNumber.integerValue;
+        if(number.GraphicNumber.doubleValue > max) {
+            max = number.GraphicNumber.doubleValue;
         }
         
     }
@@ -89,7 +89,7 @@
     
     
     //Case of math error (X / 0)
-    if(max == 0) {
+    if(max == 0.0) {
         heightFactor = 0;
     }
     
@@ -123,7 +123,7 @@
         
         
         //Set point (A)
-        NSInteger valueA = [[[array objectAtIndex:index] GraphicNumber] integerValue];
+        double valueA = [[[array objectAtIndex:index] GraphicNumber] doubleValue];
         
         CGPoint pointA = CGPointMake(index * widthFactor,(graphHeight - borderIncrease) - (valueA * heightFactor) + (graphHeight / 20));
         
@@ -138,7 +138,7 @@
         }
         
         //Set point (B)
-        NSInteger valueB = [[[array objectAtIndex:index+1] GraphicNumber] integerValue];
+        double valueB = [[[array objectAtIndex:index+1] GraphicNumber] doubleValue];
         
         CGPoint pointB = CGPointMake((index + 1) * widthFactor, (graphHeight - borderIncrease) - (valueB * heightFactor) + (graphHeight / 20));
         
@@ -148,17 +148,19 @@
         if(index == 0)
             pointC = pointA;
         
-        else pointC = CGPointMake((index - 1) * widthFactor,(graphHeight - borderIncrease) - ([[[array objectAtIndex:index-1] GraphicNumber] integerValue] * heightFactor) + (graphHeight / 20));
+        else pointC = CGPointMake((index - 1) * widthFactor,(graphHeight - borderIncrease) - ([[[array objectAtIndex:index-1] GraphicNumber] doubleValue] * heightFactor) + (graphHeight / 20));
         
         
         //Check if the value is different from zero
-        if([[[array objectAtIndex:index] GraphicNumber] integerValue] > 0.0 || _showZeroValue) {
+        if([[[array objectAtIndex:index] GraphicNumber] doubleValue] > 0.0 || _showZeroValue) {
             
             //Prepare the label value
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, radius * 8, radius * 8)];
             [label setFont:[self graphFont]];
             [label setTextAlignment:NSTextAlignmentLeft];
-            [label setText:[NSString stringWithFormat:@"%dm",[[[array objectAtIndex:index] GraphicNumber] intValue]]];
+            double value = [[[array objectAtIndex:index] GraphicNumber] doubleValue];
+            [label setText:[UnitConversion distanceFromMetric:value]];
+            //[label setText:[NSString stringWithFormat:@"%dm",[[[array objectAtIndex:index] GraphicNumber] intValue]]];
             
             //Get angle of points to determine position of label
             CGPoint labelPoint = pointA;

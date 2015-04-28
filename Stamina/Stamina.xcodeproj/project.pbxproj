@@ -185,12 +185,19 @@
 		FF1D8DE01A38AAE100E52110 /* icone_voltar_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1D8DD61A38AAE100E52110 /* icone_voltar_tab.png */; };
 		FF1D8DE31A38AC1700E52110 /* UIStaminaButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1D8DE21A38AC1700E52110 /* UIStaminaButton.m */; };
 		FF2EEF791ACDCDC900288AD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEF7B1ACDCDC900288AD0 /* Localizable.strings */; };
+		FF2EEF821AD2F1D200288AD0 /* UnitConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEF811AD2F1D200288AD0 /* UnitConversion.m */; };
 		FF5911331A38CC4E004208FA /* stamina_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911321A38CC4E004208FA /* stamina_logo.png */; };
 		FF5911361A38DE4F004208FA /* icone_calendario_tab_06.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911351A38DE4F004208FA /* icone_calendario_tab_06.png */; };
 		FF5911381A39BA5B004208FA /* icone_serie.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911371A39BA5B004208FA /* icone_serie.png */; };
 		FF59113A1A39BA6D004208FA /* s_icone_serie.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911391A39BA6D004208FA /* s_icone_serie.png */; };
 		FF59113E1A39BD35004208FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EB6C1019D9DD5D00C528FC /* MapKit.framework */; };
-		FF59113F1A39BD58004208FA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF15987519C0E32100D9236F /* FacebookSDK.framework */; };
+		FF81D40D1ADD576800CEA531 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF81D40C1ADD576800CEA531 /* WatchKit.framework */; };
+		FF81D41E1ADD582C00CEA531 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF81D41D1ADD582C00CEA531 /* Images.xcassets */; };
+		FF81D4221ADD582C00CEA531 /* Stamina WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */; };
+		FF81D42C1ADD582C00CEA531 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF81D42B1ADD582C00CEA531 /* Images.xcassets */; };
+		FF81D42F1ADD582C00CEA531 /* Stamina WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FF81D4161ADD582C00CEA531 /* Stamina WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FF81D4371ADD594E00CEA531 /* Stamina WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */; };
+		FF81D43D1ADD5D8D00CEA531 /* WatchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */; };
 		FF933DEC1ABB710C00106C78 /* drop_down_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */; };
 		FF933DED1ABB710C00106C78 /* drop_up_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */; };
 		FF933DF21ABCAA2800106C78 /* icone_up_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DF11ABCAA2800106C78 /* icone_up_tabbar.png */; };
@@ -209,8 +216,56 @@
 		FFB704C91AC4793800BF6E4A /* MapTemplateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C81AC4793800BF6E4A /* MapTemplateVC.m */; };
 		FFB8BCC51A0AA17C00F9D8A7 /* RoutePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */; };
 		FFB8BCC81A0AA3DC00F9D8A7 /* TrajectoryRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */; };
+		FFF378731ADE9430009BEDE1 /* WatchSharingData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378721ADE9430009BEDE1 /* WatchSharingData.m */; };
+		FFF3787A1ADEB82D009BEDE1 /* HomeInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = FF81D4101ADD57B200CEA531 /* HomeInterface.m */; };
+		FFF3787C1ADEB833009BEDE1 /* InterfaceRunning.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378781ADEA154009BEDE1 /* InterfaceRunning.m */; };
+		FFF3787E1ADEB855009BEDE1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF3787D1ADEB855009BEDE1 /* FacebookSDK.framework */; };
+		FFF378821ADEB8BF009BEDE1 /* WatchSharingData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378721ADE9430009BEDE1 /* WatchSharingData.m */; };
+		FFF378831ADEB8C4009BEDE1 /* UnitConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEF811AD2F1D200288AD0 /* UnitConversion.m */; };
+		FFF378871ADEB95A009BEDE1 /* UserConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378861ADEB95A009BEDE1 /* UserConfigurations.m */; };
+		FFF378881ADEBB5A009BEDE1 /* UserConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378861ADEB95A009BEDE1 /* UserConfigurations.m */; };
+		FFF3788B1ADEC2FF009BEDE1 /* stamina_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FF5911321A38CC4E004208FA /* stamina_logo.png */; };
+		FFF3788C1ADECE5D009BEDE1 /* WatchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */; };
 		FFF51A5219E48066000BED6B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF51A5119E48066000BED6B /* Social.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF81D4231ADD582C00CEA531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF1596E219C0CBC900D9236F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF81D4201ADD582C00CEA531;
+			remoteInfo = "Stamina WatchKit App";
+		};
+		FF81D42D1ADD582C00CEA531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF1596E219C0CBC900D9236F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF81D4151ADD582C00CEA531;
+			remoteInfo = "Stamina WatchKit Extension";
+		};
+		FF81D4381ADD594E00CEA531 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF1596E219C0CBC900D9236F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF81D4201ADD582C00CEA531;
+			remoteInfo = "Stamina WatchKit App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FF81D4361ADD582C00CEA531 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FF81D42F1ADD582C00CEA531 /* Stamina WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		324E23C019E87FC400DA2FDE /* CategoriaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriaVC.h; sourceTree = "<group>"; };
@@ -457,11 +512,23 @@
 		FF2EEF761ACDCC6500288AD0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/Info.plist; sourceTree = "<group>"; };
 		FF2EEF7A1ACDCDC900288AD0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF2EEF7C1ACDCDCA00288AD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FF2EEF801AD2F1D200288AD0 /* UnitConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitConversion.h; sourceTree = "<group>"; };
+		FF2EEF811AD2F1D200288AD0 /* UnitConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitConversion.m; sourceTree = "<group>"; };
 		FF5911321A38CC4E004208FA /* stamina_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamina_logo.png; sourceTree = "<group>"; };
 		FF5911351A38DE4F004208FA /* icone_calendario_tab_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_calendario_tab_06.png; sourceTree = "<group>"; };
 		FF5911371A39BA5B004208FA /* icone_serie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_serie.png; sourceTree = "<group>"; };
 		FF5911391A39BA6D004208FA /* s_icone_serie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_icone_serie.png; sourceTree = "<group>"; };
 		FF59113B1A39BD26004208FA /* Stamina.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Stamina.xcodeproj; sourceTree = "<group>"; };
+		FF81D40C1ADD576800CEA531 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		FF81D40F1ADD57B200CEA531 /* HomeInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInterface.h; sourceTree = "<group>"; };
+		FF81D4101ADD57B200CEA531 /* HomeInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInterface.m; sourceTree = "<group>"; };
+		FF81D4161ADD582C00CEA531 /* Stamina WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stamina WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF81D4191ADD582C00CEA531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF81D41D1ADD582C00CEA531 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stamina WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF81D4271ADD582C00CEA531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF81D42B1ADD582C00CEA531 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WatchStoryboard.storyboard; sourceTree = "<group>"; };
 		FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_down_corrida.png; sourceTree = "<group>"; };
 		FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drop_up_corrida.png; sourceTree = "<group>"; };
 		FF933DEE1ABC9BDB00106C78 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -496,6 +563,15 @@
 		FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePicture.m; sourceTree = "<group>"; };
 		FFB8BCC61A0AA3DC00F9D8A7 /* TrajectoryRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryRoute.h; sourceTree = "<group>"; };
 		FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryRoute.m; sourceTree = "<group>"; };
+		FFF378711ADE9430009BEDE1 /* WatchSharingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSharingData.h; sourceTree = "<group>"; };
+		FFF378721ADE9430009BEDE1 /* WatchSharingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSharingData.m; sourceTree = "<group>"; };
+		FFF378771ADEA154009BEDE1 /* InterfaceRunning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceRunning.h; sourceTree = "<group>"; };
+		FFF378781ADEA154009BEDE1 /* InterfaceRunning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceRunning.m; sourceTree = "<group>"; };
+		FFF3787D1ADEB855009BEDE1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		FFF378851ADEB95A009BEDE1 /* UserConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserConfigurations.h; sourceTree = "<group>"; };
+		FFF378861ADEB95A009BEDE1 /* UserConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserConfigurations.m; sourceTree = "<group>"; };
+		FFF378891ADEBD50009BEDE1 /* Stamina.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Stamina.entitlements; sourceTree = "<group>"; };
+		FFF3788A1ADEBD75009BEDE1 /* Stamina WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Stamina WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		FFF51A5119E48066000BED6B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -504,10 +580,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF59113F1A39BD58004208FA /* FacebookSDK.framework in Frameworks */,
+				FFF3787E1ADEB855009BEDE1 /* FacebookSDK.framework in Frameworks */,
+				FF81D40D1ADD576800CEA531 /* WatchKit.framework in Frameworks */,
 				FF59113E1A39BD35004208FA /* MapKit.framework in Frameworks */,
 				C5F446D61A07DEA5005031C2 /* SystemConfiguration.framework in Frameworks */,
 				FFF51A5219E48066000BED6B /* Social.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF81D4131ADD582C00CEA531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +768,8 @@
 				C5DB392E1A28D7400066E1BC /* icone_hamburguer.png */,
 				FF1596EC19C0CBC900D9236F /* Stamina */,
 				FF15970619C0CBC900D9236F /* StaminaTests */,
+				FF81D4171ADD582C00CEA531 /* Stamina WatchKit Extension */,
+				FF81D4251ADD582C00CEA531 /* Stamina WatchKit App */,
 				FF1596EB19C0CBC900D9236F /* Products */,
 				FF15987319C0E2F000D9236F /* Frameworks */,
 			);
@@ -693,6 +779,8 @@
 			isa = PBXGroup;
 			children = (
 				FF1596EA19C0CBC900D9236F /* Stamina.app */,
+				FF81D4161ADD582C00CEA531 /* Stamina WatchKit Extension.appex */,
+				FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -700,9 +788,12 @@
 		FF1596EC19C0CBC900D9236F /* Stamina */ = {
 			isa = PBXGroup;
 			children = (
+				FFF378891ADEBD50009BEDE1 /* Stamina.entitlements */,
 				FF15972B19C0D9EE00D9236F /* Classes */,
 				FF1596F119C0CBC900D9236F /* AppDelegate.h */,
 				FF1596F219C0CBC900D9236F /* AppDelegate.m */,
+				FFF378711ADE9430009BEDE1 /* WatchSharingData.h */,
+				FFF378721ADE9430009BEDE1 /* WatchSharingData.m */,
 				C52024451A26434300DDF73B /* ConfiguracoesVC.h */,
 				C52024461A26434300DDF73B /* ConfiguracoesVC.m */,
 				C5B62BEC1A14056000F969D8 /* Main.storyboard */,
@@ -754,6 +845,7 @@
 		FF15972B19C0D9EE00D9236F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FF81D40E1ADD577200CEA531 /* InterfaceControllers */,
 				FF794D7819CA28BA00808144 /* CoreData */,
 				FF15977719C0DA3B00D9236F /* NSObjects */,
 				FF15972C19C0D9FF00D9236F /* ViewControllers */,
@@ -802,6 +894,8 @@
 		FF15987319C0E2F000D9236F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFF3787D1ADEB855009BEDE1 /* FacebookSDK.framework */,
+				FF81D40C1ADD576800CEA531 /* WatchKit.framework */,
 				FF933DEE1ABC9BDB00106C78 /* CoreTelephony.framework */,
 				FF59113B1A39BD26004208FA /* Stamina.xcodeproj */,
 				C5F446D51A07DEA5005031C2 /* SystemConfiguration.framework */,
@@ -854,8 +948,12 @@
 			children = (
 				C561EBE81A38FA3C002F3F6A /* UserData.h */,
 				C561EBE91A38FA3C002F3F6A /* UserData.m */,
+				FFF378851ADEB95A009BEDE1 /* UserConfigurations.h */,
+				FFF378861ADEB95A009BEDE1 /* UserConfigurations.m */,
 				FF17BDBE19CA2E5600B5EF46 /* UserTraining.h */,
 				FF17BDBF19CA2E5600B5EF46 /* UserTraining.m */,
+				FF2EEF801AD2F1D200288AD0 /* UnitConversion.h */,
+				FF2EEF811AD2F1D200288AD0 /* UnitConversion.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -1068,6 +1166,53 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		FF81D40E1ADD577200CEA531 /* InterfaceControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF81D40F1ADD57B200CEA531 /* HomeInterface.h */,
+				FF81D4101ADD57B200CEA531 /* HomeInterface.m */,
+				FFF378771ADEA154009BEDE1 /* InterfaceRunning.h */,
+				FFF378781ADEA154009BEDE1 /* InterfaceRunning.m */,
+			);
+			name = InterfaceControllers;
+			sourceTree = "<group>";
+		};
+		FF81D4171ADD582C00CEA531 /* Stamina WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FFF3788A1ADEBD75009BEDE1 /* Stamina WatchKit Extension.entitlements */,
+				FF81D41D1ADD582C00CEA531 /* Images.xcassets */,
+				FF81D4181ADD582C00CEA531 /* Supporting Files */,
+			);
+			path = "Stamina WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		FF81D4181ADD582C00CEA531 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF81D4191ADD582C00CEA531 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF81D4251ADD582C00CEA531 /* Stamina WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */,
+				FF81D42B1ADD582C00CEA531 /* Images.xcassets */,
+				FF81D4261ADD582C00CEA531 /* Supporting Files */,
+			);
+			path = "Stamina WatchKit App";
+			sourceTree = "<group>";
+		};
+		FF81D4261ADD582C00CEA531 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF81D4271ADD582C00CEA531 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FF951BD41A28E51300E581AB /* GraphicScroller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,15 +1283,51 @@
 				FF1596E619C0CBC900D9236F /* Sources */,
 				FF1596E719C0CBC900D9236F /* Frameworks */,
 				FF1596E819C0CBC900D9236F /* Resources */,
+				FF81D4361ADD582C00CEA531 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FF81D42E1ADD582C00CEA531 /* PBXTargetDependency */,
+				FF81D4391ADD594E00CEA531 /* PBXTargetDependency */,
 			);
 			name = Stamina;
 			productName = Stamina;
 			productReference = FF1596EA19C0CBC900D9236F /* Stamina.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FF81D4151ADD582C00CEA531 /* Stamina WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF81D4331ADD582C00CEA531 /* Build configuration list for PBXNativeTarget "Stamina WatchKit Extension" */;
+			buildPhases = (
+				FF81D4121ADD582C00CEA531 /* Sources */,
+				FF81D4131ADD582C00CEA531 /* Frameworks */,
+				FF81D4141ADD582C00CEA531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF81D4241ADD582C00CEA531 /* PBXTargetDependency */,
+			);
+			name = "Stamina WatchKit Extension";
+			productName = "Stamina WatchKit Extension";
+			productReference = FF81D4161ADD582C00CEA531 /* Stamina WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		FF81D4201ADD582C00CEA531 /* Stamina WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF81D4301ADD582C00CEA531 /* Build configuration list for PBXNativeTarget "Stamina WatchKit App" */;
+			buildPhases = (
+				FF81D41F1ADD582C00CEA531 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stamina WatchKit App";
+			productName = "Stamina WatchKit App";
+			productReference = FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
 		};
 /* End PBXNativeTarget section */
 
@@ -1159,7 +1340,25 @@
 				TargetAttributes = {
 					FF1596E919C0CBC900D9236F = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = FEMX6BFS4F;
+						DevelopmentTeam = H7TBMF35F6;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					FF81D4151ADD582C00CEA531 = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = H7TBMF35F6;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					FF81D4201ADD582C00CEA531 = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = H7TBMF35F6;
 					};
 				};
 			};
@@ -1184,6 +1383,8 @@
 			projectRoot = "";
 			targets = (
 				FF1596E919C0CBC900D9236F /* Stamina */,
+				FF81D4151ADD582C00CEA531 /* Stamina WatchKit Extension */,
+				FF81D4201ADD582C00CEA531 /* Stamina WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -1277,6 +1478,7 @@
 				C5B62C141A1525F400F969D8 /* Lato-Medium.ttf in Resources */,
 				FF1D8DDB1A38AAE100E52110 /* icone_home_tab.png in Resources */,
 				7BB0BEF81AB75B2F0043260A /* icone_tempo_tempestade.png in Resources */,
+				FF81D4371ADD594E00CEA531 /* Stamina WatchKit App.app in Resources */,
 				C5B62C151A1525F400F969D8 /* Lato-MediumItalic.ttf in Resources */,
 				FF1D8DC91A38AA7200E52110 /* s_icone_alternar.png in Resources */,
 				C5B62C161A1525F400F969D8 /* Lato-Regular.ttf in Resources */,
@@ -1323,6 +1525,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF81D4141ADD582C00CEA531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF81D4221ADD582C00CEA531 /* Stamina WatchKit App.app in Resources */,
+				FFF3788C1ADECE5D009BEDE1 /* WatchStoryboard.storyboard in Resources */,
+				FF81D41E1ADD582C00CEA531 /* Images.xcassets in Resources */,
+				FFF3788B1ADEC2FF009BEDE1 /* stamina_logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF81D41F1ADD582C00CEA531 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF81D42C1ADD582C00CEA531 /* Images.xcassets in Resources */,
+				FF81D43D1ADD5D8D00CEA531 /* WatchStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1335,7 +1557,9 @@
 				C53AAC121A1BC30E000AD02C /* ExerciseTemporary.m in Sources */,
 				C53AAC0F1A1BBC39000AD02C /* UIStaminaImages.m in Sources */,
 				FF1C5C3A19FADD3D00032DC9 /* CalendarInformationVC.m in Sources */,
+				FF2EEF821AD2F1D200288AD0 /* UnitConversion.m in Sources */,
 				C5EB6C0819D9DBD300C528FC /* UserCalendarVC.m in Sources */,
+				FFF378871ADEB95A009BEDE1 /* UserConfigurations.m in Sources */,
 				C561EBDC1A38F921002F3F6A /* ServerSupport.m in Sources */,
 				C5EB6C0D19D9DBD300C528FC /* RunningMapVC.m in Sources */,
 				FF1D8D511A3600CA00E52110 /* StaminaUpdater.m in Sources */,
@@ -1352,6 +1576,7 @@
 				FFB704C41AC342BB00BF6E4A /* SeriesMapVC.m in Sources */,
 				FFB8BCC51A0AA17C00F9D8A7 /* RoutePicture.m in Sources */,
 				FF159A4C19C21D1B00D9236F /* CoreDataLoading.m in Sources */,
+				FFF378731ADE9430009BEDE1 /* WatchSharingData.m in Sources */,
 				FFB704C11AC0A18D00BF6E4A /* SeriePart.m in Sources */,
 				C52024471A26434300DDF73B /* ConfiguracoesVC.m in Sources */,
 				C5EB6BF819D9DB6B00C528FC /* CalendarObject.m in Sources */,
@@ -1405,7 +1630,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF81D4121ADD582C00CEA531 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFF3787C1ADEB833009BEDE1 /* InterfaceRunning.m in Sources */,
+				FFF378881ADEBB5A009BEDE1 /* UserConfigurations.m in Sources */,
+				FFF3787A1ADEB82D009BEDE1 /* HomeInterface.m in Sources */,
+				FFF378821ADEB8BF009BEDE1 /* WatchSharingData.m in Sources */,
+				FFF378831ADEB8C4009BEDE1 /* UnitConversion.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF81D4241ADD582C00CEA531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF81D4201ADD582C00CEA531 /* Stamina WatchKit App */;
+			targetProxy = FF81D4231ADD582C00CEA531 /* PBXContainerItemProxy */;
+		};
+		FF81D42E1ADD582C00CEA531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF81D4151ADD582C00CEA531 /* Stamina WatchKit Extension */;
+			targetProxy = FF81D42D1ADD582C00CEA531 /* PBXContainerItemProxy */;
+		};
+		FF81D4391ADD594E00CEA531 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF81D4201ADD582C00CEA531 /* Stamina WatchKit App */;
+			targetProxy = FF81D4381ADD594E00CEA531 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FF2EEF751ACDCC5500288AD0 /* Info.plist */ = {
@@ -1510,14 +1765,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Stamina/Stamina.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
+					/Users/DaniloAM/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = /Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/pt.lproj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1529,17 +1786,111 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Stamina/Stamina.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
+					/Users/DaniloAM/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = /Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/pt.lproj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		FF81D4311ADD582C00CEA531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Stamina_WatchKit_Extension;
+				INFOPLIST_FILE = "Stamina WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		FF81D4321ADD582C00CEA531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = Stamina_WatchKit_Extension;
+				INFOPLIST_FILE = "Stamina WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		FF81D4341ADD582C00CEA531 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Stamina WatchKit Extension/Stamina WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Stamina WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FF81D4351ADD582C00CEA531 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Stamina WatchKit Extension/Stamina WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Stamina WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1560,6 +1911,24 @@
 			buildConfigurations = (
 				FF15970E19C0CBC900D9236F /* Debug */,
 				FF15970F19C0CBC900D9236F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF81D4301ADD582C00CEA531 /* Build configuration list for PBXNativeTarget "Stamina WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF81D4311ADD582C00CEA531 /* Debug */,
+				FF81D4321ADD582C00CEA531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF81D4331ADD582C00CEA531 /* Build configuration list for PBXNativeTarget "Stamina WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF81D4341ADD582C00CEA531 /* Debug */,
+				FF81D4351ADD582C00CEA531 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -12,6 +12,8 @@
 #import "FinishedRoute.h"
 #import "UIStaminaColor.h"
 #import "FinishedRunningVC.h"
+#import "UnitConversion.h"
+#import "WatchSharingData.h"
 
 @interface RunningMapVC : HideBBVC <MKMapViewDelegate , CLLocationManagerDelegate, UIAlertViewDelegate>
 
@@ -28,6 +30,8 @@
 @property BOOL isWaitingForPicture;
 @property BOOL updatingIsPossible;
 @property BOOL mapViewExpanded;
+
+@property WatchSharingData *sharingWK;
 
 @property SocialSharingVC *pictureViewController;
 
@@ -51,6 +55,9 @@
 @property NSMutableArray *overlayArray;
 @property int seconds, minutes;
 @property NSTimer *timer;
+
+@property float minHeight;
+@property float maxHeight;
 
 -(void)receiveTrajectorySelected: (TrajectoryRoute *)route;
 

@@ -29,6 +29,7 @@ typedef enum GraphicState {
 
 @property UILabel *monthLabel;
 @property NSDate *monthDate;
+@property NSDate *transitionDate;
 
 @property UIFont *font;
 @property UIColor *lineColor;

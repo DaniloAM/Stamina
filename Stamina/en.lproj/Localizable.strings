@@ -1,7 +1,76 @@
-/* 
-  Localizable.strings
-  Stamina
+/*
+ Localizable.strings
+ Stamina
+ 
+ Created by Danilo Mative on 27/03/15.
+ Copyright (c) 2015 Danilo Augusto Mative. All rights reserved.
+ */
 
-  Created by Danilo Mative on 02/04/15.
-  Copyright (c) 2015 Danilo Augusto Mative. All rights reserved.
-*/
+
+//Offline Mode
+
+"Modo Offline" = "Offline Mode";
+
+
+//Repeated Values
+
+"Iniciar" = "Start";
+"Terminar" = "Finish";
+"Parar" = "Stop";
+"Sim" = "Yes";
+"Não" = "No";
+"Ok" = "Ok";
+
+
+//Menu Values
+
+"    Calendário" = "    Calendar";
+"    Trajetos" = "    Tracks";
+"    Exercícios" = "    Exercises";
+"    Compartilhar" = "    Share";
+"    Resultados" = "    Results";
+
+
+//Running Menu
+
+"Corrida" = "Running";
+"Trajetos" = "Tracks";
+
+//Academia Menu
+
+"Academia" = "Gym";
+"Treino Livre" = "Free Workout";
+
+//RunningMap
+
+"Aviso001" = "Do you wish to stop running?";
+
+"Aviso002" = "The Wi-fi connection doesn't allow the use of the map precisely. Turn your Wi-fi off and turn on the mobile data.";
+
+"Aviso003" = "Not connected to the internet.";
+
+
+//FinishedRunning
+
+"Nome do Trajeto" = "Name of Track";
+
+
+//Exercises
+
+"Frontal" = "Front";
+"Traseiro" = "Rear";
+
+"Abdominal" = "Abdominal";
+"Ante-Braço" = "Forearm";
+"Bíceps" = "Biceps";
+"Ombros" = "Shoulders";
+"Peitoral" = "Chest";
+"Quadríceps" = "Quadriceps";
+"Trapézio" = "Trapeze";
+"Tríceps" = "Triceps";
+"Dorsal" = "Dorsal";
+"Glúteos" = "Gluteus";
+"Lombar" = "Lumbar";
+"Panturrilha" = "Calf";
+"Posterior de Coxa" = "Posterior Thigh";
+"Rombóides" = "Rhomboid";

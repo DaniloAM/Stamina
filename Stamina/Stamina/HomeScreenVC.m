@@ -21,15 +21,17 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     UserData *user = [UserData alloc];
     if([user nickName]==nil){
-        [[self nickName] setText:@"Offline Mode"];
+        [[self nickName] setText:NSLocalizedString(@"Modo Offline", nil)];
     }
     else
-    [[self nickName] setText:[user nickName]];
+        [[self nickName] setText:[user nickName]];
     [[self caloria] setText:[NSString stringWithFormat:@"%d kcal",[user burnedCalories]]];
     [[self points] setText:[NSString stringWithFormat:@"%d P",[user userPoints]]];
-    [[self kilometros] setText:[NSString stringWithFormat:@"%.01f Km",[user kilometers]]];
+    [[self kilometros] setText:[UnitConversion distanceFromMetric:[user meters]]];
+    //[[self kilometros] setText:[NSString stringWithFormat:@"%.01f Km",[user kilometers]]];
     
     int seconds = [user timeInSeconds] % 60;
     int minutes = [user timeInSeconds] / 60;
