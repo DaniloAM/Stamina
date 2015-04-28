@@ -1773,7 +1773,7 @@
 					"$(PROJECT_DIR)/FacebookSDK",
 					/Users/DaniloAM/Documents/FacebookSDK,
 				);
-				INFOPLIST_FILE = /Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/pt.lproj/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Stamina/pt.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1794,7 +1794,7 @@
 					"$(PROJECT_DIR)/FacebookSDK",
 					/Users/DaniloAM/Documents/FacebookSDK,
 				);
-				INFOPLIST_FILE = /Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/pt.lproj/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Stamina/pt.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
