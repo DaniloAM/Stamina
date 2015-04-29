@@ -807,12 +807,18 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-JN-b7S">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-JN-b7S">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="biZ-JN-b7S" firstAttribute="leading" secondItem="50f-RY-Eba" secondAttribute="leadingMargin" constant="-16" id="7Du-dS-BIa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="biZ-JN-b7S" secondAttribute="trailing" constant="-16" id="U5M-zv-57B"/>
+                            <constraint firstItem="9Ek-i0-W6o" firstAttribute="top" secondItem="biZ-JN-b7S" secondAttribute="bottom" id="i5R-cy-hm2"/>
+                            <constraint firstItem="biZ-JN-b7S" firstAttribute="top" secondItem="50f-RY-Eba" secondAttribute="topMargin" id="nhJ-0g-Ctt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J9I-0J-YBv"/>
                     <connections>
@@ -1533,12 +1539,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8I1-4e-Y00">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8I1-4e-Y00">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8I1-4e-Y00" firstAttribute="top" secondItem="Ank-wt-id0" secondAttribute="topMargin" id="Xu5-WV-vOI"/>
+                            <constraint firstItem="f4h-Sa-Ow8" firstAttribute="top" secondItem="8I1-4e-Y00" secondAttribute="bottom" id="aFr-rt-bSd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8I1-4e-Y00" secondAttribute="trailing" constant="-16" id="chU-Rv-uf1"/>
+                            <constraint firstItem="8I1-4e-Y00" firstAttribute="leading" secondItem="Ank-wt-id0" secondAttribute="leadingMargin" constant="-16" id="qV1-aA-RHd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="table" destination="8I1-4e-Y00" id="Pru-Ud-Zk7"/>
