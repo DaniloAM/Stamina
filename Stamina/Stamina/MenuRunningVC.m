@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _hasMoved = false;
+    
     NSDate *date = [NSDate date];
      NSDateComponents *comp = [[NSCalendar currentCalendar] components: NSCalendarUnitDay fromDate:date];
     
@@ -36,7 +38,7 @@
     
     [self firstButtonMethod:@selector(goHome)  fromClass:self  withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:@selector(goToCalendar) fromClass:self  withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
-    [self thirdButtonMethod:@selector(createTrajectory)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
+    [self thirdButtonMethod:@selector(development)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
     
     
     [self performSelectorInBackground:@selector(showCurrentWeather) withObject:nil];
@@ -54,7 +56,16 @@
     
     [[self startButton] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
     [[self trajectoryButton] setTitle:NSLocalizedString(@"Trajetos", nil) forState:UIControlStateNormal];
+    
+    [[[self startButton] titleLabel] setFont:[UIFont fontWithName:@"Lato-Semibold" size:22.0]];
+    [[[self trajectoryButton] titleLabel] setFont:[UIFont fontWithName:@"Lato-Semibold" size:22.0]];
 }
+
+
+-(void)development {
+    [self callViewWithName:@"developmentScreen"];
+}
+
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -86,50 +97,24 @@
     
     NSInteger temperature = [condition returnTemperatureInCurrentLocation];
     [[self temperatureImage] setImage:[UIImage imageNamed:[condition strOfWeather]]];
+    
     if(temperature <= 0) {
         
-        CGRect frame = [[self calendarButton] frame];
-        frame.origin.x = 118;
-        [[self calendarButton] setFrame:frame];
         [[self temperatureLabel] setHidden:true];
         [[self temperatureImage] setHidden:true];
-
     }
     
     else {
         
         temperature -= 273;
         
-//        [UIView animateWithDuration:0.3 animations:^{
-//            
-//            //translatesAutoresizingMaskIntoConstraints = YES
-//            
-//            //[[self calendarButton] removeConstraint:self.centerCalendar];
-//            
-//            [[self calendarButton] setTranslatesAutoresizingMaskIntoConstraints:true];
-//            
-//            CGRect frame = [[self calendarButton] frame];
-//            frame.origin.x = 60;
-//            [[self calendarButton] setFrame:frame];
-//            
-//            [[self temperatureLabel] setHidden:false];
-//            [[self temperatureImage] setHidden:false];
-//            
-//            NSString *temp = [UnitConversion temperatureFromCelsius:temperature];
-//            //[NSString stringWithFormat:@"%d °C", (int) temperature];
-//            [[self temperatureLabel] setText:temp];
-//            
-//            //[self.view layoutIfNeeded];
-//            
-//        }];
-        
         [UIView animateWithDuration:0.3 animations:^{
             
-            //translatesAutoresizingMaskIntoConstraints = YES
-            
-            //[[self calendarButton] removeConstraint:self.centerCalendar];
-            
-            [[self horizontalSpace] setConstant:[[self horizontalSpace] constant] - 60];
+            if(!_hasMoved) {
+                [[self horizontalSpace] setConstant:[[self horizontalSpace] constant] - 60];
+                
+                [[self calendarButton] layoutIfNeeded];
+            }
             
             [[self temperatureLabel] setHidden:false];
             [[self temperatureImage] setHidden:false];
@@ -137,9 +122,9 @@
             NSString *temp = [UnitConversion temperatureFromCelsius:temperature];
             [[self temperatureLabel] setText:temp];
             
-            [[self calendarButton] layoutIfNeeded];
-            
         }];
+        
+        _hasMoved = true;
         
     }
     

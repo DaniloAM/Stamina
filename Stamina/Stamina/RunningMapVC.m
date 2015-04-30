@@ -7,8 +7,17 @@
 //
 
 #import "RunningMapVC.h"
+#define MaxFactor 1.77
 
 @interface RunningMapVC ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpace1;
+@property NSLayoutConstraint *spaceTimeToMap;
+@property NSLayoutConstraint *centerTimeToView;
+@property NSLayoutConstraint *centerTimeToDistance;
+@property NSLayoutConstraint *spaceTimeToView;
+@property BOOL timeLabelChanged;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapHeight;
+
 
 @end
 
@@ -51,6 +60,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _heightFactorScreen = [self.view frame].size.height;
+    _heightFactorScreen = _heightFactorScreen / 568.0;
+    
+    if(_heightFactorScreen < 0.98) {
+        
+        _verticalSpace1.constant *= _heightFactorScreen;
+        _mapHeight.constant *= _heightFactorScreen;
+    }
+    
+    _minHeight = _mapHeight.constant;
+    _maxHeight = _minHeight * MaxFactor;
+    
+    
+    [self setStartButton:[[UIButton alloc] initWithFrame:CGRectMake(32, 430 * _heightFactorScreen, 256, 36)]];
+    
+    [self setTimeLabel:[[UILabel alloc] init]];
+    
+    [[self startButton] setBackgroundColor:[UIColor blackColor]];
+    [[self startButton] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
+    [[self startButton]setTitleColor:[UIColor staminaYellowColor] forState:UIControlStateNormal];
+    [[[self startButton] titleLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:22.0]];
+    [[self startButton] addTarget:self action:@selector(finishButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[self timeLabel] setTextColor:[UIColor staminaBlackColor]];
+    [[self timeLabel] setTextAlignment:NSTextAlignmentCenter];
+    [[self timeLabel] setText:@"0:00:00"];
+    [[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:20.0]];
+    
+    //Auto layout preparations
+    [[self timeLabel] setTranslatesAutoresizingMaskIntoConstraints:false];
+    
+    [self.view addSubview:[self startButton]];
+    [self.view addSubview:[self timeLabel]];
+    
+    [[self timeLabel] addConstraint:[NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:34.0]];
+    
+    [[self timeLabel] addConstraint:[NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:110.0]];
+    
+    _timeLabelChanged = false;
+    
+    _centerTimeToView = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    _spaceTimeToMap = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.mapRunningView attribute:NSLayoutAttributeBottom                               multiplier:1.0 constant:140.0];
+    
+    _centerTimeToDistance = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:[self distanceLabel] attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
+    
+    _spaceTimeToView = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0];
+    
+    [self.view addConstraint:_centerTimeToView];
+    [self.view addConstraint:_spaceTimeToMap];
+
+    [[self startButton] layer].cornerRadius = 7.0;
+    
     [self setSharingWK:[[WatchSharingData alloc] init]];
     [[self sharingWK] setRunningState:RSStopped];
     [[self sharingWK] setIsRunning:true];
@@ -83,23 +145,14 @@
         [[self mapRunningView] addOverlay:_routeLine];
     }
     
-    [[self startButton] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
-    
 }
 
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-//    [[self mapRunningView] layoutIfNeeded];
-//    
-//    CGRect frame = [[self mapRunningView] frame];
-//    
-//    frame.size.height = [[self view] frame].size.height * 0.4;
-//    
-//    [[self mapRunningView] setFrame:frame];
-    
     [super hideBarWithAnimation:true];
+    
     
     [self barBlock];
     [self removeGesture];
@@ -122,16 +175,13 @@
     if(_isRunning) {
         [[self sharingWK] setRunningState:RSRunning];
     }
-    
-    _minHeight = [[self mapRunningView] frame].size.height;
-    _maxHeight = _minHeight * 1.82;
-    
+
 }
 
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    
     Reachability *reachability = [Reachability reachabilityForInternetConnection];
     [reachability startNotifier];
     
@@ -141,7 +191,6 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:NSLocalizedString(@"Aviso003", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
         
         alertView.tag = 2;
-        
         [alertView show];
     }
     
@@ -159,6 +208,9 @@
         if([[self pictureViewController] userPicture]) {
             [self savePictureOfRoutePlace:[[self pictureViewController] userPicture]];
         }
+        
+        [self setPictureViewController:[[SocialSharingVC alloc] init]];
+        [[self pictureViewController] setRoutePicture:true];
     }
     
     [self performSelector:@selector(zoomToUserRegion) withObject:nil afterDelay:4.0];
@@ -348,6 +400,25 @@
 }
 
 -(void)goBack {
+    
+    
+    if(self.distanceInMeters > 0.0) {
+        UserData *user = [UserData alloc];
+        
+        [user setMeters:[user meters] + self.distanceInMeters];
+        
+        [user setTimeInSeconds:[user timeInSeconds] + self.seconds + (self.minutes  * 60)];
+        
+        //*********** MUST PUT CALORIES AND POINTS HERE ********//
+        //*********** MUST PUT CALORIES AND POINTS HERE ********//
+        //*********** MUST PUT CALORIES AND POINTS HERE ********//
+        
+        [user saveOnUserDefaults];
+        
+        
+    }
+    
+    
     [self.navigationController popViewControllerAnimated:true];
     
 }
@@ -501,6 +572,7 @@
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
     
@@ -510,12 +582,16 @@
         
         if([[self mapRunningView] frame].size.height >= _maxHeight) {
             
-            frame.size.height = _maxHeight;
+            _heightFactor = MaxFactor;
+            [[self mapHeight] setConstant:_minHeight * _heightFactor];
         }
         
         else {
             
             frame.size.height += touchPoint.y - [self height];
+            
+            _heightFactor = frame.size.height / _minHeight;
+            [[self mapHeight] setConstant:_minHeight * _heightFactor];
             
         }
         
@@ -526,45 +602,45 @@
         
         if([[self mapRunningView] frame].size.height <= _minHeight) {
             
-            frame.size.height = _minHeight;
+            _heightFactor = 1.0;
+            [[self mapHeight] setConstant:_minHeight * _heightFactor];
+            
         }
         
         else {
             
             frame.size.height -= [self height] - touchPoint.y;
+            
+            _heightFactor = frame.size.height / _minHeight;
+            [[self mapHeight] setConstant:_minHeight * _heightFactor];
         }
         
-        [[self mapRunningView]setFrame:frame];
     }
     
     if(frame.size.height > _maxHeight) {
-        frame.size.height = _maxHeight;
-        [[self mapRunningView] setFrame:frame];
+        _heightFactor = MaxFactor;
+        [[self mapHeight] setConstant:_minHeight * _heightFactor];
+        
     }
     
     else if(frame.size.height < _minHeight) {
-        frame.size.height = _minHeight;
-        [[self mapRunningView] setFrame:frame];
+        _heightFactor = 1.0;
+        [[self mapHeight] setConstant:_minHeight * _heightFactor];
+        
     }
     
     
     [self setHeight:touchPoint.y];
-    [self updateButtunsForm];
+    [self newUpdateButtonsForm];
     
 }
 
--(void)updateButtunsForm {
+-(void)newUpdateButtonsForm {
     
-    //Data for math
-    float height = [[self mapRunningView] frame].size.height;
-    
-    float percent = (height - _minHeight) / (_maxHeight - _minHeight);
-    
-    float iconY = 339.0, labelY = 376.0, distanceY = 258.0, centerY = 458.0, expandButton = 208.0;
-    
+    float percent = (_heightFactor - 1.0) * (1 / (MaxFactor - 1.0));
     
     //Check button and change image and action by flag
-    if(height > _minHeight + ((_maxHeight - _minHeight) / 2)) {
+    if(percent >= 0.5) {
         [self setMapViewExpanded:true];
         [[self expandButton] setBackgroundImage:[UIImage imageNamed:@"drop_up_corrida.png"] forState:UIControlStateNormal];
     }
@@ -572,21 +648,15 @@
     else {
         [self setMapViewExpanded:false];
         [[self expandButton] setBackgroundImage:[UIImage imageNamed:@"drop_down_corrida.png"] forState:UIControlStateNormal];
-
+        
     }
     
-    
-    //New values
-    float newWidth, newRadius, newHeight = 36.0, fontSize, buttonY;
-    
-    
     //Return case
-    if(percent > 1.0)
+    if(percent > 1.0 || percent < 0.0)
         return;
     
-    
-    //Info
-    float alpha = 1.0, positionChange = 0.0;
+    //Alpha changes
+    float alpha = 1.0;
     
     if(percent >= 0.0 && percent <= 0.2) {
         alpha -= percent * 5;
@@ -596,14 +666,21 @@
         alpha = 0.0;
     }
     
-    positionChange = height - _minHeight;
+    [[self timeIcon] setAlpha:alpha];
+    [[self bpsIcon] setAlpha:alpha];
+    [[self bpsLabel] setAlpha:alpha];
+    [[self speedLabel] setAlpha:alpha];
+    [[self speedIcon] setAlpha:alpha];
     
-    //Distance Label Perform
     
-    //distancePosition += height - frame_min;
-    fontSize = 60.0 - (30.0 * percent);
+    //Font size
+    float fontSize = 60.0 - (30.0 * percent);
+    [[self distanceLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:fontSize]];
     
-    //Button Perform
+    
+    //Button Start Perform
+    float newWidth, newRadius, newHeight, buttonY;
+    
     if(percent < 0.8) {
         newWidth = 256.0 - (percent * 232.5);
         newRadius = 7.0 + percent * 20;
@@ -615,120 +692,69 @@
     }
     
     newHeight = 36.0 + (percent * 24.0);
-    buttonY = 440.0 - (percent * 12.0);
+    buttonY = (430.0 * _heightFactorScreen) - (percent * 8.0);
     
-    
-    //---------[ Applies New Values ]---------//
-    
-    //Button
-    //CGPoint buttonCenter = [[self startButton] center];
     CGRect frame = [[self startButton] frame];
     
     frame.size.width = newWidth;
     frame.size.height = newHeight;
     frame.origin.y = buttonY;
-    
     [[self startButton] setFrame:frame];
-    //[[self startButton] setCenter:buttonCenter];
     [[self startButton] layer].cornerRadius = newRadius;
-
-    
-    //Distance label
-    [[self distanceLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:fontSize]];
-    
-    frame = [[self distanceLabel] frame];
-    frame.origin.y = distanceY + positionChange;
-    [[self distanceLabel] setFrame:frame];
-    
-    CGPoint center = [self distanceLabel].center;
-    
-    if(center.y > centerY) {
-        center.y = centerY;
-        [[self distanceLabel] setCenter:center];
-    }
     
     
-    //Time Label
-    //[[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:timeFont]];
-    
-    if(percent < 0.4) {
+    //Time label perform
+    if(percent < 0.5) {
+        
+        if([self timeLabelChanged]) {
+            [self.view removeConstraints:@[_spaceTimeToView,_centerTimeToDistance]];
+            
+            [self.view addConstraints:@[_spaceTimeToMap,_centerTimeToView]];
+        }
+        
+        [self setTimeLabelChanged:false];
+        
         
         [[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:20.0]];
-        
-        frame = [[self timeLabel] frame];
-        frame.origin.x = 116.0;
-        frame.origin.y = labelY + positionChange;
-        [[self timeLabel] setFrame:frame];
         [[self timeLabel] setAlpha:alpha];
     }
     
     else {
         
-        frame = [[self timeLabel] frame];
-        frame.origin.x = 220.0;
-
+        if(![self timeLabelChanged]) {
+            [self.view removeConstraints:@[_spaceTimeToMap,_centerTimeToView]];
+            
+            [self.view addConstraints:@[_spaceTimeToView,_centerTimeToDistance]];
+        }
+        
+        [self setTimeLabelChanged:true];
+        
+        
         [[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:22.0]];
-        
-        [[self timeLabel] setFrame:frame];
-        
-        center = [[self timeLabel] center];
-        center.y = centerY;
-        
-        [[self timeLabel] setCenter:center];
-        [[self timeLabel] setAlpha:((percent * 10) - 4.0)];
-        
+        [[self timeLabel] setAlpha:((percent * 10) - 7.0)];
     }
     
-    //Expand Button
-    frame = [[self expandButton] frame];
-    frame.origin.y = expandButton + positionChange;
-    [[self expandButton] setFrame:frame];
-    
-    //Others labels and icons
-    frame = [[self timeIcon] frame];
-    frame.origin.y = iconY + positionChange;
-    [[self timeIcon] setFrame:frame];
-    [[self timeIcon] setAlpha:alpha];
-    
-    frame = [[self bpsIcon] frame];
-    frame.origin.y = iconY + positionChange;
-    [[self bpsIcon] setFrame:frame];
-    [[self bpsIcon] setAlpha:alpha];
-    
-    frame = [[self bpsLabel] frame];
-    frame.origin.y = labelY + positionChange;
-    [[self bpsLabel] setFrame:frame];
-    [[self bpsLabel] setAlpha:alpha];
-    
-    frame = [[self speedLabel] frame];
-    frame.origin.y = labelY + positionChange;
-    [[self speedLabel] setFrame:frame];
-    [[self speedLabel] setAlpha:alpha];
-    
-    frame = [[self speedIcon] frame];
-    frame.origin.y = iconY + positionChange;
-    [[self speedIcon] setFrame:frame];
-    [[self speedIcon] setAlpha:alpha];
-    
-    
 }
+
 
 -(IBAction)fullAnimateTo {
     if([self mapViewExpanded]) {
         [UIView animateWithDuration:0.4 animations:^{
-            CGRect frame = [[self mapRunningView] frame];
-            frame.size.height = _minHeight;
-            [[self mapRunningView] setFrame:frame];
-            [self updateButtunsForm];
+            _heightFactor = 1.0;
+            [[self mapHeight] setConstant:_minHeight];
+            [[self mapRunningView] layoutIfNeeded];
+            [self newUpdateButtonsForm];
+            [self.view layoutIfNeeded];
         }];
     }
     
     else {
         [UIView animateWithDuration:0.4 animations:^{
-            CGRect frame = [[self mapRunningView] frame];
-            frame.size.height = _maxHeight;
-            [[self mapRunningView] setFrame:frame];
-            [self updateButtunsForm];
+            _heightFactor = MaxFactor;
+            [[self mapHeight] setConstant:_minHeight * _heightFactor];
+            [[self mapRunningView] layoutIfNeeded];
+            [self newUpdateButtonsForm];
+            [self.view layoutIfNeeded];
         }];
     }
 }

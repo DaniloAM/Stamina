@@ -35,10 +35,10 @@
 
 @property SocialSharingVC *pictureViewController;
 
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *expandButton;
 
-@property IBOutlet UILabel *timeLabel;
+@property UILabel *timeLabel;
 @property IBOutlet UILabel *speedLabel;
 @property IBOutlet UILabel *distanceLabel;
 @property IBOutlet UILabel *bpsLabel;
@@ -48,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bpsIcon;
 
 @property float height;
+@property float heightFactorScreen;
 
 @property float distanceInMeters;
 @property NSMutableArray *picturesArray;
@@ -58,6 +59,7 @@
 
 @property float minHeight;
 @property float maxHeight;
+@property float heightFactor;
 
 -(void)receiveTrajectorySelected: (TrajectoryRoute *)route;
 

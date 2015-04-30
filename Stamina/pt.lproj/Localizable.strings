@@ -6,7 +6,13 @@
  Copyright (c) 2015 Danilo Augusto Mative. All rights reserved.
  */
 
-//Count of Avisos: 4 ** ALWAYS UPDATE **
+
+//Configurations
+
+"Distância" = "Distância";
+"Temperatura" = "Temperatura";
+"Altura" = "Altura";
+"Peso" = "Peso";
 
 
 //Offline Mode
@@ -32,6 +38,7 @@
 "    Exercícios" = "    Exercícios";
 "    Compartilhar" = "    Compartilhar";
 "    Resultados" = "    Resultados";
+"    Configurações" = "    Configurações";
 
 //Running Menu
 

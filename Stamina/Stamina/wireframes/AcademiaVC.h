@@ -14,6 +14,7 @@
 //@property UIView *tabBar;
 @property CGPoint point;
 @property CGPoint startPointBar;
+@property BOOL hasMoved;
 @property (weak, nonatomic) IBOutlet UIImageView *temperatureImage;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIButton *btn1;

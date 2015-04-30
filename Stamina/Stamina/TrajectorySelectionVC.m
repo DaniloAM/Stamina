@@ -43,8 +43,8 @@
     
     
     [self firstButtonMethod:@selector(goHome) fromClass:self withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
-    [self secondButtonMethod:nil fromClass:self  withImage:[UIImage imageNamed:@"icone_info_user_tab.png"]];
-    [self thirdButtonMethod:@selector(createTrajectory)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
+    [self secondButtonMethod:@selector(development) fromClass:self  withImage:[UIImage imageNamed:@"icone_info_user_tab.png"]];
+    [self thirdButtonMethod:@selector(development)  fromClass:self withImage:[UIImage imageNamed:@"icone_adicionar_tab.png"]];
     
     
     
@@ -61,10 +61,14 @@
                               
                               //size height
                               [[UIScreen mainScreen] bounds].size.height - [self tabBarSize].height - ([self navigationSize].height * 1.5));
-    
-    
+
+        
     [[self routeTableView] setFrame:frame];
     
+}
+
+-(void)development {
+    [self callViewWithName:@"developmentScreen"];
 }
 
 
@@ -109,6 +113,8 @@
 -(void)addContentOfRoutetoCell: (UITableViewCell *)cell {
     
     [[super cellContentsArray] removeAllObjects];
+    
+    NSLog(@"%f", cell.frame.size.height);
     
     //Image of the route
     RoutePointsCartesian *cartesian = [[RoutePointsCartesian alloc] init];

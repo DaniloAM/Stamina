@@ -21,7 +21,7 @@
 #define M2 0
 #define M3 0
 #define M4 0
-
+#define NUMBEROFBUTTONSMENU 7
 @interface JLSlideMenu ()
 
 @end
@@ -379,6 +379,8 @@
             return NSLocalizedString(@"    Compartilhar",nil);
         case 5:
             return NSLocalizedString(@"    Resultados",nil);
+        case 6:
+            return NSLocalizedString(@"    Configurações",nil);
             
     }
     return nil;
@@ -699,7 +701,7 @@
 -(void)createViewsToPresent{
     CGSize size = [UIScreen mainScreen].bounds.size;
     NSMutableArray *array = [NSMutableArray array];
-    for(int x = 0 ; x < 6;x++){
+    for(int x = 0 ; x < NUMBEROFBUTTONSMENU ;x++){
         UIButton *startButton = [[UIButton alloc] initWithFrame:CGRectMake(0, x*cellMenuHeight*size.height, _leftWidthSize, cellMenuHeight*size.height)];
         [[startButton titleLabel] setFont:[UIFont fontWithName:@"Lato" size:18]];
         [startButton setTitleColor:[UIColor staminaYellowColor] forState:UIControlStateNormal];
@@ -723,11 +725,19 @@
     [btn addTarget:self action:@selector(fotoAgoraButton) forControlEvents:UIControlEventTouchUpInside];
     btn = [array objectAtIndex:5];
     [btn addTarget:self action:@selector(resultadoButton) forControlEvents:UIControlEventTouchUpInside];
+    btn = [array objectAtIndex:6];
+    [btn addTarget:self action:@selector(configurationButton) forControlEvents:UIControlEventTouchUpInside];
+    
 //    [self setArrayFirstButton:[self alocaAndReturn:1 :M1]];
 //    [self setSecondFirstButton:[self alocaAndReturn:2 :M2]];
 //    [self setThirdFirstButton:[self alocaAndReturn:3 :M3]];
 //    [self setFourthFirstButton:[self alocaAndReturn:4 :M4]];
 }
+
+-(void)configurationButton {
+    [self callViewWithName:@"configuration"];
+}
+
 -(void)callViewWithName: (NSString *)str{
     [self closeEverything];
     [self hideBarWithAnimation:1];

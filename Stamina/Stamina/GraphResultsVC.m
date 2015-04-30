@@ -43,7 +43,7 @@
     
     [self firstButtonMethod:@selector(goHome)  fromClass:self  withImage:[UIImage imageNamed:@"icone_home_tab.png"]];
     [self secondButtonMethod:@selector(goToCalendar) fromClass:self  withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
-    [self thirdButtonMethod:@selector(goToRanking)  fromClass:self withImage:[UIImage imageNamed:@"icone_pontuacao_tab.png"]];
+    [self thirdButtonMethod:@selector(development)  fromClass:self withImage:[UIImage imageNamed:@"icone_pontuacao_tab.png"]];
     
     UserData *user = [UserData alloc];
     
@@ -64,6 +64,10 @@
 
 -(void)goToRanking {
     
+}
+
+-(void)development {
+    [self callViewWithName:@"developmentScreen"];
 }
 
 //-(void)viewDidAppear:(BOOL)animated {

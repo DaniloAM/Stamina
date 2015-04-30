@@ -15,6 +15,7 @@
 @interface MenuRunningVC : HideBBVC <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property BOOL hasMoved;
 @property (weak, nonatomic) IBOutlet UIButton *calendarButton;
 @property (weak, nonatomic) IBOutlet UIImageView *temperatureImage;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;

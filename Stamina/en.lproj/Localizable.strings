@@ -7,6 +7,15 @@
  */
 
 
+
+//Configurations
+
+"Distância" = "Distance";
+"Temperatura" = "Temperature";
+"Altura" = "Height";
+"Peso" = "Weight";
+
+
 //Offline Mode
 
 "Modo Offline" = "Offline Mode";
@@ -29,6 +38,7 @@
 "    Exercícios" = "    Exercises";
 "    Compartilhar" = "    Share";
 "    Resultados" = "    Results";
+"    Configurações" = "    Settings";
 
 
 //Running Menu

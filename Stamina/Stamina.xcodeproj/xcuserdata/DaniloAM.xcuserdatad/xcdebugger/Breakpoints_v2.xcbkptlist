@@ -345,38 +345,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Stamina/TrajectorySelectionVC.m"
-            timestampString = "449092501.385076"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-viewDidAppear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Stamina/RunningMapVC.m"
-            timestampString = "450896585.214511"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "-locationManager:didUpdateLocations:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Stamina/GraphicScroller.m"
             timestampString = "450129378.092799"
             startingColumnNumber = "9223372036854775807"
@@ -575,7 +543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "tabBar"
+            landmarkName = "point"
             landmarkType = "19">
             <Locations>
                <Location
@@ -586,12 +554,12 @@
                   moduleName = "Stamina"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/wireframes/AcademiaVC.h"
-                  timestampString = "451923671.422406"
+                  timestampString = "452115511.749491"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -601,12 +569,12 @@
                   moduleName = "Stamina"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/wireframes/AcademiaVC.h"
-                  timestampString = "451923671.422631"
+                  timestampString = "452115511.749755"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "65">
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>

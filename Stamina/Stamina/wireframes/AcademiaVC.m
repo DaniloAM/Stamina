@@ -9,6 +9,7 @@
 #import "AcademiaVC.h"
 
 @interface AcademiaVC ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpace;
 
 @end
 
@@ -18,8 +19,8 @@
     [super viewWillAppear:YES];
 
     [self firstButtonMethod:@selector(function1) fromClass:self withImage:[UIImage staminaIconHome]];
-    [self secondButtonMethod:@selector(function2) fromClass:self  withImage:[UIImage staminaIconPlus]];
-    [self thirdButtonMethod:@selector(function3) fromClass:self  withImage:[UIImage staminaIconTrophy]];
+    [self secondButtonMethod:@selector(development) fromClass:self  withImage:[UIImage staminaIconPlus]];
+    [self thirdButtonMethod:@selector(development) fromClass:self  withImage:[UIImage staminaIconTrophy]];
     [self showBarWithAnimation:1];
     
     [self performSelectorInBackground:@selector(showCurrentWeather) withObject:nil];
@@ -27,6 +28,12 @@
     [[self btn1] setTitle:NSLocalizedString(@"Iniciar", nil) forState:UIControlStateNormal];
     [[self btn2] setTitle:NSLocalizedString(@"Treino Livre", nil) forState:UIControlStateNormal];
     
+    [[self btn1] addTarget:self action:@selector(development) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)development {
+    [self callViewWithName:@"developmentScreen"];
 }
 
 -(void)function1{
@@ -67,9 +74,6 @@
     NSInteger temperature = [condition returnTemperatureInCurrentLocation];
     [[self temperatureImage] setImage:[UIImage imageNamed:[condition strOfWeather]]];
     if(temperature <= 0) {
-        CGRect frame = [[self btnCalendar] frame];
-        frame.origin.x = 118;
-        [[self btnCalendar] setFrame:frame];
         [[self temperatureLabel] setHidden:true];
         [[self temperatureImage] setHidden:true];
         
@@ -82,22 +86,24 @@
         
         [UIView animateWithDuration:0.3 animations:^{
             
-            CGRect frame = [[self btnCalendar] frame];
-            frame.origin.x = 60;
-            [[self btnCalendar] setFrame:frame];
+            if(!_hasMoved) {
+                [[self horizontalSpace] setConstant:[[self horizontalSpace] constant] - 60];
+                
+                [[self btnCalendar] layoutIfNeeded];
+            }
+            
             [[self temperatureLabel] setHidden:false];
             [[self temperatureImage] setHidden:false];
             
-            
-            
+
             NSString *temp = [UnitConversion temperatureFromCelsius:temperature];
-            //[NSString stringWithFormat:@"%d °C", (int) temperature];
             [[self temperatureLabel] setText:temp];
             
         }];
+        
+        _hasMoved = true;
     }
     
-    //[self performSelector:@selector(showCurrentWeather) withObject:nil afterDelay:30.0];
     
 }
 

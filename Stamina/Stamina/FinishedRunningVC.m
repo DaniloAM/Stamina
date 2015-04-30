@@ -9,6 +9,8 @@
 #import "FinishedRunningVC.h"
 
 @interface FinishedRunningVC ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *routeHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *routeWidth;
 
 @end
 
@@ -27,6 +29,10 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    double screenFactor = self.view.frame.size.height / 504.0;
+    
+    _routeHeight.constant *= screenFactor;
     
     [self showBarWithAnimation:true];
     [self setIsGoingHome:true];
@@ -115,13 +121,19 @@
         
     }
     
+    double screenFactor = self.view.frame.size.height / 504.0;
     
-    [routeView setFrame:CGRectMake(0, 0, routeView.frame.size.width * fator , routeView.frame.size.height * fator)];
+    _routeWidth.constant = routeView.frame.size.width * fator;
+    _routeHeight.constant = routeView.frame.size.height * fator * screenFactor;
     
-    routeView.center = _routeImageView.center;
+    //[routeView setFrame:CGRectMake(0, 0, routeView.frame.size.width * fator , routeView.frame.size.height * fator * screenFactor)];
     
-    [_routeImageView removeFromSuperview];
-    [self.view addSubview:routeView];
+    //routeView.center = _routeImageView.center;
+    
+    //[_routeImageView removeFromSuperview];
+    //[self.view addSubview:routeView];
+    
+    [[self routeImageView] setImage:routeView.image];
     
     
     [self setTrajectoryInfo];

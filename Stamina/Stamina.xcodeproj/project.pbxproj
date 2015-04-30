@@ -216,6 +216,8 @@
 		FFB704C91AC4793800BF6E4A /* MapTemplateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C81AC4793800BF6E4A /* MapTemplateVC.m */; };
 		FFB8BCC51A0AA17C00F9D8A7 /* RoutePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */; };
 		FFB8BCC81A0AA3DC00F9D8A7 /* TrajectoryRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */; };
+		FFCDF6C71AF29CF40053FBCF /* DevelopmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */; };
+		FFCDF6CA1AF2B09C0053FBCF /* ConfigurationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF6C91AF2B09C0053FBCF /* ConfigurationVC.m */; };
 		FFF378731ADE9430009BEDE1 /* WatchSharingData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378721ADE9430009BEDE1 /* WatchSharingData.m */; };
 		FFF3787A1ADEB82D009BEDE1 /* HomeInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = FF81D4101ADD57B200CEA531 /* HomeInterface.m */; };
 		FFF3787C1ADEB833009BEDE1 /* InterfaceRunning.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378781ADEA154009BEDE1 /* InterfaceRunning.m */; };
@@ -563,6 +565,10 @@
 		FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePicture.m; sourceTree = "<group>"; };
 		FFB8BCC61A0AA3DC00F9D8A7 /* TrajectoryRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryRoute.h; sourceTree = "<group>"; };
 		FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryRoute.m; sourceTree = "<group>"; };
+		FFCDF6C51AF29CF40053FBCF /* DevelopmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentVC.h; sourceTree = "<group>"; };
+		FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentVC.m; sourceTree = "<group>"; };
+		FFCDF6C81AF2B09C0053FBCF /* ConfigurationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationVC.h; sourceTree = "<group>"; };
+		FFCDF6C91AF2B09C0053FBCF /* ConfigurationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationVC.m; sourceTree = "<group>"; };
 		FFF378711ADE9430009BEDE1 /* WatchSharingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSharingData.h; sourceTree = "<group>"; };
 		FFF378721ADE9430009BEDE1 /* WatchSharingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSharingData.m; sourceTree = "<group>"; };
 		FFF378771ADEA154009BEDE1 /* InterfaceRunning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceRunning.h; sourceTree = "<group>"; };
@@ -868,6 +874,10 @@
 				C5EB6BFF19D9DBD300C528FC /* FBLoginVC.m */,
 				FFAC193B19E3171C00B17487 /* HomeScreenVC.h */,
 				FFAC193C19E3171C00B17487 /* HomeScreenVC.m */,
+				FFCDF6C51AF29CF40053FBCF /* DevelopmentVC.h */,
+				FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */,
+				FFCDF6C81AF2B09C0053FBCF /* ConfigurationVC.h */,
+				FFCDF6C91AF2B09C0053FBCF /* ConfigurationVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1555,6 +1565,7 @@
 				C5D4DA901A34EC1900FE2182 /* TipsContentPVC.m in Sources */,
 				FF17BDC019CA2E5600B5EF46 /* UserTraining.m in Sources */,
 				C53AAC121A1BC30E000AD02C /* ExerciseTemporary.m in Sources */,
+				FFCDF6CA1AF2B09C0053FBCF /* ConfigurationVC.m in Sources */,
 				C53AAC0F1A1BBC39000AD02C /* UIStaminaImages.m in Sources */,
 				FF1C5C3A19FADD3D00032DC9 /* CalendarInformationVC.m in Sources */,
 				FF2EEF821AD2F1D200288AD0 /* UnitConversion.m in Sources */,
@@ -1606,6 +1617,7 @@
 				C5968D981A225EB400092176 /* Traning.m in Sources */,
 				C53A353119D3411F00AC1383 /* Reachability.m in Sources */,
 				FF13E9DD19E5BF840005BA49 /* SharingResponse.m in Sources */,
+				FFCDF6C71AF29CF40053FBCF /* DevelopmentVC.m in Sources */,
 				C5D4DA891A34DA3E00FE2182 /* Exercises.m in Sources */,
 				C561EBDF1A38F941002F3F6A /* LoginViewController.m in Sources */,
 				C5EB6BF719D9DB6B00C528FC /* DayObject.m in Sources */,
