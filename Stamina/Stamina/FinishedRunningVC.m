@@ -53,7 +53,7 @@
     
     [self secondButtonMethod:@selector(goToCalendar)  fromClass:self withImage:[UIImage imageNamed:@"icone_calendario_tab_06.png"]];
     
-    [self thirdButtonMethod:@selector(goToRankingPoints)  fromClass:self withImage:[UIImage staminaIconTrophy]];
+    [self thirdButtonMethod:@selector(development)  fromClass:self withImage:[UIImage staminaIconTrophy]];
     
 
     
@@ -279,6 +279,16 @@
     
 }
 
+
+-(void)development {
+    
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //    UIViewController *myVC = (UIViewController *)[storyboard instantiateViewControllerWithIdentifier:@"developmentScreen"];
+    //
+    //    [self presentViewController:myVC animated:true completion:nil];
+    
+    [self callViewWithName:@"developmentScreen"];
+}
 
 
 -(void)goHome {

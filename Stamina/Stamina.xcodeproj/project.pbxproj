@@ -34,7 +34,6 @@
 		C53F23431A0D95BC00697FB4 /* JLSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F23421A0D95BC00697FB4 /* JLSlideMenu.m */; };
 		C561EBD91A38F919002F3F6A /* WebServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C561EBD81A38F919002F3F6A /* WebServiceResponse.m */; };
 		C561EBDC1A38F921002F3F6A /* ServerSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C561EBDB1A38F921002F3F6A /* ServerSupport.m */; };
-		C561EBDF1A38F941002F3F6A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C561EBDE1A38F941002F3F6A /* LoginViewController.m */; };
 		C561EBE21A38F959002F3F6A /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = C561EBE01A38F959002F3F6A /* Splash.png */; };
 		C561EBE31A38F959002F3F6A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C561EBE11A38F959002F3F6A /* Default@2x.png */; };
 		C561EBE51A38F96A002F3F6A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C561EBE41A38F96A002F3F6A /* Images.xcassets */; };
@@ -196,7 +195,6 @@
 		FF81D4221ADD582C00CEA531 /* Stamina WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */; };
 		FF81D42C1ADD582C00CEA531 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF81D42B1ADD582C00CEA531 /* Images.xcassets */; };
 		FF81D42F1ADD582C00CEA531 /* Stamina WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FF81D4161ADD582C00CEA531 /* Stamina WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FF81D4371ADD594E00CEA531 /* Stamina WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = FF81D4211ADD582C00CEA531 /* Stamina WatchKit App.app */; };
 		FF81D43D1ADD5D8D00CEA531 /* WatchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */; };
 		FF933DEC1ABB710C00106C78 /* drop_down_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEA1ABB710C00106C78 /* drop_down_corrida.png */; };
 		FF933DED1ABB710C00106C78 /* drop_up_corrida.png in Resources */ = {isa = PBXBuildFile; fileRef = FF933DEB1ABB710C00106C78 /* drop_up_corrida.png */; };
@@ -216,8 +214,37 @@
 		FFB704C91AC4793800BF6E4A /* MapTemplateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB704C81AC4793800BF6E4A /* MapTemplateVC.m */; };
 		FFB8BCC51A0AA17C00F9D8A7 /* RoutePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */; };
 		FFB8BCC81A0AA3DC00F9D8A7 /* TrajectoryRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */; };
+		FFC2C6B41AF93367004B0AA7 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BF71A15236200F969D8 /* Lato-Black.ttf */; };
+		FFC2C6C71AF933A2004B0AA7 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BF71A15236200F969D8 /* Lato-Black.ttf */; };
+		FFC2C6C81AF933A2004B0AA7 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BF81A15236200F969D8 /* Lato-BlackItalic.ttf */; };
+		FFC2C6C91AF933A2004B0AA7 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BF91A15236200F969D8 /* Lato-Bold.ttf */; };
+		FFC2C6CA1AF933A2004B0AA7 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BFA1A15236200F969D8 /* Lato-BoldItalic.ttf */; };
+		FFC2C6CB1AF933A2004B0AA7 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BFB1A15236200F969D8 /* Lato-Hairline.ttf */; };
+		FFC2C6CC1AF933A2004B0AA7 /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BFC1A15236200F969D8 /* Lato-HairlineItalic.ttf */; };
+		FFC2C6CD1AF933A2004B0AA7 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BFD1A15236200F969D8 /* Lato-Heavy.ttf */; };
+		FFC2C6CE1AF933A2004B0AA7 /* Lato-HeavyItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BFE1A15236200F969D8 /* Lato-HeavyItalic.ttf */; };
+		FFC2C6CF1AF933A2004B0AA7 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62BFF1A15236200F969D8 /* Lato-Italic.ttf */; };
+		FFC2C6D01AF933A2004B0AA7 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C001A15236200F969D8 /* Lato-Light.ttf */; };
+		FFC2C6D11AF933A2004B0AA7 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C011A15236200F969D8 /* Lato-LightItalic.ttf */; };
+		FFC2C6D21AF933A2004B0AA7 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C021A15236200F969D8 /* Lato-Medium.ttf */; };
+		FFC2C6D31AF933A2004B0AA7 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C031A15236200F969D8 /* Lato-MediumItalic.ttf */; };
+		FFC2C6D41AF933A2004B0AA7 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C041A15236200F969D8 /* Lato-Regular.ttf */; };
+		FFC2C6D51AF933A2004B0AA7 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C051A15236200F969D8 /* Lato-Semibold.ttf */; };
+		FFC2C6D61AF933A2004B0AA7 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C061A15236200F969D8 /* Lato-SemiboldItalic.ttf */; };
+		FFC2C6D71AF933A2004B0AA7 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C071A15236200F969D8 /* Lato-Thin.ttf */; };
+		FFC2C6D81AF933A2004B0AA7 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C081A15236200F969D8 /* Lato-ThinItalic.ttf */; };
+		FFCA2FB01AF43FC500DA8525 /* development-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCA2FAF1AF43FC500DA8525 /* development-pt.png */; };
+		FFCA2FB21AF43FCA00DA8525 /* development-en.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCA2FB11AF43FCA00DA8525 /* development-en.png */; };
 		FFCDF6C71AF29CF40053FBCF /* DevelopmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */; };
 		FFCDF6CA1AF2B09C0053FBCF /* ConfigurationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF6C91AF2B09C0053FBCF /* ConfigurationVC.m */; };
+		FFEC7BD31AF54D4100E171D8 /* watchicon88.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BCB1AF54D4100E171D8 /* watchicon88.png */; };
+		FFEC7BD41AF54D4100E171D8 /* watchicon87.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BCC1AF54D4100E171D8 /* watchicon87.png */; };
+		FFEC7BD51AF54D4100E171D8 /* watchicon58.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BCD1AF54D4100E171D8 /* watchicon58.png */; };
+		FFEC7BD61AF54D4100E171D8 /* watchicon80.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BCE1AF54D4100E171D8 /* watchicon80.png */; };
+		FFEC7BD71AF54D4100E171D8 /* watchicon55.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BCF1AF54D4100E171D8 /* watchicon55.png */; };
+		FFEC7BD81AF54D4100E171D8 /* watchIcon48.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BD01AF54D4100E171D8 /* watchIcon48.png */; };
+		FFEC7BD91AF54D4100E171D8 /* watchicon196.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BD11AF54D4100E171D8 /* watchicon196.png */; };
+		FFEC7BDA1AF54D4100E171D8 /* watchicon172.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BD21AF54D4100E171D8 /* watchicon172.png */; };
 		FFF378731ADE9430009BEDE1 /* WatchSharingData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378721ADE9430009BEDE1 /* WatchSharingData.m */; };
 		FFF3787A1ADEB82D009BEDE1 /* HomeInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = FF81D4101ADD57B200CEA531 /* HomeInterface.m */; };
 		FFF3787C1ADEB833009BEDE1 /* InterfaceRunning.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF378781ADEA154009BEDE1 /* InterfaceRunning.m */; };
@@ -315,7 +342,6 @@
 		C561EBDA1A38F921002F3F6A /* ServerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerSupport.h; sourceTree = "<group>"; };
 		C561EBDB1A38F921002F3F6A /* ServerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerSupport.m; sourceTree = "<group>"; };
 		C561EBDD1A38F941002F3F6A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		C561EBDE1A38F941002F3F6A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C561EBE01A38F959002F3F6A /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		C561EBE11A38F959002F3F6A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C561EBE41A38F96A002F3F6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -565,10 +591,20 @@
 		FFB8BCC41A0AA17C00F9D8A7 /* RoutePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutePicture.m; sourceTree = "<group>"; };
 		FFB8BCC61A0AA3DC00F9D8A7 /* TrajectoryRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryRoute.h; sourceTree = "<group>"; };
 		FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryRoute.m; sourceTree = "<group>"; };
+		FFCA2FAF1AF43FC500DA8525 /* development-pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "development-pt.png"; sourceTree = "<group>"; };
+		FFCA2FB11AF43FCA00DA8525 /* development-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "development-en.png"; sourceTree = "<group>"; };
 		FFCDF6C51AF29CF40053FBCF /* DevelopmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentVC.h; sourceTree = "<group>"; };
 		FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentVC.m; sourceTree = "<group>"; };
 		FFCDF6C81AF2B09C0053FBCF /* ConfigurationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationVC.h; sourceTree = "<group>"; };
 		FFCDF6C91AF2B09C0053FBCF /* ConfigurationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationVC.m; sourceTree = "<group>"; };
+		FFEC7BCB1AF54D4100E171D8 /* watchicon88.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon88.png; sourceTree = "<group>"; };
+		FFEC7BCC1AF54D4100E171D8 /* watchicon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon87.png; sourceTree = "<group>"; };
+		FFEC7BCD1AF54D4100E171D8 /* watchicon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon58.png; sourceTree = "<group>"; };
+		FFEC7BCE1AF54D4100E171D8 /* watchicon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon80.png; sourceTree = "<group>"; };
+		FFEC7BCF1AF54D4100E171D8 /* watchicon55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon55.png; sourceTree = "<group>"; };
+		FFEC7BD01AF54D4100E171D8 /* watchIcon48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchIcon48.png; sourceTree = "<group>"; };
+		FFEC7BD11AF54D4100E171D8 /* watchicon196.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon196.png; sourceTree = "<group>"; };
+		FFEC7BD21AF54D4100E171D8 /* watchicon172.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon172.png; sourceTree = "<group>"; };
 		FFF378711ADE9430009BEDE1 /* WatchSharingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchSharingData.h; sourceTree = "<group>"; };
 		FFF378721ADE9430009BEDE1 /* WatchSharingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchSharingData.m; sourceTree = "<group>"; };
 		FFF378771ADEA154009BEDE1 /* InterfaceRunning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceRunning.h; sourceTree = "<group>"; };
@@ -771,8 +807,8 @@
 				FF2EEF7B1ACDCDC900288AD0 /* Localizable.strings */,
 				FF951BE11A28E52F00E581AB /* TrajectoryHistory.h */,
 				FF951BE21A28E52F00E581AB /* TrajectoryHistory.m */,
-				C5DB392E1A28D7400066E1BC /* icone_hamburguer.png */,
 				FF1596EC19C0CBC900D9236F /* Stamina */,
+				C5DB392E1A28D7400066E1BC /* icone_hamburguer.png */,
 				FF15970619C0CBC900D9236F /* StaminaTests */,
 				FF81D4171ADD582C00CEA531 /* Stamina WatchKit Extension */,
 				FF81D4251ADD582C00CEA531 /* Stamina WatchKit App */,
@@ -863,7 +899,6 @@
 			isa = PBXGroup;
 			children = (
 				C561EBDD1A38F941002F3F6A /* LoginViewController.h */,
-				C561EBDE1A38F941002F3F6A /* LoginViewController.m */,
 				FFAC194119E319F300B17487 /* Cadastro */,
 				FF1D8D4A1A36004700E52110 /* Calendario */,
 				FF1D8D491A36003100E52110 /* Compartilhar */,
@@ -1012,6 +1047,8 @@
 		FF1D8D781A38A84400E52110 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FFCA2FB11AF43FCA00DA8525 /* development-en.png */,
+				FFCA2FAF1AF43FC500DA8525 /* development-pt.png */,
 				7BB0BEE61AB75B2F0043260A /* tempo */,
 				C561EBE01A38F959002F3F6A /* Splash.png */,
 				C561EBE11A38F959002F3F6A /* Default@2x.png */,
@@ -1208,6 +1245,7 @@
 		FF81D4251ADD582C00CEA531 /* Stamina WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				FFEC7BA41AF53F8E00E171D8 /* WatchIcons */,
 				FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */,
 				FF81D42B1ADD582C00CEA531 /* Images.xcassets */,
 				FF81D4261ADD582C00CEA531 /* Supporting Files */,
@@ -1281,6 +1319,21 @@
 				C52C27861A07EB690030BEA4 /* CadastroVC.m */,
 			);
 			name = Cadastro;
+			sourceTree = "<group>";
+		};
+		FFEC7BA41AF53F8E00E171D8 /* WatchIcons */ = {
+			isa = PBXGroup;
+			children = (
+				FFEC7BCB1AF54D4100E171D8 /* watchicon88.png */,
+				FFEC7BCC1AF54D4100E171D8 /* watchicon87.png */,
+				FFEC7BCD1AF54D4100E171D8 /* watchicon58.png */,
+				FFEC7BCE1AF54D4100E171D8 /* watchicon80.png */,
+				FFEC7BCF1AF54D4100E171D8 /* watchicon55.png */,
+				FFEC7BD01AF54D4100E171D8 /* watchIcon48.png */,
+				FFEC7BD11AF54D4100E171D8 /* watchicon196.png */,
+				FFEC7BD21AF54D4100E171D8 /* watchicon172.png */,
+			);
+			name = WatchIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1374,7 +1427,7 @@
 			};
 			buildConfigurationList = FF1596E519C0CBC900D9236F /* Build configuration list for PBXProject "Stamina" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = Portuguese;
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1426,6 +1479,7 @@
 				FF1D8DDE1A38AAE100E52110 /* icone_ok_tab.png in Resources */,
 				FF1D8D8C1A38A8DA00E52110 /* s_icone_caminhada.png in Resources */,
 				C5B62C4D1A1527F600F969D8 /* icone_calendario_19.png in Resources */,
+				FFCA2FB01AF43FC500DA8525 /* development-pt.png in Resources */,
 				C5B6B8711A39F10D00792A8D /* 101001_01.png in Resources */,
 				C5B62C0B1A1525F400F969D8 /* Lato-Bold.ttf in Resources */,
 				FF1D8DB71A38AA3200E52110 /* icone_camera_girar.png in Resources */,
@@ -1488,10 +1542,10 @@
 				C5B62C141A1525F400F969D8 /* Lato-Medium.ttf in Resources */,
 				FF1D8DDB1A38AAE100E52110 /* icone_home_tab.png in Resources */,
 				7BB0BEF81AB75B2F0043260A /* icone_tempo_tempestade.png in Resources */,
-				FF81D4371ADD594E00CEA531 /* Stamina WatchKit App.app in Resources */,
 				C5B62C151A1525F400F969D8 /* Lato-MediumItalic.ttf in Resources */,
 				FF1D8DC91A38AA7200E52110 /* s_icone_alternar.png in Resources */,
 				C5B62C161A1525F400F969D8 /* Lato-Regular.ttf in Resources */,
+				FFC2C6B41AF93367004B0AA7 /* Lato-Black.ttf in Resources */,
 				C5B62C171A1525F400F969D8 /* Lato-Semibold.ttf in Resources */,
 				FF5911331A38CC4E004208FA /* stamina_logo.png in Resources */,
 				FF1D8DB01A38A9FC00E52110 /* s_icone_foto_trajeto.png in Resources */,
@@ -1507,6 +1561,7 @@
 				C5B62C191A1525F400F969D8 /* Lato-Thin.ttf in Resources */,
 				FF1D8DDD1A38AAE100E52110 /* icone_info_user_tab.png in Resources */,
 				C5B62C3F1A1527F600F969D8 /* icone_calendario_05.png in Resources */,
+				FFCA2FB21AF43FCA00DA8525 /* development-en.png in Resources */,
 				C5B62C1A1A1525F400F969D8 /* Lato-ThinItalic.ttf in Resources */,
 				FF1D8D831A38A89E00E52110 /* exercicio_teste5.png in Resources */,
 				C5B62C571A1527F600F969D8 /* icone_calendario_29.png in Resources */,
@@ -1539,10 +1594,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2C6C91AF933A2004B0AA7 /* Lato-Bold.ttf in Resources */,
+				FFC2C6D11AF933A2004B0AA7 /* Lato-LightItalic.ttf in Resources */,
 				FF81D4221ADD582C00CEA531 /* Stamina WatchKit App.app in Resources */,
+				FFC2C6CF1AF933A2004B0AA7 /* Lato-Italic.ttf in Resources */,
+				FFC2C6CC1AF933A2004B0AA7 /* Lato-HairlineItalic.ttf in Resources */,
+				FFC2C6D61AF933A2004B0AA7 /* Lato-SemiboldItalic.ttf in Resources */,
 				FFF3788C1ADECE5D009BEDE1 /* WatchStoryboard.storyboard in Resources */,
+				FFC2C6D81AF933A2004B0AA7 /* Lato-ThinItalic.ttf in Resources */,
+				FFC2C6D31AF933A2004B0AA7 /* Lato-MediumItalic.ttf in Resources */,
+				FFC2C6CE1AF933A2004B0AA7 /* Lato-HeavyItalic.ttf in Resources */,
+				FFC2C6CA1AF933A2004B0AA7 /* Lato-BoldItalic.ttf in Resources */,
+				FFC2C6C81AF933A2004B0AA7 /* Lato-BlackItalic.ttf in Resources */,
+				FFC2C6D21AF933A2004B0AA7 /* Lato-Medium.ttf in Resources */,
+				FFC2C6CB1AF933A2004B0AA7 /* Lato-Hairline.ttf in Resources */,
 				FF81D41E1ADD582C00CEA531 /* Images.xcassets in Resources */,
+				FFC2C6D41AF933A2004B0AA7 /* Lato-Regular.ttf in Resources */,
+				FFC2C6C71AF933A2004B0AA7 /* Lato-Black.ttf in Resources */,
+				FFC2C6D71AF933A2004B0AA7 /* Lato-Thin.ttf in Resources */,
 				FFF3788B1ADEC2FF009BEDE1 /* stamina_logo.png in Resources */,
+				FFC2C6CD1AF933A2004B0AA7 /* Lato-Heavy.ttf in Resources */,
+				FFC2C6D01AF933A2004B0AA7 /* Lato-Light.ttf in Resources */,
+				FFC2C6D51AF933A2004B0AA7 /* Lato-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1550,7 +1623,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFEC7BD61AF54D4100E171D8 /* watchicon80.png in Resources */,
+				FFEC7BD31AF54D4100E171D8 /* watchicon88.png in Resources */,
+				FFEC7BD71AF54D4100E171D8 /* watchicon55.png in Resources */,
+				FFEC7BDA1AF54D4100E171D8 /* watchicon172.png in Resources */,
+				FFEC7BD41AF54D4100E171D8 /* watchicon87.png in Resources */,
+				FFEC7BD51AF54D4100E171D8 /* watchicon58.png in Resources */,
 				FF81D42C1ADD582C00CEA531 /* Images.xcassets in Resources */,
+				FFEC7BD91AF54D4100E171D8 /* watchicon196.png in Resources */,
+				FFEC7BD81AF54D4100E171D8 /* watchIcon48.png in Resources */,
 				FF81D43D1ADD5D8D00CEA531 /* WatchStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1619,7 +1700,6 @@
 				FF13E9DD19E5BF840005BA49 /* SharingResponse.m in Sources */,
 				FFCDF6C71AF29CF40053FBCF /* DevelopmentVC.m in Sources */,
 				C5D4DA891A34DA3E00FE2182 /* Exercises.m in Sources */,
-				C561EBDF1A38F941002F3F6A /* LoginViewController.m in Sources */,
 				C5EB6BF719D9DB6B00C528FC /* DayObject.m in Sources */,
 				C5D4DA861A34DA3E00FE2182 /* ExerciseTip.m in Sources */,
 				C5D4DA981A356C7100FE2182 /* MainMenuVC.m in Sources */,
@@ -1790,6 +1870,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -1801,6 +1882,7 @@
 				CODE_SIGN_ENTITLEMENTS = Stamina/Stamina.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDK",
@@ -1820,6 +1902,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1832,6 +1915,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
@@ -1843,7 +1927,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = Stamina_WatchKit_Extension;
@@ -1863,6 +1947,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Stamina WatchKit Extension/Stamina WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1880,6 +1965,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};

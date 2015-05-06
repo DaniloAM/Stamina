@@ -9,6 +9,7 @@
 #import "DevelopmentVC.h"
 
 @interface DevelopmentVC ()
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end
 
@@ -17,6 +18,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [[self image] setImage:[UIImage imageNamed:[NSString stringWithFormat:NSLocalizedString(@"development-pt.png", nil)]]];
     
     UISwipeGestureRecognizer *gest1 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(popView)];
     

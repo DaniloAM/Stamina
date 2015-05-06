@@ -19,8 +19,6 @@
     
     sharing = [[WatchSharingData alloc] init];
     
-    //[[self distanceLabel] s]
- 
     [self reloadValues];
     // Configure interface objects here.
 }
@@ -47,8 +45,12 @@
         
         NSLog(@"%@", sharing.timerString);
         
-        [[self distanceLabel] setText:sharing.distanceString];
-        [[self timeLabel] setText:sharing.timerString];
+        //[[self distanceLabel] setText:sharing.distanceString];
+        
+        [[self distanceButton] setTitle:sharing.distanceString];
+        //[[self timeLabel] setText:sharing.timerString];
+        
+        [[self infoButton] setTitle:sharing.timerString];
         
         //******* SEND BPS INFO HERE ******//
         //[sharing setBeatsPerSecond:??];
@@ -59,20 +61,20 @@
     else if([sharing runningState] == RSPaused) {
         
         if(!labelsHidden) {
-            [self hideLabels];
+            //[self hideLabels];
         }
         
-        [[self timeLabel] setText:@"Paused"];
+        //[[self timeLabel] setText:@"Paused"];
         
     }
     
     else if([sharing runningState] == RSStopped) {
         
         if(!labelsHidden) {
-            [self hideLabels];
+            //[self hideLabels];
         }
         
-        [[self timeLabel] setText:@"Stopped"];
+        //[[self timeLabel] setText:@"Stopped"];
         
     }
     
@@ -80,14 +82,14 @@
 
 -(void)hideLabels {
     labelsHidden = true;
-    [[self bpsLabel] setHidden:true];
-    [[self distanceLabel] setHidden:true];
+    //[[self bpsLabel] setHidden:true];
+    //[[self distanceLabel] setHidden:true];
 }
 
 -(void)showLabels {
     labelsHidden = false;
-    [[self bpsLabel] setHidden:false];
-    [[self distanceLabel] setHidden:false];
+    //[[self bpsLabel] setHidden:false];
+    //[[self distanceLabel] setHidden:false];
 }
 
 - (void)willActivate {

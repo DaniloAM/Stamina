@@ -545,38 +545,6 @@
             endingLineNumber = "14"
             landmarkName = "point"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AcademiaVC point]"
-                  moduleName = "Stamina"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/wireframes/AcademiaVC.h"
-                  timestampString = "452115511.749491"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AcademiaVC setPoint:]"
-                  moduleName = "Stamina"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/DaniloAM/Desktop/Stamina/Stamina/Stamina/wireframes/AcademiaVC.h"
-                  timestampString = "452115511.749755"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

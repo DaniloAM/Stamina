@@ -7,6 +7,7 @@
  */
 
 
+"development-pt.png" = "development-en.png";
 
 //Configurations
 
@@ -70,17 +71,17 @@
 "Frontal" = "Front";
 "Traseiro" = "Rear";
 
-"Abdominal" = "Abdominal";
+"Abdominal" = "ABS";
 "Ante-Braço" = "Forearm";
 "Bíceps" = "Biceps";
-"Ombros" = "Shoulders";
+"Ombros" = "Shoulder";
 "Peitoral" = "Chest";
-"Quadríceps" = "Quadriceps";
-"Trapézio" = "Trapeze";
+"Quadríceps" = "Quads";
+"Trapézio" = "Traps";
 "Tríceps" = "Triceps";
-"Dorsal" = "Dorsal";
-"Glúteos" = "Gluteus";
-"Lombar" = "Lumbar";
-"Panturrilha" = "Calf";
-"Posterior de Coxa" = "Posterior Thigh";
-"Rombóides" = "Rhomboid";
+"Dorsal" = "Lats";
+"Glúteos" = "Glutes";
+"Lombar" = "Lower Back";
+"Panturrilha" = "Calves";
+"Posterior de Coxa" = "Hamstring";
+"Rombóides" = "Middle Back";

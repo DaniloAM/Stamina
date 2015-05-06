@@ -415,6 +415,21 @@
         
         [user saveOnUserDefaults];
         
+        AppDelegate *app = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [app managedObjectContext];
+        NSError *error = nil;
+        
+        TrajectoryFile *file = [NSEntityDescription insertNewObjectForEntityForName:@"TrajectoryFile" inManagedObjectContext:context];
+        
+        
+        [file setTrajectoryName:@""];
+        [file setDateDone:[NSDate date]];
+        [file setDuration:[NSNumber numberWithInt:([self seconds] + [self minutes] * 60)]];
+        [file setDistance:[NSNumber numberWithDouble:[self distanceInMeters]]];
+        
+        
+        [context save:&error];
+        
         
     }
     

@@ -10,15 +10,25 @@
 #import <Foundation/Foundation.h>
 #import "WatchSharingData.h"
 #import "UnitConversion.h"
+#import "UIStaminaColor.h"
 
 @interface InterfaceRunning : WKInterfaceController {
     WatchSharingData *sharing;
     BOOL labelsHidden;
     BOOL willLeave;
+    NSString *timeText;
+    NSString *bpsText;
+    NSString *speedText;
 }
 
-@property IBOutlet WKInterfaceLabel *distanceLabel;
-@property IBOutlet WKInterfaceLabel *timeLabel;
-@property IBOutlet WKInterfaceLabel *bpsLabel;
+//@property IBOutlet WKInterfaceLabel *distanceLabel;
+//@property IBOutlet WKInterfaceLabel *timeLabel;
+//@property IBOutlet WKInterfaceLabel *bpsLabel;
+
+
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *mapButton;
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *distanceButton;
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *infoButton;
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *runningStatusButton;
 
 @end
