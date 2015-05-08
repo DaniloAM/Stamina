@@ -64,16 +64,5 @@
             </objects>
             <point key="canvasLocation" x="187" y="403"/>
         </scene>
-        <!--Interface Controller-->
-        <scene sceneID="BNB-o2-7QL">
-            <objects>
-                <controller id="vPY-SJ-iYZ">
-                    <items>
-                        <map height="150" alignment="left" id="9px-h1-yBS"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="401" y="389"/>
-        </scene>
     </scenes>
 </document>
