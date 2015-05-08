@@ -18,9 +18,9 @@
             <objects>
                 <controller identifier="homeScreen" title="Stamina" hidesWhenLoading="NO" id="fXM-WF-NVR" customClass="HomeInterface">
                     <items>
-                        <imageView width="136" height="136" alignment="center" verticalAlignment="center" image="stamina_logo.png" id="Ctt-AS-0g6"/>
+                        <imageView width="116" height="117" alignment="center" verticalAlignment="center" image="logo_stamina_yellow.png" id="Ctt-AS-0g6"/>
                     </items>
-                    <color key="backgroundColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="staminaIcon" destination="Ctt-AS-0g6" id="9Yy-h4-l54"/>
                     </connections>
