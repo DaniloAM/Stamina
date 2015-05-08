@@ -37,13 +37,18 @@
     [watchDefaults synchronize];
 }
 
--(void)setBeatsPerSecond: (int)bps {
-    [watchDefaults setInteger:bps forKey:@"wk_bps"];
+-(void)setBeatsPerSecond: (NSString *)bps {
+    [watchDefaults setObject:bps forKey:@"wk_beats"];
     [watchDefaults synchronize];
 }
 
 -(void)setDistanceString: (NSString *)distance {
     [watchDefaults setObject:distance forKey:@"wk_distance"];
+    [watchDefaults synchronize];
+}
+
+-(void)setSpeedString: (NSString *)speed {
+    [watchDefaults setObject:speed forKey:@"wk_speed"];
     [watchDefaults synchronize];
 }
 
@@ -60,12 +65,16 @@
     return [watchDefaults objectForKey:@"wk_timer"];
 }
 
--(int)beatsPerSecond {
-    return (int)[watchDefaults integerForKey:@"wk_bps"];
+-(NSString *)beatsPerSecond {
+    return [watchDefaults objectForKey:@"wk_beats"];
 }
 
 -(NSString *)distanceString {
     return [watchDefaults objectForKey:@"wk_distance"];
+}
+
+-(NSString *)speedString {
+    return [watchDefaults objectForKey:@"wk_speed"];
 }
 
 +(void)clearAllData {

@@ -19,7 +19,7 @@
     
     share = [[WatchSharingData alloc] init];
     
-    [[self staminaIcon] setImage:[UIImage imageNamed:@"stamina_logo.png"]];
+    [[self staminaIcon] setImage:[UIImage imageNamed:@"logo_stamina_yellow.png"]];
     
     // Configure interface objects here.
 }

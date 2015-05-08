@@ -235,6 +235,16 @@
 		FFC2C6D81AF933A2004B0AA7 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5B62C081A15236200F969D8 /* Lato-ThinItalic.ttf */; };
 		FFCA2FB01AF43FC500DA8525 /* development-pt.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCA2FAF1AF43FC500DA8525 /* development-pt.png */; };
 		FFCA2FB21AF43FCA00DA8525 /* development-en.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCA2FB11AF43FCA00DA8525 /* development-en.png */; };
+		FFCD7C861AFBFFE20051B668 /* stamina_point.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C7C1AFBFFE20051B668 /* stamina_point.png */; };
+		FFCD7C871AFBFFE20051B668 /* logo_stamina_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C7D1AFBFFE20051B668 /* logo_stamina_yellow.png */; };
+		FFCD7C881AFBFFE20051B668 /* icon_time_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C7E1AFBFFE20051B668 /* icon_time_yellow.png */; };
+		FFCD7C891AFBFFE20051B668 /* icon_stop_yellow_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C7F1AFBFFE20051B668 /* icon_stop_yellow_enable.png */; };
+		FFCD7C8A1AFBFFE20051B668 /* icon_speed_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C801AFBFFE20051B668 /* icon_speed_yellow.png */; };
+		FFCD7C8B1AFBFFE20051B668 /* icon_play_yellow_unable.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C811AFBFFE20051B668 /* icon_play_yellow_unable.png */; };
+		FFCD7C8C1AFBFFE20051B668 /* icon_play_yellow_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C821AFBFFE20051B668 /* icon_play_yellow_enable.png */; };
+		FFCD7C8D1AFBFFE20051B668 /* icon_pause_yellow_unable.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C831AFBFFE20051B668 /* icon_pause_yellow_unable.png */; };
+		FFCD7C8E1AFBFFE20051B668 /* icon_pause_yellow_enable.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C841AFBFFE20051B668 /* icon_pause_yellow_enable.png */; };
+		FFCD7C8F1AFBFFE20051B668 /* icon_bpm_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCD7C851AFBFFE20051B668 /* icon_bpm_yellow.png */; };
 		FFCDF6C71AF29CF40053FBCF /* DevelopmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */; };
 		FFCDF6CA1AF2B09C0053FBCF /* ConfigurationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCDF6C91AF2B09C0053FBCF /* ConfigurationVC.m */; };
 		FFEC7BD31AF54D4100E171D8 /* watchicon88.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEC7BCB1AF54D4100E171D8 /* watchicon88.png */; };
@@ -593,6 +603,16 @@
 		FFB8BCC71A0AA3DC00F9D8A7 /* TrajectoryRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryRoute.m; sourceTree = "<group>"; };
 		FFCA2FAF1AF43FC500DA8525 /* development-pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "development-pt.png"; sourceTree = "<group>"; };
 		FFCA2FB11AF43FCA00DA8525 /* development-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "development-en.png"; sourceTree = "<group>"; };
+		FFCD7C7C1AFBFFE20051B668 /* stamina_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamina_point.png; sourceTree = "<group>"; };
+		FFCD7C7D1AFBFFE20051B668 /* logo_stamina_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_stamina_yellow.png; sourceTree = "<group>"; };
+		FFCD7C7E1AFBFFE20051B668 /* icon_time_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time_yellow.png; sourceTree = "<group>"; };
+		FFCD7C7F1AFBFFE20051B668 /* icon_stop_yellow_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stop_yellow_enable.png; sourceTree = "<group>"; };
+		FFCD7C801AFBFFE20051B668 /* icon_speed_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_speed_yellow.png; sourceTree = "<group>"; };
+		FFCD7C811AFBFFE20051B668 /* icon_play_yellow_unable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_play_yellow_unable.png; sourceTree = "<group>"; };
+		FFCD7C821AFBFFE20051B668 /* icon_play_yellow_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_play_yellow_enable.png; sourceTree = "<group>"; };
+		FFCD7C831AFBFFE20051B668 /* icon_pause_yellow_unable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pause_yellow_unable.png; sourceTree = "<group>"; };
+		FFCD7C841AFBFFE20051B668 /* icon_pause_yellow_enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pause_yellow_enable.png; sourceTree = "<group>"; };
+		FFCD7C851AFBFFE20051B668 /* icon_bpm_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bpm_yellow.png; sourceTree = "<group>"; };
 		FFCDF6C51AF29CF40053FBCF /* DevelopmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentVC.h; sourceTree = "<group>"; };
 		FFCDF6C61AF29CF40053FBCF /* DevelopmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentVC.m; sourceTree = "<group>"; };
 		FFCDF6C81AF2B09C0053FBCF /* ConfigurationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationVC.h; sourceTree = "<group>"; };
@@ -1245,7 +1265,7 @@
 		FF81D4251ADD582C00CEA531 /* Stamina WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				FFEC7BA41AF53F8E00E171D8 /* WatchIcons */,
+				FFCD7C7B1AFBFEDF0051B668 /* WatchImages */,
 				FF81D43C1ADD5D8D00CEA531 /* WatchStoryboard.storyboard */,
 				FF81D42B1ADD582C00CEA531 /* Images.xcassets */,
 				FF81D4261ADD582C00CEA531 /* Supporting Files */,
@@ -1321,7 +1341,25 @@
 			name = Cadastro;
 			sourceTree = "<group>";
 		};
-		FFEC7BA41AF53F8E00E171D8 /* WatchIcons */ = {
+		FFCD7C7B1AFBFEDF0051B668 /* WatchImages */ = {
+			isa = PBXGroup;
+			children = (
+				FFEC7BA41AF53F8E00E171D8 /* WatchAppIcons */,
+				FFCD7C7C1AFBFFE20051B668 /* stamina_point.png */,
+				FFCD7C7D1AFBFFE20051B668 /* logo_stamina_yellow.png */,
+				FFCD7C7E1AFBFFE20051B668 /* icon_time_yellow.png */,
+				FFCD7C7F1AFBFFE20051B668 /* icon_stop_yellow_enable.png */,
+				FFCD7C801AFBFFE20051B668 /* icon_speed_yellow.png */,
+				FFCD7C811AFBFFE20051B668 /* icon_play_yellow_unable.png */,
+				FFCD7C821AFBFFE20051B668 /* icon_play_yellow_enable.png */,
+				FFCD7C831AFBFFE20051B668 /* icon_pause_yellow_unable.png */,
+				FFCD7C841AFBFFE20051B668 /* icon_pause_yellow_enable.png */,
+				FFCD7C851AFBFFE20051B668 /* icon_bpm_yellow.png */,
+			);
+			name = WatchImages;
+			sourceTree = "<group>";
+		};
+		FFEC7BA41AF53F8E00E171D8 /* WatchAppIcons */ = {
 			isa = PBXGroup;
 			children = (
 				FFEC7BCB1AF54D4100E171D8 /* watchicon88.png */,
@@ -1333,7 +1371,7 @@
 				FFEC7BD11AF54D4100E171D8 /* watchicon196.png */,
 				FFEC7BD21AF54D4100E171D8 /* watchicon172.png */,
 			);
-			name = WatchIcons;
+			name = WatchAppIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1623,15 +1661,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCD7C861AFBFFE20051B668 /* stamina_point.png in Resources */,
 				FFEC7BD61AF54D4100E171D8 /* watchicon80.png in Resources */,
+				FFCD7C8E1AFBFFE20051B668 /* icon_pause_yellow_enable.png in Resources */,
+				FFCD7C871AFBFFE20051B668 /* logo_stamina_yellow.png in Resources */,
+				FFCD7C8A1AFBFFE20051B668 /* icon_speed_yellow.png in Resources */,
 				FFEC7BD31AF54D4100E171D8 /* watchicon88.png in Resources */,
 				FFEC7BD71AF54D4100E171D8 /* watchicon55.png in Resources */,
+				FFCD7C891AFBFFE20051B668 /* icon_stop_yellow_enable.png in Resources */,
+				FFCD7C8F1AFBFFE20051B668 /* icon_bpm_yellow.png in Resources */,
+				FFCD7C8C1AFBFFE20051B668 /* icon_play_yellow_enable.png in Resources */,
 				FFEC7BDA1AF54D4100E171D8 /* watchicon172.png in Resources */,
 				FFEC7BD41AF54D4100E171D8 /* watchicon87.png in Resources */,
 				FFEC7BD51AF54D4100E171D8 /* watchicon58.png in Resources */,
 				FF81D42C1ADD582C00CEA531 /* Images.xcassets in Resources */,
 				FFEC7BD91AF54D4100E171D8 /* watchicon196.png in Resources */,
 				FFEC7BD81AF54D4100E171D8 /* watchIcon48.png in Resources */,
+				FFCD7C8D1AFBFFE20051B668 /* icon_pause_yellow_unable.png in Resources */,
+				FFCD7C8B1AFBFFE20051B668 /* icon_play_yellow_unable.png in Resources */,
+				FFCD7C881AFBFFE20051B668 /* icon_time_yellow.png in Resources */,
 				FF81D43D1ADD5D8D00CEA531 /* WatchStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

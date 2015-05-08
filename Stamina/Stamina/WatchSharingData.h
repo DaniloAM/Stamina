@@ -13,6 +13,7 @@
 }
 
 typedef enum RunningState{
+    RSNone,
     RSStopped,
     RSPaused,
     RSRunning,
@@ -25,14 +26,16 @@ typedef enum RunningState{
 -(void)setIsRunning:(BOOL)running;
 -(void)setRunningState:(int)runningState;
 -(void)setTimerString: (NSString *)timer;
--(void)setBeatsPerSecond: (int)bps;
+-(void)setBeatsPerSecond: (NSString *)bps;
 -(void)setDistanceString: (NSString *)distance;
+-(void)setSpeedString: (NSString *)speed;
 
 -(BOOL)isRunning;
 -(int)runningState;
 -(NSString *)timerString;
--(int)beatsPerSecond;
+-(NSString *)beatsPerSecond;
 -(NSString *)distanceString;
+-(NSString *)speedString;
 
 +(void)clearAllData;
 

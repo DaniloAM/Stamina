@@ -12,6 +12,12 @@
 #import "UnitConversion.h"
 #import "UIStaminaColor.h"
 
+typedef enum  StaminaRunning{
+    SRTime,
+    SRHeartbeat,
+    SRSpeed,
+}StaminaRunning;
+
 @interface InterfaceRunning : WKInterfaceController {
     WatchSharingData *sharing;
     BOOL labelsHidden;
@@ -19,6 +25,9 @@
     NSString *timeText;
     NSString *bpsText;
     NSString *speedText;
+    StaminaRunning staminaRunning;
+    NSInteger dataType;
+    NSInteger runningState;
 }
 
 //@property IBOutlet WKInterfaceLabel *distanceLabel;

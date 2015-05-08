@@ -10,6 +10,7 @@
 #define MaxFactor 1.77
 
 @interface RunningMapVC ()
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpace1;
 @property NSLayoutConstraint *spaceTimeToMap;
 @property NSLayoutConstraint *centerTimeToView;
@@ -24,11 +25,12 @@
 @implementation RunningMapVC
 
 #define reload 3
-//#define frame_max 410.0
-//#define frame_min 225.0
 
 #pragma mark - Receiver
 
+
+// This function is used when you are going to run a saved route.
+// The method draws the route you selected on the map
 -(void)receiveTrajectorySelected: (TrajectoryRoute *)route {
     
     if(route) {
@@ -60,6 +62,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    //Height factor based on screen size. Is used to the animations
+    //of labels and buttons in the view, using auto layout constraints
+    
     _heightFactorScreen = [self.view frame].size.height;
     _heightFactorScreen = _heightFactorScreen / 568.0;
     
@@ -72,7 +78,7 @@
     _minHeight = _mapHeight.constant;
     _maxHeight = _minHeight * MaxFactor;
     
-    
+    //Start button inits
     [self setStartButton:[[UIButton alloc] initWithFrame:CGRectMake(32, 430 * _heightFactorScreen, 256, 36)]];
     
     [self setTimeLabel:[[UILabel alloc] init]];
@@ -82,13 +88,16 @@
     [[self startButton]setTitleColor:[UIColor staminaYellowColor] forState:UIControlStateNormal];
     [[[self startButton] titleLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:22.0]];
     [[self startButton] addTarget:self action:@selector(finishButton:) forControlEvents:UIControlEventTouchUpInside];
+    [[self startButton] layer].cornerRadius = 7.0;
     
+    //Time label inits
     [[self timeLabel] setTextColor:[UIColor staminaBlackColor]];
     [[self timeLabel] setTextAlignment:NSTextAlignmentCenter];
     [[self timeLabel] setText:@"0:00:00"];
     [[self timeLabel] setFont:[UIFont fontWithName:@"Lato-Regular" size:20.0]];
     
-    //Auto layout preparations
+    
+    //Auto layout preparations for animations
     [[self timeLabel] setTranslatesAutoresizingMaskIntoConstraints:false];
     
     [self.view addSubview:[self startButton]];
@@ -110,35 +119,39 @@
     
     [self.view addConstraint:_centerTimeToView];
     [self.view addConstraint:_spaceTimeToMap];
-
-    [[self startButton] layer].cornerRadius = 7.0;
     
+    //Prepare the data for sharing with Apple Watch
     [self setSharingWK:[[WatchSharingData alloc] init]];
     [[self sharingWK] setRunningState:RSStopped];
     [[self sharingWK] setIsRunning:true];
     
+    //Prepare the viewController to take pictures of places
     [self setPictureViewController:[[SocialSharingVC alloc] init]];
     [[self pictureViewController] setRoutePicture:true];
     
     [self.view setBackgroundColor:[UIColor staminaYellowColor]];
     [[UIApplication sharedApplication] setIdleTimerDisabled:true];
     
+    //Arrays of references
     [self setOverlayArray:[NSMutableArray array]];
     [self setLocationsArray:[NSMutableArray array]];
     [self setPicturesArray:[NSMutableArray array]];
     
-    [[self mapRunningView] setDelegate:self];
+    //LocationManager init and delegates
     [self setLocationManager:[[CLLocationManager alloc] init]];
+    [[self mapRunningView] setDelegate:self];
+    [[self mapRunningView] setShowsUserLocation:true];
     [[self locationManager] setDelegate:self];
     
+    //Request always authorization
     if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
         [[self locationManager] requestAlwaysAuthorization];
     }
     
-    [[self mapRunningView] setShowsUserLocation:true];
+    //Accuracy of GPS
     [[self locationManager] setDesiredAccuracy:kCLLocationAccuracyBest];
     
-    
+    //Add the overlay of route, if selected
     if([self userRoute] && [self routeLine]) {
         
         _userRouteIsDraw = true;
@@ -153,7 +166,7 @@
     
     [super hideBarWithAnimation:true];
     
-    
+    //Settings of bottom bar
     [self barBlock];
     [self removeGesture];
     [self backViewBlock];
@@ -164,14 +177,16 @@
         [[self speedIcon] setHidden:true];
     }
     
+    //Swipe gesture to go back
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeBack)];
-    
     [swipe setDirection:UISwipeGestureRecognizerDirectionRight];
     
     [self.view addGestureRecognizer:swipe];
     
+    //First distanceLabel value
     [[self distanceLabel] setText:[UnitConversion distanceFromMetric:_distanceInMeters]];
     
+    //Change WKState
     if(_isRunning) {
         [[self sharingWK] setRunningState:RSRunning];
     }
@@ -223,8 +238,6 @@
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:false];
     
-    //[[self timer] invalidate];
-    //_timer = nil;
 }
 
 
@@ -232,7 +245,17 @@
 #pragma mark - Map Delegates
 
 
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+
+    if(status == kCLAuthorizationStatusAuthorizedAlways) {
+        
+    }
+    
+}
+
+
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
     
     if(!_oldLocation) {
         _firstLocation = [locations lastObject];
