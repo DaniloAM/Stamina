@@ -1,0 +1,91 @@
+/*
+ Localizable.strings
+ Stamina
+ 
+ Created by Danilo Mative on 27/03/15.
+ Copyright (c) 2015 Danilo Augusto Mative. All rights reserved.
+ */
+
+
+"development-pt.png" = "development-pt.png";
+
+//Configurations
+
+"Distância" = "Distancita";
+"Temperatura" = "Temperaturita";
+"Altura" = "Alturita";
+"Peso" = "Pesito";
+
+
+//Offline Mode
+
+"Modo Offline" = "Modo Offline";
+"Aviso004" = "Não foi possível conectar com o servidor, você entrará em modo offline";
+
+
+//Repeated Values
+
+"Iniciar" = "Iniciar";
+"Terminar" = "Terminar";
+"Parar" = "Parar";
+"Sim" = "Sim";
+"Não" = "Não";
+"Ok" = "Ok";
+
+
+//Menu Values
+
+"    Calendário" = "    Calendário";
+"    Trajetos" = "    Trajetos";
+"    Exercícios" = "    Exercícios";
+"    Compartilhar" = "    Compartilhar";
+"    Resultados" = "    Resultados";
+"    Configurações" = "    Configurações";
+
+//Running Menu
+
+"Corrida" = "Corrida";
+"Trajetos" = "Trajetos";
+
+//Academia Menu
+
+"Academia" = "Academia";
+"Treino Livre" = "Treino Livre";
+
+//RunningMap
+
+
+"Aviso001" = "Deseja parar a corrida?";
+
+"Aviso002" = "A conexão wi-fi não permite o uso do mapa com precisão. Desabilite o Wifi e ligue os dados móveis.";
+
+"Aviso003" = "Sem conexão com a internet.";
+
+
+//FinishedRunning
+
+"Nome do Trajeto" = "Nome do Trajeto";
+
+
+
+//Exercises
+
+"Frontal" = "Frontal";
+"Traseiro" = "Traseiro";
+
+"Abdominal" = "Abdominal";
+"Ante-Braço" = "Ante-Braço";
+"Bíceps" = "Bíceps";
+"Ombros" = "Ombros";
+"Peitoral" = "Peitoral";
+"Quadríceps" = "Quadríceps";
+"Trapézio" = "Trapézio";
+"Tríceps" = "Tríceps";
+"Dorsal" = "Dorsal";
+"Glúteos" = "Glúteos";
+"Lombar" = "Lombar";
+"Panturrilha" = "Panturrilha";
+"Posterior de Coxa" = "Posterior de Coxa";
+"Rombóides" = "Rombóides";
+
+

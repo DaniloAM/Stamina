@@ -17,7 +17,12 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
+    
+    //[self barBlock];
+    //[self removeGesture];
+    //[self backViewBlock];
     
     [[self image] setImage:[UIImage imageNamed:[NSString stringWithFormat:NSLocalizedString(@"development-pt.png", nil)]]];
     

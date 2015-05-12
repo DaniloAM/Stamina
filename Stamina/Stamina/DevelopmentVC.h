@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HideBBVC.h"
 
-@interface DevelopmentVC : UIViewController
+@interface DevelopmentVC :HideBBVC
 
 @end

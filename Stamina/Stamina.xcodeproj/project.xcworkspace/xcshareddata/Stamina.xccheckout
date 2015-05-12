@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>AD679268-0164-4795-B877-09CFFA62FFC9</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Stamina</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5BBCE356BB24FD635BFBE82F979D64C0922AA19F</key>
 		<string>https://github.com/DaniloAM/Stamina.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Stamina/Stamina.xcodeproj</string>
+	<string>Stamina/Stamina.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5BBCE356BB24FD635BFBE82F979D64C0922AA19F</key>

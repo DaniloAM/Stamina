@@ -111,7 +111,7 @@
     
     _centerTimeToView = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     
-    _spaceTimeToMap = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.mapRunningView attribute:NSLayoutAttributeBottom                               multiplier:1.0 constant:140.0];
+    _spaceTimeToMap = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.mapRunningView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:140.0];
     
     _centerTimeToDistance = [NSLayoutConstraint constraintWithItem:[self timeLabel] attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:[self distanceLabel] attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0];
     
@@ -397,7 +397,7 @@
     [[self timeLabel] setText:timerString];
     [[self sharingWK] setTimerString:timerString];
     
-    [[self bpsLabel] setText:[NSString stringWithFormat:@"%d bps",[[self sharingWK] beatsPerSecond]]];
+    [[self bpsLabel] setText:[[self sharingWK] beatsPerSecond]];
     
 }
 
