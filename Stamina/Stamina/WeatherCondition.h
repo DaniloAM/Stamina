@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WeatherObject.h"
-#import "WebServiceResponse.h"
 
 @interface WeatherCondition : NSObject <CLLocationManagerDelegate>
 

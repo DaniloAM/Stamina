@@ -196,21 +196,21 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-    
-    NetworkStatus status = [reachability currentReachabilityStatus];
-    
-    if(status == NotReachable) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:NSLocalizedString(@"Aviso003", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
-        
-        alertView.tag = 2;
-        [alertView show];
-    }
-    
-    
-    [reachability stopNotifier];
+//    
+//    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+//    [reachability startNotifier];
+//    
+//    NetworkStatus status = [reachability currentReachabilityStatus];
+//    
+//    if(status == NotReachable) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Conexão" message:NSLocalizedString(@"Aviso003", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+//        
+//        alertView.tag = 2;
+//        [alertView show];
+//    }
+//    
+//    
+//    [reachability stopNotifier];
 
     
     [[self locationManager] startUpdatingLocation];

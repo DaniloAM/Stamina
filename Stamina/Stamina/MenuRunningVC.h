@@ -10,7 +10,6 @@
 #import "HideBBVC.h"
 #import "TrajectorySelectionVC.h"
 #import "WeatherCondition.h"
-#import "WebServiceResponse.h"
 
 @interface MenuRunningVC : HideBBVC <UIAlertViewDelegate>
 

@@ -33,17 +33,19 @@
     _str = @"Inicio";
     [self.navigationItem setTitle:@"Início"];
     if([self tabBar]==nil){
+        [self createPanGesture];
         [self createOpaqueView];
         [self createBarButton];
         [self createNavigationBar];
         [self createButtonUp];
         [self createLeftView];
-        [self createPanGesture];
         [self createViewsToPresent];
     }
+    
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+
     [self hideBarWithAnimation:1];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -272,6 +274,10 @@
     [self.navigationController.view removeGestureRecognizer:_panLeft];
 }
 -(void)addGesture{
+    NSInteger integer = [self.navigationController viewControllers].count;
+    UIView *vie = self.navigationController.view;
+    if(!_panLeft)
+        [self createPanGesture];
     [self.navigationController.view addGestureRecognizer:_panLeft];
 }
 -(void)hideBarWithAnimation : (BOOL)animated{

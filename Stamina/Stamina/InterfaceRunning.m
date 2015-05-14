@@ -20,7 +20,7 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
+    
     sharing = [[WatchSharingData alloc] init];
     
     

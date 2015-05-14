@@ -19,7 +19,6 @@
     
     _navigationController = [[UINavigationController alloc] init];
     [self.view addSubview:_navigationController.view];
-    //check if the first viewcontroller eixsts, otherwise create it
     _navigationController.navigationItem.hidesBackButton = YES;
     _navigationController.delegate = self;
 
@@ -48,7 +47,6 @@
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    NSLog(@"did show");
     JLSlideMenu *temp = [self.navigationController.viewControllers objectAtIndex:0];
     temp.stop = NO;
 }

@@ -12,16 +12,16 @@
 
 -(NSInteger)returnTemperatureInCurrentLocation {
     
-    CLLocationCoordinate2D coor = [self getCurrentLocation];
-    
-    WeatherObject *obj = [WebServiceResponse previsaoDoTempoNaLatitude:coor.latitude eLongitude:coor.longitude];
-    [self setStrOfWeather:obj.descricao];
-    if(obj == nil) {
-        return -1;
-    }
-    
-    return obj.tempAtual;
-    
+//    CLLocationCoordinate2D coor = [self getCurrentLocation];
+//    
+//    WeatherObject *obj = [WebServiceResponse previsaoDoTempoNaLatitude:coor.latitude eLongitude:coor.longitude];
+//    [self setStrOfWeather:obj.descricao];
+//    if(obj == nil) {
+//        return -1;
+//    }
+//    
+//    return obj.tempAtual;
+    return 0;
 }
 -(CLLocationCoordinate2D) getCurrentLocation{
     _locationManager = [[CLLocationManager alloc] init];
